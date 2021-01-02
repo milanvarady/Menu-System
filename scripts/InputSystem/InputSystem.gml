@@ -1,0 +1,119 @@
+/// @func inputSystem(inputs)
+
+/// @desc This constructor creates a new input system.
+
+/// @param {struct} inputs  The inputs in this format {name1: [in1, in2, in3...], name2: [in1, in2, in3...]...}
+
+/// @returns {struct} The input system
+
+/*
+Usage:
+
+Create input system, most likely in a create event.
+Supply the input category names and and inputs in arrays.
+
+e.g.:
+in_sys = new InputSystem({
+    right:	[vk_right, "d", gp_padr,  gp_axislr],
+	left:	[vk_left,  "a", gp_padl,  gp_axisll],
+	jump:	[vk_up,    "w", gp_a]
+});
+
+Read more about how to define inputs here: !!!
+
+Methods:
+
+The input system has a bunch of useful methods. Here is the full list.
+
+/// insert methods here, add descriptions !!!
+
+*/
+
+function InputSystem(inputs) constructor {
+    self.inputs = inputs;
+    
+    gamepad_device = 0;
+    
+    
+    /// @func check([gamepad_device])
+    /// @desc Checks for the inputs. Retrurns a struct of each with a down, and pressed value. (e.g. right: {down: true, pressed: false)
+    /// @param {real} [gamepad_device]  Gamepad device (default: 0)
+    /// @returns {struct}
+    
+    static check = function(gp_num) {
+        if (gp_num != undefined and is_real(gp_num)) gamepad_device = gp_num;
+        
+        // Create empty input struct
+        var in_strc = {};
+        
+    	// Loop through the inputs
+    	var names = variable_struct_get_names(inputs)
+    	var len = getlen(names);
+    	
+    	for (var i = 0; i < len; i++) {
+    	    var name = names[i];
+    	    var arr = inputs[$ name];
+    	    
+    	    // Check for input  
+    		var input = inputCheck(arr, false, gamepad_device);
+    		var input_pressed = inputCheck(arr, true, gamepad_device);
+    	
+    		// Add input to struct
+    		in_strc[$ (name)] = {
+    		    down: input,
+    		    pressed: input_pressed
+    		};
+    	}
+    	
+    	// Return input struct
+    	return in_strc;
+    	
+    	// Delete input struct
+    	delete in_strc;
+    }
+    
+    /// @func save(filename)
+    /// @desc Saves the inputs to a file.
+    /// @param {string} filename    The name under the file will be saved
+    /// @returns {undefined} N/A
+    
+    static save = function(filename) {
+        if (is_string(filename)) saveToJson(inputs, filename);
+    }
+    
+    /// @func load(filename)
+    /// @desc Loads a saved input file.
+    /// @param {string} filename    The file to load
+    /// @returns {undefined} N/A
+    
+    static load = function(filename) {
+        if (is_string(filename)) {
+            var loaded_inputs = loadFromJson(filename);
+            
+            if (is_struct(loaded_inputs) and getlen(loaded_inputs) > 0) inputs = loaded_inputs;
+            
+            delete loaded_inputs;
+        }
+    }
+    
+    /// @func describe()
+    /// @desc Lists the currents inputs to the output window. Good for debugging purposes.
+    /// @returns {undefined} N/A
+    
+    static describe = function() {
+        var str = json_stringify(inputs);
+        str = string_replace(str, "{ ", "inputs {\n\t");
+        str = string_replace_all(str, "], ", "],\n\t");
+        str = string_replace(str, " }", "\n}")
+        
+        print(str);
+    }
+    
+    /// @func clear()
+    /// @desc Clears the input struct
+    /// @returns {undefined} N/A
+    
+    static clear = function() {
+        inputs = {};
+    }
+}

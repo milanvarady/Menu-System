@@ -1,0 +1,1 @@
+audio_master_gain(global.settings.audio_master)
