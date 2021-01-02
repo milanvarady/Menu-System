@@ -28,7 +28,7 @@ function MenuElement() constructor {
 			
 			
 			val = clamp(new_val, range_arr[0], range_arr[1]);
-			setSettingsValue(save_key, new_val);
+			setSettingsValue(save_key, val);
 		}
 	}
 }

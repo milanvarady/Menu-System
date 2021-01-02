@@ -9,5 +9,6 @@ function gotoPage(_page) {
 		menu_option = 0;
 		sn = audio.page_shift;
 		anim_array = [];
+		scrolling_y = undefined;
 	}
 }

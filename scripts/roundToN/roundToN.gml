@@ -8,8 +8,5 @@
 /// @returns {real}
 
 function roundToN(num, dec) {
-    var rounding_method = sign(num) >= 0 ? floor : ceil
-    
-    dec = power(10, dec);
-    return rounding_method(num * dec) / dec;
+    return real(string_format(num, 0, dec));
 }

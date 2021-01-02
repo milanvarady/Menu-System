@@ -14,13 +14,15 @@ function Controls(input_system, filename, order) : MenuElement() constructor {
 	// Setup
 	arr = [];
 	in_sys = input_system;
-	names = order != undefined ? order : variable_struct_get_names(inputs);
 	self.filename = filename;
 	
 	// Load inputs
 	in_sys.load(filename);
 	
 	inputs = in_sys.inputs;
+	
+	// Set names
+	names = order != undefined ? order : variable_struct_get_names(inputs);
 	
 	last_input = undefined;
 	max_input_text_max = sec(1);

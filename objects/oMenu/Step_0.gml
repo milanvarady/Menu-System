@@ -36,7 +36,7 @@ if (vinput != 0 and !inputting) {
 // Interate through array
 for (var i = 0; i < num; i++) {
 	var pressed = in.enter.pressed and menu_option == i;
-	var on_back_button	= back and i == num-1;
+	var on_back_button	= back and i == num - 1;
 	var sel = i == menu_option;
 	
 	if (!on_back_button) {
@@ -76,9 +76,10 @@ for (var i = 0; i < num; i++) {
 				}
 			}
 			
+			// Reset stuff
 			menu_extension = undefined;
-			
 			anim_array = [];
+			scrolling_y = undefined;
 			
 			// Save
 			saveToJson(global.settings, save_filename);
