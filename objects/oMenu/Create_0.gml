@@ -63,7 +63,7 @@ And thank you for playing :)
 		txt: {
 			// Used when drawing most of the things
 			normal: {
-				font:			fBigPixel,	// Text font
+				font:			fPixelBig,	// Text font
 				scale:			2,			// Text scale
 				right_scale:	1.4,		// Right side text scale (slider, toggle...)
 				outline_on:		true		// (bool) Whether the text should be outlined or not
@@ -222,7 +222,8 @@ And thank you for playing :)
 #region Menu array (user)
 
 	menu = [
-		["start",		new ScriptRunner(function startGame() { /* Do nothing */ })],
+		["start",		new ScriptRunner(function startGame() { /* Do nothing */ }), 
+		"resume",		new ScriptRunner(resumeGame)],
 		
 		["settings", [
 			["audio", [
@@ -256,8 +257,14 @@ And thank you for playing :)
 		
 		["credits",	new Credits(str_credits)],
 		
-		["quit",	new ScriptRunner(game_end)]
+		["quit",		new ScriptRunner(game_end),
+		"title screen", new ScriptRunner(function gotoTitleScreen() {room = rTest})]
 	];
+	
+	enum e_menu_presets {
+		title_screen,
+		pause_menu
+	}
 
 #endregion
 
@@ -296,7 +303,8 @@ And thank you for playing :)
 	
 	#region Other vars (system)
 	
-	global.menu_enabled = true;
+	menu_enabled = true;
+	menu_preset = 1;
 	
 	enum e_menu_element {
 		name,

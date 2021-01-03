@@ -1,6 +1,6 @@
 /// @desc Drawing
 
-if (!global.menu_enabled) exit;
+if (!menu_enabled) exit;
 
 #region Run menu extension draw
 
@@ -15,9 +15,6 @@ if (menu_extension != undefined and is_struct(menu_extension)){
 // Exit if page is empty
 if (getlen(page) == 0) exit;
 
-// Set font
-draw_set_font(fBigPixel);
-
 // Get array length 
 var back = !ds_stack_empty(prev_pages);
 var num = getlen(page) + back;
@@ -31,7 +28,7 @@ var num = getlen(page) + back;
 		
 		if (!on_back_button) {
 			var arr = page[i];
-			var strc = findStruct(arr);
+			var strc = pageFind(arr).item;
 			
 			if (strc != undefined) {
 				if (contains(sidebar_elements, instanceof(strc))) {
@@ -134,8 +131,8 @@ if (menu_h > (gui_h - start_y)) {
 		
 		// Drawing
 		if (is_array(arr)) {
-			// Get name
-			var name = stringRemoveUderscore(arr[e_menu_element.name]);
+			// Get name and struct
+			var item = pageFind(arr);
 			
 			// Selected
 			var sel = menu_option == i;
@@ -150,14 +147,14 @@ if (menu_h > (gui_h - start_y)) {
 				// Draw buttons
 				xx = gui_w / 2;
 				yy += anim_pos;
-				drawButton(xx, yy, name);
+				drawButton(xx, yy, item.name);
 			} else {
 				// Draw evertything else
 				
 				// Draw names at left side
 				xx = start_x - x_buff - anim_pos;
 				drawSetText(col.unsel_sel.c1, look.txt.normal.font, fa_right, fa_center)
-				drawText(xx, yy, name, look.txt.normal.scale, look.txt.normal.outline_on ? col.unsel_sel.c2 : false);
+				drawText(xx, yy, item.name, look.txt.normal.scale, look.txt.normal.outline_on ? col.unsel_sel.c2 : false);
 				
 				// Draw line in the middle
 				draw_set_color(item_look.div_line.col);
@@ -166,13 +163,12 @@ if (menu_h > (gui_h - start_y)) {
 				// Run draw at right side
 				draw_set_halign(fa_left)
 				xx = start_x + x_buff;
-				var strc = findStruct(arr);
 				 
 				// Set color to intense if inputting
 				if (inputting and menu_option == i) col.unsel_sel.c1 = look.col.selected.intense;
 				
-				if (strc != undefined) {
-					if (variable_struct_get(strc, "draw") != undefined) strc.draw(xx, yy);
+				if (item.item != undefined) {
+					if (variable_struct_get(item.item, "draw") != undefined) item.item.draw(xx, yy);
 				}
 			}
 		}

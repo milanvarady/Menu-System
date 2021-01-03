@@ -1,6 +1,9 @@
 // This function is used by the menu system, you don't have to worry about it!
-
 // Goes to supplied menu page
+
+/// @func gotoPage(page)
+/// @param {array} page
+/// @returns {undefined} N/A
 
 function gotoPage(_page) {
 	with (oMenu) {

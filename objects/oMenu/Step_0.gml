@@ -1,6 +1,6 @@
 /// @desc Run button functions
 
-if (!global.menu_enabled) exit;
+if (!menu_enabled) exit;
 
 // Create input
 in = in_sys.check(0);
@@ -53,9 +53,10 @@ for (var i = 0; i < num; i++) {
 	if (!on_back_button) {
 		// Normal button
 		var arr = page[i];
-		var strc = findStruct(arr);
 		
-		if (strc == undefined) {
+		var item = pageFind(arr).item;
+		
+		if (is_array(item)) {
 			// If page transfer button
 			if (pressed) {
 				gotoPage(arr[e_menu_element.val]);
@@ -66,11 +67,11 @@ for (var i = 0; i < num; i++) {
 			var page_before = page;
 			
 			// Run on select
-			if (sel and variable_struct_get(strc, "on_select") != undefined) strc.on_select();
+			if (sel and variable_struct_get(item, "on_select") != undefined) item.on_select();
 	
 			// Run on press
 			if (pressed) {
-				if (variable_struct_get(strc, "on_press") != undefined) strc.on_press();
+				if (variable_struct_get(item, "on_press") != undefined) item.on_press();
 			}
 			
 			// Break if menu page has changed

@@ -6,7 +6,7 @@
     "path": "folders/Menu/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "findStruct",
+  "name": "menuSetPreset",
   "tags": [],
   "resourceType": "GMScript",
 }

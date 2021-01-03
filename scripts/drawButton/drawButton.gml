@@ -1,6 +1,12 @@
 // Draws button for menu object
 // If you want a different kind of button feel free to change the code
 
+/// @func drawButton(x, y, name)
+/// @param {real}	x
+/// @param {real}	y
+/// @param {string} name
+/// @returns {undefined} N/A
+
 function drawButton(x, y, name) {
 	var look = oMenu.item_look.button
 		

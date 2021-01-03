@@ -135,7 +135,7 @@
     "path": "folders/Fonts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "fBigPixel",
+  "name": "fPixelBig",
   "tags": [],
   "resourceType": "GMFont",
 }
