@@ -18,7 +18,7 @@ function Slider(range_arr, default_val, save_key) : MenuElement() constructor {
 		static mv_spd = 0;
 		var hinput = oMenu.hinput;
 		
-		mv_spd = lerp(mv_spd, hinput / 100, 0.2);
+			mv_spd = lerp(mv_spd, (range[1] / 100) * sign(hinput), 0.08);
 		if (hinput == 0) mv_spd = 0;
 		
 		moveSettingsValue(mv_spd, range, undefined);

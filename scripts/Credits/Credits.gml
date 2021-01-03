@@ -8,47 +8,37 @@
 
 function Credits(str) : MenuElement() constructor {
 	self.str = str;
+	credit_y = undefined;
 	
-	/*
+	static on_press = function() {
+		gotoPage([]);
+		oMenu.menu_extension = self;
+		credit_y = gui_h;
+		
+		with (oMenu) break;
+	}
 	
-	static on_select = function() {
-		if (in.back.down) {
-			page = "..";
-			credit_y = undefined;
-			layer_set_visible("title", true);
-		}	
+	static step = function() {
+		if (oMenu.in.back.pressed) {
+			gotoPrevPage();
+		}
+		
+		credit_y -= oMenu.item_look.credits.scrolling_speed;
 	}
 		
 	static draw = function() {
-		with (oMenu) {
-			var txt = other.str
-			var txt_size = look.credits.txt_size;
-			
-			if (credit_y == undefined) {
-				credit_y = start_y;
-			
-				// Hide title
-				layer_set_visible("title", false);
-			}
+		var look = oMenu.item_look.credits.txt;
 		
-			draw_set_halign(fa_center);
-			draw_set_valign(fa_top);
-			draw_set_color(c_white);
+		// Draw credits text
+		drawSetText(look.col, look.font, fa_middle, fa_top);
+		drawText(gui_w / 2, credit_y, str, look.scale, look.outline_col);
 		
-			drawTextExt(gw/2, credit_y, txt, txt_size, txt_size, c_white);
+		// Go back if text is no longer on the screen
+		var h = string_height(str) * look.scale;
+		if (credit_y + h < 0 - (gui_h * 0.2)) gotoPrevPage();
 		
-			if (credit_y < -(string_height(txt)*txt_size) - 64) {
-				drawTextExt(gw/2, gh/2, "And thank you for playing! :)", txt_size, txt_size, c_white);
-			} else {
-				credit_y--;	
-			}
-		
-			// Press to exit text
-			draw_set_color(c_red);
-			draw_set_halign(fa_left);
-			draw_text(16, gh, "Press Q or gamepad B to exit");
-		}
+		// Draw go back text
+		drawSetText(oMenu.look.col.selected.normal, oMenu.look.txt.small.font, fa_left, fa_bottom);
+		drawText(5, gui_h - 5, "Press esc to exit", oMenu.look.txt.small.scale);
 	}
-		
-	*/
 }

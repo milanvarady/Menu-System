@@ -2,6 +2,19 @@
 
 if (!global.menu_enabled) exit;
 
+#region Run menu extension draw
+
+if (menu_extension != undefined and is_struct(menu_extension)){
+	if (variable_struct_exists(menu_extension, "draw")) {
+		if (is_method(menu_extension.draw)) menu_extension.draw();
+	}
+}
+
+#endregion
+
+// Exit if page is empty
+if (getlen(page) == 0) exit;
+
 // Set font
 draw_set_font(fBigPixel);
 
@@ -58,10 +71,6 @@ var x_buff = look.pos.buffer.x;
 var menu_h	= (y_buff * (num - 1));
 var menu_middle = start_y + ((gui_h - start_y) / 2);
 
-// !!!
-draw_line(0, start_y, gui_w, start_y);
-draw_line(0, menu_middle, gui_w, menu_middle);
-
 // Set drawing x and y pos
 var xx = start_x;
 var yy = start_y;
@@ -86,22 +95,13 @@ if (menu_h > (gui_h - start_y)) {
 	if (abs(scrolling_y - scrolling_y_to) < 0.2) scrolling_y = scrolling_y_to; 
 	
 	start_y = scrolling_y;
-	
-	drawSetText(c_white, fPixel, fa_left);
-	draw_text(10, 10, "Menu mid: " + string(menu_middle));
-	draw_text(10, 20, "sel_y: " + string(sel_y));
-	draw_text(10, 30, "yy: " + string(yy));
 }
 
 #endregion
 
-#region Run background task and adjust position
+#region Adjust controls position
 
 	if (menu_extension != undefined and is_struct(menu_extension)) {
-		if (variable_struct_exists(menu_extension, "draw")) {
-			if (is_method(menu_extension.draw)) menu_extension.draw();
-		}
-		
 		if (instanceof(menu_extension) == "Controls") {
 			start_x += item_look.controls.x_offset;
 		}

@@ -48,6 +48,9 @@ YouTube: Evan King
 TeknoAXE
 YouTube: 
 TeknoAXE's Royalty Free Music
+
+
+And thank you for playing :)
 "
 
 #endregion
@@ -176,13 +179,13 @@ TeknoAXE's Royalty Free Music
 		credits: {
 			// Credits text
 			txt: {
-				font:		oMenu.look.txt.normal.font,			// Text font
-				col:		oMenu.look.col.selected,			// Text color
-				scale:		oMenu.look.txt.normal.scale,		// Text scale
-				outline_on:	oMenu.look.txt.normal.outline_on	// (bool) Whether the text should be outlined or not
+				font:			oMenu.look.txt.normal.font,			// Text font
+				col:			oMenu.look.col.selected.normal,		// Text color
+				scale:			oMenu.look.txt.normal.scale - 1,	// Text scale
+				outline_col:	c_black								// Outline color or false if you don't want an outline
 			},
 			
-			scrolling_speed:	3								// Text scrolling speed
+			scrolling_speed:	1								// Text scrolling speed
 		},
 		
 		// Back button

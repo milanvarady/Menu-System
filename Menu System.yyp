@@ -74,6 +74,7 @@
     {"id":{"name":"roundToN","path":"scripts/roundToN/roundToN.yy",},"order":12,},
     {"id":{"name":"arrayFind","path":"scripts/arrayFind/arrayFind.yy",},"order":13,},
     {"id":{"name":"ButtonAnimation","path":"scripts/ButtonAnimation/ButtonAnimation.yy",},"order":7,},
+    {"id":{"name":"gotoPrevPage","path":"scripts/gotoPrevPage/gotoPrevPage.yy",},"order":6,},
   ],
   "Options": [
     {"name":"Linux","path":"options/linux/options_linux.yy",},
