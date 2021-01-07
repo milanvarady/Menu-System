@@ -27,9 +27,17 @@ function Credits(str) : MenuElement() constructor {
 	}
 		
 	static draw = function() {
-		var look = oMenu.item_look.credits.txt;
+		// Draw background
+		var bg_look = oMenu.item_look.credits.background;
+		
+		draw_set_color(bg_look.col);
+		draw_set_alpha(bg_look.alpha);
+		draw_rectangle(0, 0, gui_w, gui_h, false);
+		draw_set_alpha(1);
 		
 		// Draw credits text
+		var look = oMenu.item_look.credits.txt;
+		
 		drawSetText(look.col, look.font, fa_middle, fa_top);
 		drawText(gui_w / 2, credit_y, str, look.scale, look.outline_col);
 		

@@ -1,4 +1,7 @@
-/// @desc Init grid and vars
+/// @desc Settings
+
+#macro gui_w display_get_gui_width()
+#macro gui_h display_get_gui_height()
 
 #region Settings struct setup (system)
 
@@ -22,7 +25,7 @@
 
 #region Credits text (user)
 
-var str_credits = 
+var credits_string = 
 	@"
 Code:
 
@@ -57,6 +60,15 @@ And thank you for playing :)
 
 #region Look settings (user)
 
+	// Settings marked with the (A) tag can be set to auto (automatic)
+	// If so the system will predict an appropriate size for the item
+	#macro auto "automatic"
+	
+	// This variable changes the scale of automatic items
+	// In most cases you do not want to change this!
+	// But is so value in range of 0.8 - 1.2 is recommended
+	auto_scale = 1;
+
 	// Text style, color, and position settings
 	look = {
 		// Text
@@ -64,15 +76,15 @@ And thank you for playing :)
 			// Used when drawing most of the things
 			normal: {
 				font:			fPixelBig,	// Text font
-				scale:			2,			// Text scale
-				right_scale:	1.4,		// Right side text scale (slider, toggle...)
+				scale:			auto,		// (A) Text scale
+				right_scale:	auto,		// (A) Right side text scale (slider, toggle...)
 				outline_on:		true		// (bool) Whether the text should be outlined or not
 			},
 			
-			// Used when drawing smaller things (e.g. Input icons)
+			// Used when drawing smaller things (e.g. Input icons, information text at the bottom)
 			small: {
 				font: fPixel,		// Text font
-				scale: 1,			// Text scale
+				scale: auto,		// (A) Text scale
 				outline_on:	true	// (bool) Whether the text should be outlined or not
 			}
 		},
@@ -92,34 +104,34 @@ And thank you for playing :)
 			}
 		},
 		
-		// Poisition
+		// Position
 		pos: {
 			// Space between items
 			buffer: {
-				x:	24,		// Space between the things and the line in the middle
-				y:	32,		// Space between items
+				x:	auto,	// (A) Space between the things and the line in the middle
+				y:	auto,	// (A) Space between items (vertically)
 			},
 			
-			// The whole menu's offset
-			menu_offset: {
-				x:	0,		// Whole menu's x offset
-				y:	40		// Whole menu's y offset
+			// The menu's position
+			menu_pos: {
+				x:	0,		// Whole menu's x offset from the middle
+				y:	180		// (A) Whole menu's y position (if set to auto menu will be in the middle)
 			}
 		}
 	};
 	
 	// Look of idividual items
 	item_look = {
-		// Dividing line
+		// Dividing line (line in the middle)
 		div_line: {
 			col: c_white	// Color of the line
 		},
 		
-		// Button in the middle
+		// Button (in the middle)
 		button: {
-			w:			256,	// Button width
-			h:			40,		// Button height
-			y_buffer:	52,		// Space between buttons
+			w:			auto,	// (A) Button width
+			h:			auto,	// (A) Button height
+			y_buffer:	auto,	// (A) Space between buttons
 			roundness:	10,		// Corner roundness
 			cir_prec:	24,		// Circle precision (Must be divisible by 4!)
 			alpha:		0.5		// Button's alpha
@@ -127,20 +139,20 @@ And thank you for playing :)
 			
 		// Toggle
 		toggle: {
-			buffer: 80		// Space between the ON and OFF text
+			buffer: auto		// (A) Space between the ON and OFF text
 		},
 		
 		// Slider
 		slider: {
 			// Line
 			line: {
-				w:				160,		// The width of the line
-				h:				4,			// The height of the line
+				w:				auto,		// (A) The width of the line
+				h:				auto,		// (A) The height of the line
 			},
 			
 			// Marker (the circle that shows the current value)
 			marker: {
-				rad:			4,									// Circle radius 
+				rad:			auto,								// (A) Circle radius
 				circle_prec:	4,									// Circle precision (Must be divisible by 4!)
 				col:			oMenu.look.col.unselected.normal	// Circle color
 			}
@@ -148,30 +160,30 @@ And thank you for playing :)
 		
 		// Controls
 		controls: {
-			x_offset: -20,		// The input menu's offset on the x-axis
-			max_inputs: 4,		// Maximum number of inputs
+			x_offset: 0,		// The input menu's offset horizontally
+			max_inputs: 4,		// Maximum number of inputs allowed
 			
-			// Icon (on the right of the menu)
+			// Icon (on the right side of the menu)
 			icon: {
-				scale:			1.4,							// Scale of the icon
-				x_buffer:		60,								// Space between icons
+				scale:			auto,							// (A) Scale of the icon
+				x_buffer:		auto,							// (A) Space between icons
 				highlight_col:	oMenu.look.col.selected.normal,	// The color theme of the icon
-				replace_col:	make_color_rgb(237, 0, 140),	// The color that is being replaced with the highlight color
+				replace_col:	make_color_rgb(237, 0, 140),	// The color that is being replaced with the theme color
 				
 				// Text (when drawing keys)
 				txt: {
-					scale:		oMenu.look.txt.small.scale + 0.4,// Text scale
+					scale:		auto,							// (A) Text scale
 					font:		oMenu.look.txt.small.font		// Text font
 					
 				}
 			},
 			
-			// Text at the bottom (saying: "Press ENTER to add inputs. Press DELETE to clear them.")
+			// Text at the bottom (saying: "ENTER - Add Inputs DELETE - Clear Inputs")
 			bottom_text: {
-				font:				oMenu.look.txt.small.font,			// Text font
-				scale:				oMenu.look.txt.small.scale,			// Text scale
-				col:				oMenu.look.col.selected.normal,		// Text color
-				distance_from_side: 16									// Distance from the side of the screen
+				font:			oMenu.look.txt.small.font,			// Text font
+				scale:			auto,								// (A) Text scale
+				col:			oMenu.look.col.selected.normal,		// Text color
+				dis_from_side:	auto								// (A) Distance from the side of the screen
 			}
 		},
 		
@@ -181,16 +193,22 @@ And thank you for playing :)
 			txt: {
 				font:			oMenu.look.txt.normal.font,			// Text font
 				col:			oMenu.look.col.selected.normal,		// Text color
-				scale:			oMenu.look.txt.normal.scale - 1,	// Text scale
+				scale:			auto,								// (A) Text scale
 				outline_col:	c_black								// Outline color or false if you don't want an outline
 			},
 			
-			scrolling_speed:	1								// Text scrolling speed
+			// Background
+			background: {
+				col:			c_black,							// Background color
+				alpha:			0.8									// Background alpha
+			},
+			
+			scrolling_speed:	1									// Text scrolling speed
 		},
 		
 		// Back button
 		back_button: {
-			name: "back"	// Previous menu page button name
+			name: "Back"	// Previous menu page button name
 		}
 	};
 	
@@ -199,14 +217,14 @@ And thank you for playing :)
 		// Button in the middle
 		button: {
 			anim_on:		true,	// (bool) Animation on
-			travel_dis:		6,		// Travel distance (downwards)
+			travel_dis:		auto,	// (A) Travel distance (downwards)
 			speed:			0.3		// Travel speed
 		},
 		
 		// Buttons on the left side
 		sidebar: {
 			anim_on:		true,	// (bool) Animation on
-			travel_dis: 	30,		// Travel distance (to the left)
+			travel_dis: 	auto,	// (A) Travel distance (to the left)
 			speed:			0.3		// Travel speed
 		}
 	};
@@ -222,28 +240,28 @@ And thank you for playing :)
 #region Menu array (user)
 
 	menu = [
-		["start",		new ScriptRunner(function startGame() { /* Do nothing */ }), 
-		"resume",		new ScriptRunner(resumeGame)],
+		["Start",		new ScriptRunner(function startGame() { /* Do nothing */ }), 
+		"Resume",		new ScriptRunner(resumeGame)],
 		
-		["settings", [
-			["audio", [
-				["master",	new Slider([0, 1], 0.3,		"audio_master")],
-				["sounds",	new Slider([0, 1], 1,		"audio_sounds")],
-				["music",	new Slider([0, 1], 1,		"audio_music")]
+		["Settings", [
+			["Audio", [
+				["Master",	new Slider([0, 1], 0.3,		"audio_master")],
+				["Sounds",	new Slider([0, 1], 1,		"audio_sounds")],
+				["Music",	new Slider([0, 1], 1,		"audio_music")]
 			]],
 		
-			["graphics", [
-				["lights",		new Shift(["Off", "Lights", "Lights & Shadows"], 2, "graphics_lights")],
-				["blood",		new Toggle(true,	"graphics_blood")],
-				["bullet_trail",new Toggle(true,	"graphics_bullet_trail")],
-				["window_mode",	new Shift(["Windowed", "Fullscreen"], 1, "graphics_window_mode")],
-				["vsync",		new Toggle(0,		"vsync")]
+			["Graphics", [
+				["Lights",		new Shift(["Off", "Lights", "Lights & Shadows"], 2, "graphics_lights")],
+				["Blood",		new Toggle(true,	"graphics_blood")],
+				["Bullet Trail",new Toggle(true,	"graphics_bullet_trail")],
+				["Window Mode",	new Shift(["Windowed", "Fullscreen"], 1, "graphics_window_mode")],
+				["Vsync",		new Toggle(0,		"vsync")]
 			]],
 		
-			["controls", new Controls(global.input_sys, "input_save.json")] // , ["right", "left", "jump"]
+			["Controls", new Controls(global.input_sys, "input_save.json")] // , ["right", "left", "jump"]
 		]],
 		
-		["lots of stuff", [
+		["Lots of stuff", [
 			["thing 1", new ScriptRunner(function doNothing() { /* Do nothing */ })],
 			["thing 2", new ScriptRunner(function doNothing() { /* Do nothing */ })],
 			["thing 3", new ScriptRunner(function doNothing() { /* Do nothing */ })],
@@ -255,10 +273,10 @@ And thank you for playing :)
 			["thing 9", new ScriptRunner(function doNothing() { /* Do nothing */ })]
 		]],
 		
-		["credits",	new Credits(str_credits)],
+		["Credits",	new Credits(credits_string)],
 		
-		["quit",		new ScriptRunner(game_end),
-		"title screen", new ScriptRunner(function gotoTitleScreen() {room = rTest})]
+		["Quit",		new ScriptRunner(game_end),
+		"Title Screen", new ScriptRunner(function gotoTitleScreen() {room = rTest})]
 	];
 	
 	enum e_menu_presets {
@@ -281,10 +299,78 @@ And thank you for playing :)
 
 #endregion
 
-#region Other stuff (system)
+#region Automatic values (system)
 
-	#macro gui_w display_get_gui_width()
-	#macro gui_h display_get_gui_height()
+// Get font height
+text_height = {};
+
+var updateTextHeight = function() {
+	text_height.normal = fontGetHeight(look.txt.normal.font, look.txt.normal.scale == auto ? 1 : look.txt.normal.scale);
+	text_height.small = fontGetHeight(look.txt.small.font, look.txt.small.scale == auto ? 1 : look.txt.small.scale);
+}
+
+updateTextHeight();
+
+// Atomate function
+var automate = function(struct, name, val) {
+	if (struct[$ name] == auto) struct[$ name] = roundToN(val, 1) * auto_scale;
+}
+
+// Atomate stuff
+
+// Text scale
+automate(look.txt.normal,		"scale",	(gui_h / 14) / text_height.normal);
+updateTextHeight();
+automate(look.txt.small,		"scale",	text_height.normal * 0.5 / text_height.small);
+automate(look.txt.normal,		"right_scale",	look.txt.normal.scale * 0.8);
+
+// X and y buffer
+automate(look.pos.buffer,		"x",		gui_w / 28);
+automate(look.pos.buffer,		"y",		text_height.normal * 1.3);
+
+// Get the width of the sides
+var r_side_w = ((gui_w / 2) - look.pos.menu_pos.x - (look.pos.buffer.x * 2));
+var l_side_w = r_side_w - (look.pos.buffer.x * 4);
+
+// Button
+automate(item_look.button,		"w",		gui_w / 2.6);
+automate(item_look.button,		"h",		text_height.normal * 1.2);
+automate(item_look.button,		"y_buffer",	item_look.button.h * 1.3);
+
+// Toggle
+automate(item_look.toggle,		"buffer",	r_side_w * 0.2);
+
+// Slider
+automate(item_look.slider.line, "w",		r_side_w * 0.6);
+automate(item_look.slider.line, "h",		text_height.normal * 0.14);
+automate(item_look.slider.marker,"rad",		item_look.slider.line.h);
+
+// Controls
+var icon_h = sprite_get_height(global.input_sprites.key.simple);
+
+automate(item_look.controls.icon,		"x_buffer",	r_side_w / item_look.controls.max_inputs);
+automate(item_look.controls.icon,		"scale",	text_height.normal / icon_h);
+automate(item_look.controls.icon.txt,	"scale",	((icon_h * item_look.controls.icon.scale) * 0.6) / (text_height.small));
+automate(item_look.controls.bottom_text,"scale",	look.txt.small.scale);
+automate(item_look.controls.bottom_text,"dis_from_side",	look.pos.buffer.x * 0.5);
+
+// Credits
+draw_set_font(item_look.credits.txt.font);
+var str_w = undefined;
+if (variable_instance_exists(id, "credits_string")) str_w = string_width(credits_string);
+automate(item_look.credits.txt,	"scale",	str_w != undefined ? ((gui_w / str_w) * 0.8) : 1);
+
+// Animation
+automate(anim.button,		"travel_dis",	item_look.button.h * 0.2);
+automate(anim.sidebar,		"travel_dis",	look.pos.buffer.y); // !!! l_side_w * 0.2
+
+
+// Clean up
+delete text_height;
+
+#endregion
+
+#region Other stuff (system)
 	
 	#region Functions (system)
 		

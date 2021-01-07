@@ -41,8 +41,9 @@ function Slider(range_arr, default_val, save_key) : MenuElement() constructor {
 		
 		// Precentage text
 		var txt_col = merge_color(c1, c2, circle_pos);
+		draw_set_halign(fa_left);
 		draw_set_color(txt_col);
 		
-		drawText(x + (look.line.w * 1.2), y, string(percent) + "%", oMenu.look.txt.normal.right_scale, false);
+		drawText(x + (look.line.w * 1.1), y, string(percent) + "%", oMenu.look.txt.normal.right_scale, false);
 	}
 }

@@ -56,8 +56,8 @@ var num = getlen(page) + back;
 #endregion
 
 // Set draw pos
-var start_x = gui_w / 2 + look.pos.menu_offset.x;
-var start_y = 120; //(gui_h / 2) - ((((num - 1) / 2) * look.pos.buffer.y)) + (look.pos.menu_offset.y);
+var start_x = gui_w / 2 + look.pos.menu_pos.x;
+var start_y = look.pos.menu_pos.y == auto ? ((gui_h / 2) - ((((num - 1) / 2) * look.pos.buffer.y)) + (look.pos.menu_offset.y)) : look.pos.menu_pos.y;
 var origin_y = start_y;
 
 // Get buffers
@@ -175,3 +175,4 @@ if (menu_h > (gui_h - start_y)) {
 	}
 
 #endregion
+

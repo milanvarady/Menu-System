@@ -56,14 +56,14 @@ function drawInput(x, y, input, font, scale, col, replace_col, txt_scale, left_o
 		#endregion
 		
 		// Draw icon
-		var spr_w = sprite_get_width(spr);
-		var spr_h = sprite_get_height(spr);
+		var spr_w_half = floor(sprite_get_width(spr) / 2);
+		var spr_h_half = floor(sprite_get_height(spr) / 2);
 		
 		// Set origin
-		sprite_set_offset(spr, floor(spr_w / 2), floor(spr_h / 2));
+		sprite_set_offset(spr, spr_w_half, spr_h_half);
 		
 		// Left origin 
-		xx += left_origin ? (spr_w / 2) : 0;
+		xx += left_origin ? spr_w_half : 0;
 		
 		// Draw sprite
 		draw_sprite_ext(spr, 0, xx, yy, scale, scale, rot * -90, c_white, 1);
@@ -75,8 +75,6 @@ function drawInput(x, y, input, font, scale, col, replace_col, txt_scale, left_o
 			drawSetText(col, font);
 			drawText(xx, yy, str, txt_scale, false);
 		}
-		
-		return spr != undefined ? sprite_get_width(spr) * scale : 0;
 	}
 	
 	#endregion
@@ -230,5 +228,5 @@ function drawInput(x, y, input, font, scale, col, replace_col, txt_scale, left_o
     
     if (spr == global.input_sprites.key.wide and str == "") str = "?";
     
-    var spr_w = drawInputIcon(spr, x, y, scale, rot, col, replace_col, font, str, txt_scale, left_origin);
+    drawInputIcon(spr, x, y, scale, rot, col, replace_col, font, str, txt_scale, left_origin);
 }

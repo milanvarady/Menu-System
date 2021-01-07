@@ -76,6 +76,7 @@
     {"id":{"name":"ButtonAnimation","path":"scripts/ButtonAnimation/ButtonAnimation.yy",},"order":7,},
     {"id":{"name":"gotoPrevPage","path":"scripts/gotoPrevPage/gotoPrevPage.yy",},"order":6,},
     {"id":{"name":"menuSetPreset","path":"scripts/menuSetPreset/menuSetPreset.yy",},"order":7,},
+    {"id":{"name":"fontGetHeight","path":"scripts/fontGetHeight/fontGetHeight.yy",},"order":2,},
   ],
   "Options": [
     {"name":"Linux","path":"options/linux/options_linux.yy",},
@@ -123,6 +124,7 @@
     {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"regexp.ndll","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"std.ndll","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":".DS_Store","resourceType":"GMIncludedFile",},
+    {"CopyToMask":0,"filePath":"datafiles","resourceVersion":"1.0","name":"docs_gm.json","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2.3.1.542",

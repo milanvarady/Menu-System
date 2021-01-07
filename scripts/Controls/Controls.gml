@@ -100,13 +100,13 @@ function Controls(input_system, filename, order) : MenuElement() constructor {
 		max_inputs_alpha = max_inputs_text < 1 ? max_inputs_alpha - 0.05 : 1;
 		
 		var look	= oMenu.item_look.controls.bottom_text
-		var buf		= look.distance_from_side;
+		var buf		= look.dis_from_side;
 		var yy		= gui_h - buf;
 		var col		= look.col;
 		var scale	= look.scale;
 		
 		drawSetText(col, look.font, fa_left, fa_middle);
-		drawText(16, yy, "Press ENTER to add inputs. Press DELETE to clear them.", scale, false);
+		drawText(buf , yy, "ENTER - Add Inputs\nDELETE - Clear Inputs", scale, false);
 		
 		draw_set_halign(fa_right);
 		draw_set_alpha(max_inputs_alpha);
@@ -186,13 +186,15 @@ function Input(inputs, name) : MenuElement() constructor {
 				draw_set_alpha(0.4);
 				
 				// Draw rectangle
-				draw_rectangle(x - 6, y - buff.y / 2, gui_w - buff.x, y + buff.y / 2, false);
+				draw_rectangle(x - buff.x / 2, y - buff.y / 2, gui_w - buff.x / 2, y + buff.y / 2, false);
 				
 				draw_set_alpha(1);
 			}
 		}
 		
 		// Draw icon or empty text
+		x += look.x_buffer / 4;
+		
 		if (arr_len > 0) {
 			// Icon
 			for (var i = 0; i < arr_len; i++) {
