@@ -4,9 +4,11 @@
 #macro gui_h display_get_gui_height()
 
 #region Settings struct setup (system)
-
+	
+	// Menu save file name
 	save_filename = "menu_save.json";
 	
+	// Load menu save
 	global.settings = loadFromJson(save_filename);
 
 #endregion
@@ -18,7 +20,10 @@
 		shift:		snMenuShift,		// Settings shift
 		move:		snMenuMove,			// Button change
 		page_shift:	snMenuPageShift,	// Page shift
-		back:		snMenuBack			// Back button sound
+		back:		snMenuBack,			// Back button sound
+		
+		pause:		snPause,			// Pause game
+		resume:		snResume			// Resume game
 	}
 
 #endregion
@@ -27,33 +32,26 @@
 
 var credits_string = 
 	@"
-Code:
-
+Menu System Made By:
 Milan Varady
 
 
-
-Art:
-
-Milan Varady
-
-Animals: 
-@emimonserrate
+Gameplay Programming
+Johnny The Red Giraffe
 
 
-
-Music:
-
-Evan King
-evankingmusic.com
-YouTube: Evan King
-
-TeknoAXE
-YouTube: 
-TeknoAXE's Royalty Free Music
+Story Writing
+Tom The 2 feet tall hippo
 
 
-And thank you for playing :)
+Music
+Lily The T-Rex
+
+
+More very important text
+blah blah blah
+
+
 "
 
 #endregion
@@ -134,7 +132,7 @@ And thank you for playing :)
 			y_buffer:	auto,	// (A) Space between buttons
 			roundness:	10,		// Corner roundness
 			cir_prec:	24,		// Circle precision (Must be divisible by 4!)
-			alpha:		0.5		// Button's alpha
+			alpha:		0.6		// Button's alpha
 		},
 			
 		// Toggle
@@ -212,7 +210,10 @@ And thank you for playing :)
 		}
 	};
 	
-	// Animation settings
+#endregion
+
+#region Animation settings (user)
+	
 	anim = {
 		// Button in the middle
 		button: {
@@ -229,7 +230,10 @@ And thank you for playing :)
 		}
 	};
 	
-	// Scrolling settings
+#endregion
+	
+#region Scrolling settings (user)
+	
 	scrolling = {
 		speed:		0.2,	// Scrollig speed
 		disappear:	true	// (bool) Whether items should disappear when they go above menu start position or not
@@ -237,10 +241,39 @@ And thank you for playing :)
 
 #endregion
 
+#region Pause settings (user)
+
+	pause_settings = {
+		menu_ypos:		auto,		// (A) The menu's y position when the game is paused
+		
+		// Rectangle
+		rect: {
+			col:		c_black,	// Color
+			alpha:		0.8			// Alpha (opacity)
+		},
+		
+		// Text
+		txt: {
+			enabled:	true,						// (bool) Whether the text is enabled or not
+			col:		look.col.selected.normal,	// Text color
+			outline_col:look.col.unselected.normal,	// Outline color or undefined if the outline is not needed
+			scale:		auto,						// Text scale
+			str:		"Game Paused"				// The text to be drawn
+		}
+	}
+
+#endregion
+
 #region Menu array (user)
 
 	menu = [
-		["Start",		new ScriptRunner(function startGame() { /* Do nothing */ }), 
+		["Start",		new ScriptRunner(function() { room_goto(rGame); 
+			menuPauseEnable(true); 
+			menuEnable(false); 
+			menuSetPreset(e_menu_presets.pause_menu); 
+			
+		}), 
+		
 		"Resume",		new ScriptRunner(resumeGame)],
 		
 		["Settings", [
@@ -251,32 +284,44 @@ And thank you for playing :)
 			]],
 		
 			["Graphics", [
-				["Lights",		new Shift(["Off", "Lights", "Lights & Shadows"], 2, "graphics_lights")],
-				["Blood",		new Toggle(true,	"graphics_blood")],
-				["Bullet Trail",new Toggle(true,	"graphics_bullet_trail")],
-				["Window Mode",	new Shift(["Windowed", "Fullscreen"], 1, "graphics_window_mode")],
+				["Texture quality",	new Shift(["Low", "Medium", "High", "Ultra"], 2, "texture")],
+				["Shadows",		new Toggle(true,	"shadow")],
+				["Paricles",	new Toggle(true,	"particles")],
+				["Window Mode",	new Shift(["Windowed", "Fullscreen"], 1, "window_mode")],
 				["Vsync",		new Toggle(0,		"vsync")]
 			]],
+			
+			["Player", [
+				["Speed",		new Slider([1, 6], 4, "player_speed")],
+				["Size",		new Slider([0.2, 2], 1, "player_size")],
+				["Color",		new Shift(["Red", "Green", "Blue"], 0, "player_col")]
+			]],
 		
-			["Controls", new Controls(global.input_sys, "input_save.json")] // , ["right", "left", "jump"]
+			["Controls", new Controls(global.input_sys, "input_save.json", ["right", "left", "up", "down"])] // , ["right", "left", "jump"]
 		]],
 		
 		["Lots of stuff", [
-			["thing 1", new ScriptRunner(function doNothing() { /* Do nothing */ })],
-			["thing 2", new ScriptRunner(function doNothing() { /* Do nothing */ })],
-			["thing 3", new ScriptRunner(function doNothing() { /* Do nothing */ })],
-			["thing 4", new ScriptRunner(function doNothing() { /* Do nothing */ })],
-			["thing 5", new ScriptRunner(function doNothing() { /* Do nothing */ })],
-			["thing 6", new ScriptRunner(function doNothing() { /* Do nothing */ })],
-			["thing 7", new ScriptRunner(function doNothing() { /* Do nothing */ })],
-			["thing 8", new ScriptRunner(function doNothing() { /* Do nothing */ })],
-			["thing 9", new ScriptRunner(function doNothing() { /* Do nothing */ })]
+			["thing 1", new ScriptRunner(function() { /* Do nothing */ })],
+			["thing 2", new ScriptRunner(function() { /* Do nothing */ })],
+			["thing 3", new ScriptRunner(function() { /* Do nothing */ })],
+			["thing 4", new ScriptRunner(function() { /* Do nothing */ })],
+			["thing 5", new ScriptRunner(function() { /* Do nothing */ })],
+			["thing 6", new ScriptRunner(function() { /* Do nothing */ })],
+			["thing 7", new ScriptRunner(function() { /* Do nothing */ })],
+			["thing 8", new ScriptRunner(function() { /* Do nothing */ })],
+			["thing 9", new ScriptRunner(function() { /* Do nothing */ })]
 		]],
 		
 		["Credits",	new Credits(credits_string)],
 		
 		["Quit",		new ScriptRunner(game_end),
-		"Title Screen", new ScriptRunner(function gotoTitleScreen() {room = rTest})]
+		"Title Screen", new ScriptRunner(function() {
+			room = rTitle; 
+			menuSetPreset(e_menu_presets.title_screen); 
+			menuPauseEnable(false); 
+			menuEnable(true); 
+			resumeGame(true);
+		})]
 	];
 	
 	enum e_menu_presets {
@@ -294,7 +339,9 @@ And thank you for playing :)
 		right:	["D",		vk_right,	gp_padr,	gp_axislr],		// Move right
 		left:	["A",		vk_left,	gp_padl,	gp_axisll],		// Move left
 		enter:	[vk_space,	vk_enter,	gp_a],						// Press button
-		back:	["Q",		vk_escape,	gp_b]						// Previous page
+		back:	["Q",		vk_escape,	gp_b],						// Previous page
+		
+		pause:	[vk_escape,	"p", gp_start, gp_select]				// Pause/Resume
 	});
 
 #endregion
@@ -362,8 +409,14 @@ automate(item_look.credits.txt,	"scale",	str_w != undefined ? ((gui_w / str_w) *
 
 // Animation
 automate(anim.button,		"travel_dis",	item_look.button.h * 0.2);
-automate(anim.sidebar,		"travel_dis",	look.pos.buffer.y); // !!! l_side_w * 0.2
+automate(anim.sidebar,		"travel_dis",	look.pos.buffer.y);
 
+// Pause
+draw_set_font(look.txt.normal.font);
+var str_w = string_width(pause_settings.txt.str);
+
+automate(pause_settings.txt,	"scale",		(gui_w / 3) / str_w);
+automate(pause_settings,		"menu_ypos",	pause_settings.txt.enabled ? (gui_h / 5 + look.pos.buffer.y * 2) : (look.pos.menu_pos.y));
 
 // Clean up
 delete text_height;
@@ -385,11 +438,16 @@ delete text_height;
 		return selected ? {c1: c2, c2: c1} : {c1: c1, c2: c2};
 	}
 	
+	function saveMenu() {
+		saveToJson(global.settings, save_filename);
+	}
+	
 	#endregion
 	
 	#region Other vars (system)
 	
 	menu_enabled = true;
+	pause_enabled = false;
 	menu_preset = 1;
 	
 	enum e_menu_element {
@@ -413,6 +471,9 @@ delete text_height;
 	sidebar_elements = ["Slider", "Toggle", "Shift", "Input"];
 	
 	page = menu;
+	active_objs = [];
+	paused = false;
+	pause_surf = -1;
 	menu_option = 0;
 	prev_pages = ds_stack_create();
 	inputting = false;

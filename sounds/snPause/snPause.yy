@@ -13,14 +13,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "snPauseOut",
-  "duration": 0.265136,
+  "soundFile": "snPause",
+  "duration": 0.264773,
   "parent": {
     "name": "Sounds",
     "path": "folders/Menu/Sounds.yy",
   },
   "resourceVersion": "1.0",
-  "name": "snPauseOut",
+  "name": "snPause",
   "tags": [],
   "resourceType": "GMSound",
 }

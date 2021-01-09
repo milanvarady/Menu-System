@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "System scripts",
-    "path": "folders/Menu/System scripts.yy",
+    "name": "Scripts",
+    "path": "folders/Menu/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "gotoPrevPage",
+  "name": "menuPauseEnable",
   "tags": [],
   "resourceType": "GMScript",
 }

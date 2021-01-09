@@ -73,7 +73,7 @@ function drawInput(x, y, input, font, scale, col, replace_col, txt_scale, left_o
 		// Draw text
 		if (is_string(str)) {
 			drawSetText(col, font);
-			drawText(xx, yy, str, txt_scale, false);
+			drawText(xx, yy, string_upper(str), txt_scale, false);
 		}
 	}
 	

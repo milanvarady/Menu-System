@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Menu/Scripts.yy",
+    "name": "System scripts",
+    "path": "folders/Menu/System scripts.yy",
   },
   "resourceVersion": "1.0",
   "name": "gotoPage",

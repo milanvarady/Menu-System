@@ -1,9 +1,29 @@
 /// @desc Run button functions
 
-if (!menu_enabled) exit;
+#region Change actual values !!!
+
+audio_master_gain(global.settings.audio_master);
+if (global.settings.window_mode != window_get_fullscreen()) window_set_fullscreen(global.settings.window_mode);
+
+#endregion
 
 // Create input
 in = in_sys.check(0);
+
+#region Pause
+
+if (pause_enabled) {
+	if (in.pause.pressed and !inputting) {
+		paused = !paused;
+		
+		if (paused) pauseGame();
+		else resumeGame();
+	}
+}
+
+#endregion
+
+if (!menu_enabled) exit;
 
 #region Run menu extension step
 

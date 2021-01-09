@@ -1,5 +1,14 @@
 /// @desc Drawing
 
+#region Title text !!!
+
+if (room == rTitle) {
+	drawSetText(c_white, fTitle)
+	drawText(gui_w / 2, gui_h / 5, "best game ever", 4, c_orange);
+}
+
+#endregion
+
 if (!menu_enabled) exit;
 
 #region Run menu extension draw
@@ -56,8 +65,10 @@ var num = getlen(page) + back;
 #endregion
 
 // Set draw pos
+var menu_ypos = paused ? pause_settings.menu_ypos : look.pos.menu_pos.y;
+
 var start_x = gui_w / 2 + look.pos.menu_pos.x;
-var start_y = look.pos.menu_pos.y == auto ? ((gui_h / 2) - ((((num - 1) / 2) * look.pos.buffer.y)) + (look.pos.menu_offset.y)) : look.pos.menu_pos.y;
+var start_y = menu_ypos == auto ? ((gui_h / 2) - (((num - 1) / 2) * look.pos.buffer.y)) : menu_ypos;
 var origin_y = start_y;
 
 // Get buffers
@@ -167,6 +178,7 @@ if (menu_h > (gui_h - start_y)) {
 				// Set color to intense if inputting
 				if (inputting and menu_option == i) col.unsel_sel.c1 = look.col.selected.intense;
 				
+				// Run items draw method
 				if (item.item != undefined) {
 					if (variable_struct_get(item.item, "draw") != undefined) item.item.draw(xx, yy);
 				}
@@ -175,4 +187,3 @@ if (menu_h > (gui_h - start_y)) {
 	}
 
 #endregion
-
