@@ -46,7 +46,9 @@ function Credits(str) : MenuElement() constructor {
 		if (credit_y + h < 0 - (gui_h * 0.2)) gotoPrevPage();
 		
 		// Draw go back text
+		var buf = oMenu.look.pos.buffer.x / 2;
+		
 		drawSetText(oMenu.look.col.selected.normal, oMenu.look.txt.small.font, fa_left, fa_bottom);
-		drawText(5, gui_h - 5, "Press esc to exit", oMenu.look.txt.small.scale);
+		drawText(buf, gui_h - buf / 2, "Press esc to exit", oMenu.look.txt.small.scale);
 	}
 }

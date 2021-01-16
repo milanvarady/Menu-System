@@ -1,0 +1,219 @@
+Usage
+=====
+
+Setup guide
+-----------
+
+This will guide you through the important seps to set up a fully functional menu.
+
+Regions
+#######
+
+Open :code:`oMenu`'s create event, here is everything for configuring the menu. 
+
+Here you'll see a lot of regions. All of them are marked either with a **(system)** or a **(user)** tag.
+You only want to change the **(user)** tagged regions.
+
+Basically every region is a settings for something.
+
+Here is a list of the regions and what they do:
+ * Audio settings       - Menu sounds settings
+ * Credits text         - Text for credits (if you have one)
+ * Look settings        - The menu's look, visual settings
+ * Animation settings   - Button animation settings
+ * Scrolling settings   - Settings for scrolling (if you have a big menu page)
+ * Pause settings       - Pause menu settings
+ * Menu array           - The menu's structure (buttons and what they do)
+ * Input setup          - Menu navigation settings  
+
+Creating the menu array
+#######################
+
+First you should create the menu array. Which defines how your menu structured, what buttons are on which page and what do they do.
+
+Go to the menu's **Menu array** region, here will be an empty array. This is where your buttons go.
+
+To add a button create a new array into the array. The array should consist of two elements:
+ * Button name
+ * Button function
+
+Here is the list of button functions:
+ * :code:`ScriptRunner` - Runs a script or a method
+ * :code:`Slider`       - Changes a value in a range (usually used for volume settings)
+ * :code:`Shift`        - Changes a value between a set of options (good for graphics, difficulty settings, etc.)
+ * :code:`Toggle`       - Toggles a value on or off.
+ * :code:`Controls`     - Creates a controls menu from an :ref:`InputSystem <InputSystem>`
+ * :code:`Credits`      - Displays a scrolling credits screen
+
+These are constructors so they should be created with the :code:`new` keyword in front of them.
+
+Or if you want your button to switch to another menu page, the second element in the array should be another array that will also have buttons in it.
+
+Here is a basic example:
+
+ .. code-block:: none
+
+    menu = [
+        ["Start",   new ScriptRunner(function() { room = rGame }],
+
+        ["Settings", [
+            ["Audio", [
+				["Master",	new Slider([0, 1], 0.3,		"audio_master")],
+				["Sounds",	new Slider([0, 1], 1,		"audio_sounds")],
+				["Music",	new Slider([0, 1], 1,		"audio_music")]
+			]],
+		
+			["Graphics", [
+				["Quality",	    new Shift(["Low", "Medium", "High", "Ultra"], 2, "quality")],
+				["Window Mode",	new Shift(["Windowed", "Fullscreen"], 1, "window_mode")],
+				["Vsync",		new Toggle(0,		"vsync")]
+			]],
+        ]],
+
+        ["Credits", new Credits(credits_string)],
+
+        ["Quit",    new ScriptRunner(game_end]
+    ];
+
+Ok this may look a bit confusing here is what is does:
+
+The first button is the :code:`"Start"`, it runs a function which simply goes to another room.
+
+After that comes :code:`"Settings"` which holds another menu page.
+Inside the :code:`"Settings"` there are also two menu pages :code:`"Audio"` and :code:`"Graphics"`. These have a mix of **sliders**, **toggles**, and **shifts**.
+
+Then comes the :code:`"Credits"` which displays the credits text defined in the **Credits text** region.
+
+And at last :code:`"Quit"` which runs the built in function :code:`game_end()`.
+
+ .. _menu_presets:
+
+Creating menu presets
+#####################
+
+If you have a title menu you most likely want to have a pause menu as well. 
+But obviously a pause menu should have different buttons in it than a title menu, for instance instead of a **start** button you might want a **resume** button.
+So for that this system has **menu presets**.
+
+To create a new preset for a button you simply add another name and button function to it.
+
+You can have as many presets as you want.
+
+So the start button before:
+
+ .. code-block:: none
+
+    ["Start",   new ScriptRunner(function() { room = rGame }]
+
+And the start button with an additional preset:
+
+ .. code-block:: none
+
+    ["Start",   new ScriptRunner(function() { room = rGame },
+    "Resume",   new ScriptRunner(resumeGame)]
+
+ .. warning::
+    The second button is added to the end of an existing array and it isn't in a separate array!
+
+
+To change presets use the :code:`menuSetPreset()` function. Give it the preset number from :code:`0` to the number of presets you have.
+
+You can also use an enumerator for this purpose. There is one by default at the bottom of the **Menu array** region. Feel free to add your presets to it.
+
+See more about pausing :ref:`here <pausing>`.
+
+Changing the look
+#################
+
+To change the way your menu looks go into the **Look settings** region. 
+
+Here you will see two structs:
+ * :code:`look` - The look settings of the entire menu
+ * :code:`item_look` - The look of individual items (e.g. sliders, toggles shifts etc.)
+
+There are a bazillion options so I won't go through all of them but here are the imporant ones.
+
+Start with the :code:`look` struct.
+
+Here are are the three main settings.
+ * :code:`txt` - Text font, size, outline etc.
+ * :code:`col` - Color settings
+ * :code:`pos` - Position of the menu and elements
+
+In the text settings there is a **normal** and **small** text type. **Normal** is used most of the time, **small** is for input icons and disclaimer text at the bottom.
+
+Set your own fonts for both if you don't like the default one.
+
+ .. note::
+    There are options tagged with **(A)**. These can be set to :code:`auto` (automatic). If so the system will predict an appropriate size for the item.
+    If the systems prediction is wrong just try until you find a good-looking value for it.
+
+Then go onto the :code:`col` struct. Here are two types **selected** and **unselected**. You have to set two colors each, one used most of the time and a more intense/dark color.
+Set them to your liking.
+
+Then in the :code:`pos` struct, you most likely want to change the :code:`menu_pos.y` because the menu is in the middle by default so it may cover the title of your game or something.
+
+But in case someting isn't working how you want it. Here are the other things I didn't talk about:
+ * If a specific menu element looks wrong find it in **Look settings** > :code:`item_look` struct
+ * To change the menu's sounds go to **Audio settings**
+ * To change the button animation or turn it off go to **Animation settings**
+ * To change scrolling behaviour go to **Scrolling settings**
+ * To change things about pausing go to **Pause settings**
+ * To change menu navigation buttons go to **Input setup**
+
+ .. _pausing:
+
+Pausing
+#######
+
+If have a game you usally want to have a pause menu as well. 
+For that the system offers a bulit in pause system wich will basically take a "photo" of the screen, deactivate every object, and than draw the "photo" on the screen.
+This way it looks that the game is paused.
+
+You can do this two ways:
+ * Manually - by calling the :code:`pauseGame()` and :code:`resumeGame()` functions
+ * Automatically - by calling the :code:`menuPauseEnable()`, and from then the menu will handle pausing
+
+You also have to disable the menu when you when you enable pausing, because it would cover half of your game. But you want to reenable it when you go back to the title screen.
+
+For this purpose I made two useful scripts.
+ * :code:`menuModeTitle()` enables the menu and disables pausing, because you don't want the player to pause the game when it isn't started yet.
+ * :code:`menuModePause()` disables the menu so that you can see the game, and enables pausing so that you can use the pause menu.
+
+And also you enable pausing you most likely want the menu to look a bit differently, for instance replacing **start** with **resume**. 
+If you haven't made any **menu presets** read about them :ref:`here <menu_presets>`.
+
+Ok, so when you want to switch to pause mode call the :code:`menuModePause()` function and set your preset by calling :code:`menuSetPreset()`.
+And when you want to set it back to title screen mode call :code:`menuModeTitle()` and set you preset back with :code:`menuSetPreset()`.
+
+To change how the menu looks when the game is paused go to the **Pause settings** region in the create event.
+
+The settings struct
+-------------------
+
+After you have created your menu you want to get the values of settings somehow.
+
+To do this first you have to define a **save key** in the menu array to every element that changes a value. This is the name under the value will be saved in a struct called :code:`global.settings`.
+
+So to get a value just write :code:`global.setting.save_key` where the :code:`save_key` is what you defined in the menu array.
+
+Here is how the different elements save their values:
+ * Slider - (type: real) The value will be in the range you defined when you created it
+ * Shift - (type: real) The value will range from :code:`0` to the :code:`number of options - 1`
+ * Toggle - (type: bool) Either :code:`true` or :code:`false`
+ * Controls - The controls changes the given input system directly it does not return anything
+
+You can change the actual settings in any object but there is a **Change actual values** region in the menu's step event for it.
+Here you can change the window size, volume etc.
+
+Here is a basic example:
+
+ .. code-block::
+
+    audio_master_gain(global.settings.audio_master);
+    if (global.settings.window_mode != window_get_fullscreen()) window_set_fullscreen(global.settings.window_mode);
+
+Enabling/disabling the menu
+---------------------------
+
+To enable/disable the menu simply call the :code:`menuEnable()` function, with a :code:`true` or :code:`false` argument.

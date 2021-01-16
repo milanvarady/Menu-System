@@ -4,7 +4,7 @@
 
 if (room == rTitle) {
 	drawSetText(c_white, fTitle)
-	drawText(gui_w / 2, gui_h / 5, "best game ever", 4, c_orange);
+	drawText(gui_w / 2, gui_h / 5, "best game ever", 2, c_orange);
 }
 
 #endregion

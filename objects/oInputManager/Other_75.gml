@@ -24,7 +24,5 @@ if (ind != undefined) {
 	}
 }
 
-/// !!! add documentation
-
 
 

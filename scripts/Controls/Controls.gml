@@ -101,11 +101,11 @@ function Controls(input_system, filename, order) : MenuElement() constructor {
 		
 		var look	= oMenu.item_look.controls.bottom_text
 		var buf		= look.dis_from_side;
-		var yy		= gui_h - buf;
+		var yy		= gui_h - buf / 2;
 		var col		= look.col;
 		var scale	= look.scale;
 		
-		drawSetText(col, look.font, fa_left, fa_middle);
+		drawSetText(col, look.font, fa_left, fa_bottom);
 		drawText(buf , yy, "ENTER - Add Inputs\nDELETE - Clear Inputs", scale, false);
 		
 		draw_set_halign(fa_right);

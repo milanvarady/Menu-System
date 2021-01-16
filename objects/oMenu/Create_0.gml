@@ -81,9 +81,9 @@ blah blah blah
 			
 			// Used when drawing smaller things (e.g. Input icons, information text at the bottom)
 			small: {
-				font: fPixel,		// Text font
-				scale: auto,		// (A) Text scale
-				outline_on:	true	// (bool) Whether the text should be outlined or not
+				font:		fPixel,		// Text font
+				scale:		auto,		// (A) Text scale
+				outline_on:	true		// (bool) Whether the text should be outlined or not
 			}
 		},
 		
@@ -113,7 +113,7 @@ blah blah blah
 			// The menu's position
 			menu_pos: {
 				x:	0,		// Whole menu's x offset from the middle
-				y:	180		// (A) Whole menu's y position (if set to auto menu will be in the middle)
+				y:	80		// (A) Whole menu's y position (if set to auto menu will be in the middle)
 			}
 		}
 	};
@@ -130,7 +130,7 @@ blah blah blah
 			w:			auto,	// (A) Button width
 			h:			auto,	// (A) Button height
 			y_buffer:	auto,	// (A) Space between buttons
-			roundness:	10,		// Corner roundness
+			roundness:	auto,	// (A) Corner roundness
 			cir_prec:	24,		// Circle precision (Must be divisible by 4!)
 			alpha:		0.6		// Button's alpha
 		},
@@ -201,7 +201,7 @@ blah blah blah
 				alpha:			0.8									// Background alpha
 			},
 			
-			scrolling_speed:	1									// Text scrolling speed
+			scrolling_speed:	auto								// (A) Text scrolling speed
 		},
 		
 		// Back button
@@ -268,10 +268,9 @@ blah blah blah
 
 	menu = [
 		["Start",		new ScriptRunner(function() { room_goto(rGame); 
-			menuPauseEnable(true); 
-			menuEnable(false); 
-			menuSetPreset(e_menu_presets.pause_menu); 
-			
+			menuModePause();
+			menuSetPreset(e_menu_presets.pause_menu);
+			room = rGame;
 		}), 
 		
 		"Resume",		new ScriptRunner(resumeGame)],
@@ -315,12 +314,10 @@ blah blah blah
 		["Credits",	new Credits(credits_string)],
 		
 		["Quit",		new ScriptRunner(game_end),
-		"Title Screen", new ScriptRunner(function() {
-			room = rTitle; 
-			menuSetPreset(e_menu_presets.title_screen); 
-			menuPauseEnable(false); 
-			menuEnable(true); 
-			resumeGame(true);
+		"Title Screen", new ScriptRunner(function() { 
+			menuModeTitle(); 
+			menuSetPreset(e_menu_presets.title_screen);
+			room = rTitle;
 		})]
 	];
 	
@@ -383,6 +380,7 @@ var l_side_w = r_side_w - (look.pos.buffer.x * 4);
 automate(item_look.button,		"w",		gui_w / 2.6);
 automate(item_look.button,		"h",		text_height.normal * 1.2);
 automate(item_look.button,		"y_buffer",	item_look.button.h * 1.3);
+automate(item_look.button,		"roundness",item_look.button.h * 0.4);
 
 // Toggle
 automate(item_look.toggle,		"buffer",	r_side_w * 0.2);
@@ -405,7 +403,9 @@ automate(item_look.controls.bottom_text,"dis_from_side",	look.pos.buffer.x * 0.5
 draw_set_font(item_look.credits.txt.font);
 var str_w = undefined;
 if (variable_instance_exists(id, "credits_string")) str_w = string_width(credits_string);
-automate(item_look.credits.txt,	"scale",	str_w != undefined ? ((gui_w / str_w) * 0.8) : 1);
+automate(item_look.credits.txt,	"scale",			str_w != undefined ? ((gui_w / str_w) * 0.8) : look.txt.normal.scale * 0.6);
+
+automate(item_look.credits,		"scrolling_speed",	gui_h / 400)
 
 // Animation
 automate(anim.button,		"travel_dis",	item_look.button.h * 0.2);

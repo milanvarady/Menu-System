@@ -63,7 +63,7 @@ function drawInput(x, y, input, font, scale, col, replace_col, txt_scale, left_o
 		sprite_set_offset(spr, spr_w_half, spr_h_half);
 		
 		// Left origin 
-		xx += left_origin ? spr_w_half : 0;
+		xx += left_origin ? spr_w_half * scale : 0;
 		
 		// Draw sprite
 		draw_sprite_ext(spr, 0, xx, yy, scale, scale, rot * -90, c_white, 1);
