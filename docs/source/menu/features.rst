@@ -15,21 +15,30 @@ Please note that this menu can only be used with keyboard or gamepad. Mouse and 
 
 Here is a preview to how it looks:
 
- .. image:: /images/menu/main.png
- 
- .. figure:: /images/menu/sliders.png
+ .. figure:: /images/menu/main.gif
 
-    Sound settings, silders
+   Basic buttons
+ 
+ .. figure:: /images/menu/slider.gif
+
+   Sound settings with silders
     
- .. figure:: /images/menu/graphics.png
+ .. figure:: /images/menu/graphics.gif
 
-    Graphics settings, toggles and shifts
+   Graphics settings with toggles and shifts
 
-.. figure:: /images/menu/controls.png
+.. figure:: /images/menu/controls.gif
 
-    Controls
+   Controls
    
-.. figure:: /images/menu/earth.gif
+.. figure:: /images/menu/credits.gif
 
-   Spinny spinny ball
+   Credits
+
+.. figure:: /images/menu/player_demo.gif
+
+   Menu in action
  
+.. figure:: /images/menu/colors.png
+   
+   Some color variants

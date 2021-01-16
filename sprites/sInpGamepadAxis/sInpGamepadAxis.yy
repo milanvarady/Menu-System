@@ -1,6 +1,6 @@
 {
   "ConfigValues": {
-    "LiveCoding": {"textureGroupId":"{\"name\":\"Default\",\"path\":\"texturegroups/Default\"}",},
+    "LiveCoding": {"textureGroupId":"{\"name\":\"Default\",\"path\":\"texturegroups/Default\"}"}
   },
   "bboxMode": 0,
   "collisionKind": 1,
@@ -21,7 +21,7 @@
   "height": 16,
   "textureGroupId": {
     "name": "Default",
-    "path": "texturegroups/Default",
+    "path": "texturegroups/Default"
   },
   "swatchColours": [
     4278190335,
@@ -101,17 +101,17 @@
     4279058848,
     4278870691,
     4278231211,
-    4281367321,
+    4281367321
   ],
   "gridX": 2,
   "gridY": 2,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"4a0fa76d-45a5-4a4e-89ea-93213b00bc26","path":"sprites/sInpGamepadAxis/sInpGamepadAxis.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"4a0fa76d-45a5-4a4e-89ea-93213b00bc26","path":"sprites/sInpGamepadAxis/sInpGamepadAxis.yy",},"LayerId":{"name":"80cf0a7c-82af-4450-ac3e-038660a73614","path":"sprites/sInpGamepadAxis/sInpGamepadAxis.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sInpGamepadAxis","path":"sprites/sInpGamepadAxis/sInpGamepadAxis.yy",},"resourceVersion":"1.0","name":"4a0fa76d-45a5-4a4e-89ea-93213b00bc26","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"4a0fa76d-45a5-4a4e-89ea-93213b00bc26","path":"sprites/sInpGamepadAxis/sInpGamepadAxis.yy"},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap"},"images":[
+        {"FrameId":{"name":"4a0fa76d-45a5-4a4e-89ea-93213b00bc26","path":"sprites/sInpGamepadAxis/sInpGamepadAxis.yy"},"LayerId":{"name":"80cf0a7c-82af-4450-ac3e-038660a73614","path":"sprites/sInpGamepadAxis/sInpGamepadAxis.yy"},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap"}
+      ],"parent":{"name":"sInpGamepadAxis","path":"sprites/sInpGamepadAxis/sInpGamepadAxis.yy"},"resourceVersion":"1.0","name":"4a0fa76d-45a5-4a4e-89ea-93213b00bc26","tags":[],"resourceType":"GMSpriteFrame"}
   ],
   "sequence": {
-    "spriteId": {"name":"sInpGamepadAxis","path":"sprites/sInpGamepadAxis/sInpGamepadAxis.yy",},
+    "spriteId": {"name":"sInpGamepadAxis","path":"sprites/sInpGamepadAxis/sInpGamepadAxis.yy"},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -119,12 +119,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>"},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>"},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"8b2b399d-1b9f-4991-abcf-3549ab9915be","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"4a0fa76d-45a5-4a4e-89ea-93213b00bc26","path":"sprites/sInpGamepadAxis/sInpGamepadAxis.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
+            {"id":"8b2b399d-1b9f-4991-abcf-3549ab9915be","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"4a0fa76d-45a5-4a4e-89ea-93213b00bc26","path":"sprites/sInpGamepadAxis/sInpGamepadAxis.yy"},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe"}},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>"}
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>"},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack"}
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -140,21 +140,21 @@
     "yorigin": 8,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sInpGamepadAxis","path":"sprites/sInpGamepadAxis/sInpGamepadAxis.yy",},
+    "parent": {"name":"sInpGamepadAxis","path":"sprites/sInpGamepadAxis/sInpGamepadAxis.yy"},
     "resourceVersion": "1.3",
     "name": "sInpGamepadAxis",
     "tags": [],
-    "resourceType": "GMSequence",
+    "resourceType": "GMSequence"
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"80cf0a7c-82af-4450-ac3e-038660a73614","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"80cf0a7c-82af-4450-ac3e-038660a73614","tags":[],"resourceType":"GMImageLayer"}
   ],
   "parent": {
     "name": "Sprites",
-    "path": "folders/Input system/Sprites.yy",
+    "path": "folders/Input system/Sprites.yy"
   },
   "resourceVersion": "1.0",
   "name": "sInpGamepadAxis",
   "tags": [],
-  "resourceType": "GMSprite",
+  "resourceType": "GMSprite"
 }

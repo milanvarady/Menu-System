@@ -182,7 +182,7 @@ Set them to your liking.</p>
 <li><p>To change the button animation or turn it off go to <strong>Animation settings</strong></p></li>
 <li><p>To change scrolling behaviour go to <strong>Scrolling settings</strong></p></li>
 <li><p>To change things about pausing go to <strong>Pause settings</strong></p></li>
-<li><p>To change menu navigation buttons go to <strong>Input setup</strong></p></li>
+<li><p>To change buttons used to navigate the menu go to <strong>Input setup</strong></p></li>
 </ul>
 </dd>
 </dl>
@@ -217,14 +217,14 @@ And when you want to set it back to title screen mode call <code class="code doc
 <div class="section" id="the-settings-struct">
 <h2>The settings struct<a class="headerlink" href="#the-settings-struct" title="Permalink to this headline">¶</a></h2>
 <p>After you have created your menu you want to get the values of settings somehow.</p>
-<p>To do this first you have to define a <strong>save key</strong> in the menu array to every element that changes a value. This is the name under the value will be saved in a struct called <code class="code docutils literal notranslate"><span class="pre">global.settings</span></code>.</p>
+<p>To do this first you have to define a <strong>save key</strong> in the menu array for every element that changes a value. This is the name under the value will be saved in a struct called <code class="code docutils literal notranslate"><span class="pre">global.settings</span></code>.</p>
 <p>So to get a value just write <code class="code docutils literal notranslate"><span class="pre">global.setting.save_key</span></code> where the <code class="code docutils literal notranslate"><span class="pre">save_key</span></code> is what you defined in the menu array.</p>
 <dl class="simple">
 <dt>Here is how the different elements save their values:</dt><dd><ul class="simple">
-<li><p>Slider - (type: real) The value will be in the range you defined when you created it</p></li>
-<li><p>Shift - (type: real) The value will range from <code class="code docutils literal notranslate"><span class="pre">0</span></code> to the <code class="code docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">options</span> <span class="pre">-</span> <span class="pre">1</span></code></p></li>
-<li><p>Toggle - (type: bool) Either <code class="code docutils literal notranslate"><span class="pre">true</span></code> or <code class="code docutils literal notranslate"><span class="pre">false</span></code></p></li>
-<li><p>Controls - The controls changes the given input system directly it does not return anything</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Slider</span></code> - (type: real) The value will be in the range you defined when you created it</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Shift</span></code> - (type: real) The value will range from <code class="code docutils literal notranslate"><span class="pre">0</span></code> to the <code class="code docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">options</span> <span class="pre">-</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Toggle</span></code> - (type: bool) Either <code class="code docutils literal notranslate"><span class="pre">true</span></code> or <code class="code docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Controls</span></code> - The controls changes the given input system directly it does not return anything</p></li>
 </ul>
 </dd>
 </dl>
