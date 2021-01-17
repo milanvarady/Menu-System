@@ -7,13 +7,16 @@ It also allows you to make a controls menu with one line of code with my :ref:`I
 
 And the best thing is that you don't have to worry about how big things should be. The system will adjust the size of every element to your window size, even if it's really small.
 
+But if you want to you can change the size of nearly everyting.
+
 It also has a built in pause system which allows you to pause any game with one line of code.
 
 And it also has automatic saving and loading, even for inputs.
 
 Please note that this menu can only be used with keyboard or gamepad. Mouse and touch controls are not available.
 
-Here is a preview to how it looks:
+Here is a preview to how it looks by default.
+But if you change the font and colors it can look very differently.
 
  .. figure:: /images/menu/main.gif
 

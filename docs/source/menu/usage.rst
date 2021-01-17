@@ -17,7 +17,7 @@ You only want to change the **(user)** tagged regions.
 Basically every region is a settings for something.
 
 Here is a list of the regions and what they do:
- * Audio settings       - Menu sounds settings
+ * Audio settings       - Menu sound effects settings
  * Credits text         - Text for credits (if you have one)
  * Look settings        - The menu's look, visual settings
  * Animation settings   - Button animation settings
@@ -33,7 +33,7 @@ First you should create the menu array. Which defines how your menu structured, 
 
 Go to the menu's **Menu array** region, here will be an empty array. This is where your buttons go.
 
-To add a button create a new array into the array. The array should consist of two elements:
+That empty array is a page array which means that it stores buttons. Buttons are also arrays they consist of two elements:
  * Button name
  * Button function
 
@@ -80,7 +80,7 @@ Ok this may look a bit confusing here is what is does:
 The first button is the :code:`"Start"`, it runs a function which simply goes to another room.
 
 After that comes :code:`"Settings"` which holds another menu page.
-Inside the :code:`"Settings"` there are also two menu pages :code:`"Audio"` and :code:`"Graphics"`. These have a mix of **sliders**, **toggles**, and **shifts**.
+Inside the :code:`"Settings"` there are also two menu pages :code:`"Audio"` and :code:`"Graphics"`. These have a mix of **sliders**, **toggles**, and **shifts** in them.
 
 Then comes the :code:`"Credits"` which displays the credits text defined in the **Credits text** region.
 
@@ -93,7 +93,7 @@ Creating menu presets
 
 If you have a title menu you most likely want to have a pause menu as well. 
 But obviously a pause menu should have different buttons in it than a title menu, for instance instead of a **start** button you might want a **resume** button.
-So for that this system has **menu presets**.
+So for that this system has **menu presets** which allows you to change what buttos do when the game is running.
 
 To create a new preset for a button you simply add another name and button function to it.
 
@@ -113,10 +113,10 @@ And the start button with an additional preset:
     "Resume",   new ScriptRunner(resumeGame)]
 
  .. warning::
-    The second button is added to the end of an existing array and it isn't in a separate array!
+    The second button is added to the end of an existing button array and it isn't in a separate array!
 
 
-To change presets use the :code:`menuSetPreset()` function. Give it the preset number from :code:`0` to the number of presets you have.
+To change presets use the :code:`menuSetPreset()` function. Give it the preset number from :code:`0` to the :code:`number of presets - 1`.
 
 You can also use an enumerator for this purpose. There is one by default at the bottom of the **Menu array** region. Feel free to add your presets to it.
 
@@ -129,7 +129,7 @@ To change the way your menu looks go into the **Look settings** region.
 
 Here you will see two structs:
  * :code:`look` - The look settings of the entire menu
- * :code:`item_look` - The look of individual items (e.g. sliders, toggles shifts etc.)
+ * :code:`item_look` - The look of individual items (e.g. sliders, toggles, shifts, etc.)
 
 There are a bazillion options so I won't go through all of them but here are the imporant ones.
 
@@ -145,7 +145,7 @@ In the text settings there is a **normal** and **small** text type. **Normal** i
 Set your own fonts for both if you don't like the default one.
 
  .. note::
-    There are options tagged with **(A)**. These can be set to :code:`auto` (automatic). If so the system will predict an appropriate size for the item.
+    There are options marked with an **(A)** tag. These can be set to :code:`auto` (automatic). If so the system will predict an appropriate size for the item.
     If the systems prediction is wrong just try until you find a good-looking value for it.
 
 Then go onto the :code:`col` struct. Here are two types **selected** and **unselected**. You have to set two colors each, one used most of the time and a more intense/dark color.
@@ -174,13 +174,13 @@ You can do this two ways:
  * Manually - by calling the :code:`pauseGame()` and :code:`resumeGame()` functions
  * Automatically - by calling the :code:`menuPauseEnable()`, and from then the menu will handle pausing
 
-You also have to disable the menu when you when you enable pausing, because it would cover half of your game. But you want to reenable it when you go back to the title screen.
+You also have to disable the menu when you enable pausing, because it would cover half of your game. But you want to reenable it when you go back to the title screen.
 
 For this purpose I made two useful scripts.
  * :code:`menuModeTitle()` enables the menu and disables pausing, because you don't want the player to pause the game when it isn't started yet.
  * :code:`menuModePause()` disables the menu so that you can see the game, and enables pausing so that you can use the pause menu.
 
-And also you enable pausing you most likely want the menu to look a bit differently, for instance replacing **start** with **resume**. 
+And also when you enable pausing you most likely want the menu to look a bit differently, for instance replacing a start button **start** with **resume**. 
 If you haven't made any **menu presets** read about them :ref:`here <menu_presets>`.
 
 Ok, so when you want to switch to pause mode call the :code:`menuModePause()` function and set your preset by calling :code:`menuSetPreset()`.
@@ -203,7 +203,7 @@ Here is how the different elements save their values:
  * :code:`Toggle` - (type: bool) Either :code:`true` or :code:`false`
  * :code:`Controls` - The controls changes the given input system directly it does not return anything
 
-You can change the actual settings in any object but there is a **Change actual values** region in the menu's step event for it.
+You can do anyting with these values in any object but there is a **Change actual values** region in the menu's step event for it.
 Here you can change the window size, volume etc.
 
 Here is a basic example:

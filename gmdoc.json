@@ -1,0 +1,15 @@
+{
+  "_version": 2,
+  "project": "Menu System.yyp",
+  "project_name": "Menu System",
+  "title": "Menu System Docs",
+  "author": "Milan Varady",
+  "prefix": "",
+  "analytics": "",
+  "api": {
+    "rating": ""
+  },
+  "toc": {
+    "Menu System Docs": "index.md"
+  }
+}

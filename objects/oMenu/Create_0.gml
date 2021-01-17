@@ -374,7 +374,6 @@ automate(look.pos.buffer,		"y",		text_height.normal * 1.3);
 
 // Get the width of the sides
 var r_side_w = ((gui_w / 2) - look.pos.menu_pos.x - (look.pos.buffer.x * 2));
-var l_side_w = r_side_w - (look.pos.buffer.x * 4);
 
 // Button
 automate(item_look.button,		"w",		gui_w / 2.6);

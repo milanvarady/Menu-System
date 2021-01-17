@@ -46,7 +46,7 @@ You only want to change the <strong>(user)</strong> tagged regions.</p>
 <p>Basically every region is a settings for something.</p>
 <dl class="simple">
 <dt>Here is a list of the regions and what they do:</dt><dd><ul class="simple">
-<li><p>Audio settings       - Menu sounds settings</p></li>
+<li><p>Audio settings       - Menu sound effects settings</p></li>
 <li><p>Credits text         - Text for credits (if you have one)</p></li>
 <li><p>Look settings        - The menu’s look, visual settings</p></li>
 <li><p>Animation settings   - Button animation settings</p></li>
@@ -63,7 +63,7 @@ You only want to change the <strong>(user)</strong> tagged regions.</p>
 <p>First you should create the menu array. Which defines how your menu structured, what buttons are on which page and what do they do.</p>
 <p>Go to the menu’s <strong>Menu array</strong> region, here will be an empty array. This is where your buttons go.</p>
 <dl class="simple">
-<dt>To add a button create a new array into the array. The array should consist of two elements:</dt><dd><ul class="simple">
+<dt>That empty array is a page array which means that it stores buttons. Buttons are also arrays they consist of two elements:</dt><dd><ul class="simple">
 <li><p>Button name</p></li>
 <li><p>Button function</p></li>
 </ul>
@@ -109,7 +109,7 @@ You only want to change the <strong>(user)</strong> tagged regions.</p>
 <p>Ok this may look a bit confusing here is what is does:</p>
 <p>The first button is the <code class="code docutils literal notranslate"><span class="pre">&quot;Start&quot;</span></code>, it runs a function which simply goes to another room.</p>
 <p>After that comes <code class="code docutils literal notranslate"><span class="pre">&quot;Settings&quot;</span></code> which holds another menu page.
-Inside the <code class="code docutils literal notranslate"><span class="pre">&quot;Settings&quot;</span></code> there are also two menu pages <code class="code docutils literal notranslate"><span class="pre">&quot;Audio&quot;</span></code> and <code class="code docutils literal notranslate"><span class="pre">&quot;Graphics&quot;</span></code>. These have a mix of <strong>sliders</strong>, <strong>toggles</strong>, and <strong>shifts</strong>.</p>
+Inside the <code class="code docutils literal notranslate"><span class="pre">&quot;Settings&quot;</span></code> there are also two menu pages <code class="code docutils literal notranslate"><span class="pre">&quot;Audio&quot;</span></code> and <code class="code docutils literal notranslate"><span class="pre">&quot;Graphics&quot;</span></code>. These have a mix of <strong>sliders</strong>, <strong>toggles</strong>, and <strong>shifts</strong> in them.</p>
 <p>Then comes the <code class="code docutils literal notranslate"><span class="pre">&quot;Credits&quot;</span></code> which displays the credits text defined in the <strong>Credits text</strong> region.</p>
 <p>And at last <code class="code docutils literal notranslate"><span class="pre">&quot;Quit&quot;</span></code> which runs the built in function <code class="code docutils literal notranslate"><span class="pre">game_end()</span></code>.</p>
 <blockquote>
@@ -119,7 +119,7 @@ Inside the <code class="code docutils literal notranslate"><span class="pre">&qu
 <span id="menu-presets"></span><h3>Creating menu presets<a class="headerlink" href="#creating-menu-presets" title="Permalink to this headline">¶</a></h3>
 <p>If you have a title menu you most likely want to have a pause menu as well.
 But obviously a pause menu should have different buttons in it than a title menu, for instance instead of a <strong>start</strong> button you might want a <strong>resume</strong> button.
-So for that this system has <strong>menu presets</strong>.</p>
+So for that this system has <strong>menu presets</strong> which allows you to change what buttos do when the game is running.</p>
 <p>To create a new preset for a button you simply add another name and button function to it.</p>
 <p>You can have as many presets as you want.</p>
 <p>So the start button before:</p>
@@ -136,10 +136,10 @@ So for that this system has <strong>menu presets</strong>.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The second button is added to the end of an existing array and it isn’t in a separate array!</p>
+<p>The second button is added to the end of an existing button array and it isn’t in a separate array!</p>
 </div>
 </div></blockquote>
-<p>To change presets use the <code class="code docutils literal notranslate"><span class="pre">menuSetPreset()</span></code> function. Give it the preset number from <code class="code docutils literal notranslate"><span class="pre">0</span></code> to the number of presets you have.</p>
+<p>To change presets use the <code class="code docutils literal notranslate"><span class="pre">menuSetPreset()</span></code> function. Give it the preset number from <code class="code docutils literal notranslate"><span class="pre">0</span></code> to the <code class="code docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">presets</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p>
 <p>You can also use an enumerator for this purpose. There is one by default at the bottom of the <strong>Menu array</strong> region. Feel free to add your presets to it.</p>
 <p>See more about pausing <a class="reference internal" href="#pausing"><span class="std std-ref">here</span></a>.</p>
 </div>
@@ -149,7 +149,7 @@ So for that this system has <strong>menu presets</strong>.</p>
 <dl class="simple">
 <dt>Here you will see two structs:</dt><dd><ul class="simple">
 <li><p><code class="code docutils literal notranslate"><span class="pre">look</span></code> - The look settings of the entire menu</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">item_look</span></code> - The look of individual items (e.g. sliders, toggles shifts etc.)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">item_look</span></code> - The look of individual items (e.g. sliders, toggles, shifts, etc.)</p></li>
 </ul>
 </dd>
 </dl>
@@ -168,7 +168,7 @@ So for that this system has <strong>menu presets</strong>.</p>
 <blockquote>
 <div><div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>There are options tagged with <strong>(A)</strong>. These can be set to <code class="code docutils literal notranslate"><span class="pre">auto</span></code> (automatic). If so the system will predict an appropriate size for the item.
+<p>There are options marked with an <strong>(A)</strong> tag. These can be set to <code class="code docutils literal notranslate"><span class="pre">auto</span></code> (automatic). If so the system will predict an appropriate size for the item.
 If the systems prediction is wrong just try until you find a good-looking value for it.</p>
 </div>
 </div></blockquote>
@@ -199,7 +199,7 @@ This way it looks that the game is paused.</p>
 </ul>
 </dd>
 </dl>
-<p>You also have to disable the menu when you when you enable pausing, because it would cover half of your game. But you want to reenable it when you go back to the title screen.</p>
+<p>You also have to disable the menu when you enable pausing, because it would cover half of your game. But you want to reenable it when you go back to the title screen.</p>
 <dl class="simple">
 <dt>For this purpose I made two useful scripts.</dt><dd><ul class="simple">
 <li><p><code class="code docutils literal notranslate"><span class="pre">menuModeTitle()</span></code> enables the menu and disables pausing, because you don’t want the player to pause the game when it isn’t started yet.</p></li>
@@ -207,7 +207,7 @@ This way it looks that the game is paused.</p>
 </ul>
 </dd>
 </dl>
-<p>And also you enable pausing you most likely want the menu to look a bit differently, for instance replacing <strong>start</strong> with <strong>resume</strong>.
+<p>And also when you enable pausing you most likely want the menu to look a bit differently, for instance replacing a start button <strong>start</strong> with <strong>resume</strong>.
 If you haven’t made any <strong>menu presets</strong> read about them <a class="reference internal" href="#menu-presets"><span class="std std-ref">here</span></a>.</p>
 <p>Ok, so when you want to switch to pause mode call the <code class="code docutils literal notranslate"><span class="pre">menuModePause()</span></code> function and set your preset by calling <code class="code docutils literal notranslate"><span class="pre">menuSetPreset()</span></code>.
 And when you want to set it back to title screen mode call <code class="code docutils literal notranslate"><span class="pre">menuModeTitle()</span></code> and set you preset back with <code class="code docutils literal notranslate"><span class="pre">menuSetPreset()</span></code>.</p>
@@ -228,7 +228,7 @@ And when you want to set it back to title screen mode call <code class="code doc
 </ul>
 </dd>
 </dl>
-<p>You can change the actual settings in any object but there is a <strong>Change actual values</strong> region in the menu’s step event for it.
+<p>You can do anyting with these values in any object but there is a <strong>Change actual values</strong> region in the menu’s step event for it.
 Here you can change the window size, volume etc.</p>
 <p>Here is a basic example:</p>
 <blockquote>
