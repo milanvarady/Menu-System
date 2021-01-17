@@ -159,7 +159,7 @@ But in case someting isn't working how you want it. Here are the other things I 
  * To change the button animation or turn it off go to **Animation settings**
  * To change scrolling behaviour go to **Scrolling settings**
  * To change things about pausing go to **Pause settings**
- * To change menu navigation buttons go to **Input setup**
+ * To change buttons used to navigate the menu go to **Input setup**
 
  .. _pausing:
 
@@ -193,15 +193,15 @@ The settings struct
 
 After you have created your menu you want to get the values of settings somehow.
 
-To do this first you have to define a **save key** in the menu array to every element that changes a value. This is the name under the value will be saved in a struct called :code:`global.settings`.
+To do this first you have to define a **save key** in the menu array for every element that changes a value. This is the name under the value will be saved in a struct called :code:`global.settings`.
 
 So to get a value just write :code:`global.setting.save_key` where the :code:`save_key` is what you defined in the menu array.
 
 Here is how the different elements save their values:
- * Slider - (type: real) The value will be in the range you defined when you created it
- * Shift - (type: real) The value will range from :code:`0` to the :code:`number of options - 1`
- * Toggle - (type: bool) Either :code:`true` or :code:`false`
- * Controls - The controls changes the given input system directly it does not return anything
+ * :code:`Slider` - (type: real) The value will be in the range you defined when you created it
+ * :code:`Shift` - (type: real) The value will range from :code:`0` to the :code:`number of options - 1`
+ * :code:`Toggle` - (type: bool) Either :code:`true` or :code:`false`
+ * :code:`Controls` - The controls changes the given input system directly it does not return anything
 
 You can change the actual settings in any object but there is a **Change actual values** region in the menu's step event for it.
 Here you can change the window size, volume etc.
