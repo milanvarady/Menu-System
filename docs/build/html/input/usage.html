@@ -48,10 +48,9 @@ or an array of inputs, and if that one input or any of the inputs in the array a
 <a class="reference external" href="https://docs2.yoyogames.com/source/_build/3_scripting/4_gml_reference/controls/gamepad%20input/index.html">Here is the manual for gamepads</a>.</p>
 <p>So the syntax is:</p>
 <blockquote>
-<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>inputCheck(input/array, pressed, gamepad_device);
-</pre></div>
-</div>
-</div></blockquote>
+<div><pre><code class="language-gml">
+    inputCheck(input/array, pressed, gamepad_device);
+</code></pre></div></blockquote>
 <p>The pressed parameter determins how the input is checked,
 if <code class="code docutils literal notranslate"><span class="pre">false</span></code> it is checked as down if <code class="code docutils literal notranslate"><span class="pre">true</span></code> it is checked as pressed.
 Read more about checking methods <a class="reference internal" href="#checking-methods"><span class="std std-ref">here</span></a></p>
@@ -62,32 +61,29 @@ Read more about checking methods <a class="reference internal" href="#checking-m
 <p>The <code class="code docutils literal notranslate"><span class="pre">InputSystem()</span></code> allows you to organise your inputs into categories and check them all in one line.</p>
 <p>To use it you will have to create one first. Most likely in a create event. The syntax is like this.</p>
 <blockquote>
-<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>in_sys = new InputSystem({
-    category_1: [input1, input2, input3...],
-    category_2: [input1, input2, input3...],
-    category_3: [input1, input2, input3...]
-});
-</pre></div>
-</div>
-</div></blockquote>
+<div><pre><code class="language-gml">
+    in_sys = new InputSystem({
+        category_1: [input1, input2, input3...],
+        category_2: [input1, input2, input3...],
+        category_3: [input1, input2, input3...]
+    });
+</code></pre></div></blockquote>
 <p>And here is and example:</p>
 <blockquote>
-<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>in_sys = new InputSystem({
-    right:  [vk_right,  &quot;d&quot;, gp_padr, gp_axislr],
-    left:   [vk_left,   &quot;a&quot;, gp_padl, gp_axisll],
-    jump:   [vk_up,     &quot;w&quot;, gp_a],
-    shoot:  [vk_space,  gp_shoulderrb, gp_x]
-});
-</pre></div>
-</div>
-</div></blockquote>
+<div><pre><code class="language-gml">
+    in_sys = new InputSystem({
+        right:  [vk_right,  "d", gp_padr, gp_axislr],
+        left:   [vk_left,   "a", gp_padl, gp_axisll],
+        jump:   [vk_up,     "w", gp_a],
+        shoot:  [vk_space,  gp_shoulderrb, gp_x]
+    });
+</code></pre></div></blockquote>
 <p>Read more about defining inputs <a class="reference internal" href="#defining-inputs"><span class="std std-ref">here</span></a>.</p>
 <p>And then to check them do the following. Most likely in a step event.</p>
 <blockquote>
-<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>in = in_sys.check();
-</pre></div>
-</div>
-</div></blockquote>
+<div><pre><code class="language-gml">
+    in = in_sys.check();
+</code></pre></div></blockquote>
 <p>Now the variable <code class="code docutils literal notranslate"><span class="pre">in</span></code> holds the result of the check. To get the input do <code class="code docutils literal notranslate"><span class="pre">in.category.checking_method</span></code>.
 The <strong>category</strong> is one of the names you defined when you created the system (e.g. right).
 The <strong>checking method</strong> can be either <code class="code docutils literal notranslate"><span class="pre">.down</span></code> or <code class="code docutils literal notranslate"><span class="pre">.pressed</span></code>. You can read more about the checking methods <a class="reference internal" href="#checking-methods"><span class="std std-ref">here</span></a>.</p>

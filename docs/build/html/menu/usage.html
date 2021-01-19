@@ -84,30 +84,29 @@ You only want to change the <strong>(user)</strong> tagged regions.</p>
 <p>Or if you want your button to switch to another menu page, the second element in the array should be another array that will also have buttons in it.</p>
 <p>Here is a basic example:</p>
 <blockquote>
-<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>menu = [
-    [&quot;Start&quot;,   new ScriptRunner(function() { room = rGame }],
+<div><pre><code class="language-gml">
+    menu = [
+        ["Start",   new ScriptRunner(function() { room = rGame }],
 
-    [&quot;Settings&quot;, [
-        [&quot;Audio&quot;, [
-                            [&quot;Master&quot;,      new Slider([0, 1], 0.3,         &quot;audio_master&quot;)],
-                            [&quot;Sounds&quot;,      new Slider([0, 1], 1,           &quot;audio_sounds&quot;)],
-                            [&quot;Music&quot;,       new Slider([0, 1], 1,           &quot;audio_music&quot;)]
-                    ]],
+        ["Settings", [
+            ["Audio", [
+                ["Master",  new Slider([0, 1], 0.3,         "audio_master")],
+                ["Sounds",  new Slider([0, 1], 1,           "audio_sounds")],
+                ["Music",   new Slider([0, 1], 1,           "audio_music")]
+            ]],
 
-                    [&quot;Graphics&quot;, [
-                            [&quot;Quality&quot;,         new Shift([&quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;, &quot;Ultra&quot;], 2, &quot;quality&quot;)],
-                            [&quot;Window Mode&quot;, new Shift([&quot;Windowed&quot;, &quot;Fullscreen&quot;], 1, &quot;window_mode&quot;)],
-                            [&quot;Vsync&quot;,               new Toggle(0,           &quot;vsync&quot;)]
-                    ]],
-    ]],
+            ["Graphics", [
+                ["Quality",     new Shift(["Low", "Medium", "High", "Ultra"], 2, "quality")],
+                ["Window Mode",     new Shift(["Windowed", "Fullscreen"], 1, "window_mode")],
+                ["Vsync",           new Toggle(0,           "vsync")]
+            ]],
+        ]],
 
-    [&quot;Credits&quot;, new Credits(credits_string)],
+        ["Credits", new Credits(credits_string)],
 
-    [&quot;Quit&quot;,    new ScriptRunner(game_end]
-];
-</pre></div>
-</div>
-</div></blockquote>
+        ["Quit",    new ScriptRunner(game_end]
+    ];
+</code></pre></div></blockquote>
 <p>Ok this may look a bit confusing here is what is does:</p>
 <p>The first button is the <code class="code docutils literal notranslate"><span class="pre">&quot;Start&quot;</span></code>, it runs a function which simply goes to another room.</p>
 <p>After that comes <code class="code docutils literal notranslate"><span class="pre">&quot;Settings&quot;</span></code> which holds another menu page.
@@ -126,17 +125,15 @@ So for that this system has <strong>menu presets</strong> which allows you to ch
 <p>You can have as many presets as you want.</p>
 <p>So the start button before:</p>
 <blockquote>
-<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[&quot;Start&quot;,   new ScriptRunner(function() { room = rGame }]
-</pre></div>
-</div>
-</div></blockquote>
+<div><pre><code class="language-gml">
+    ["Start",   new ScriptRunner(function() { room = rGame }]
+</code></pre></div></blockquote>
 <p>And the start button with an additional preset:</p>
 <blockquote>
-<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[&quot;Start&quot;,   new ScriptRunner(function() { room = rGame },
-&quot;Resume&quot;,   new ScriptRunner(resumeGame)]
-</pre></div>
-</div>
-<div class="admonition warning">
+<div><pre><code class="language-gml">
+    ["Start",   new ScriptRunner(function() { room = rGame },
+    "Resume",   new ScriptRunner(resumeGame)]
+</code></pre><div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The second button is added to the end of an existing button array and it isn’t in a separate array!</p>
 </div>
@@ -234,11 +231,10 @@ And when you want to set it back to title screen mode call <code class="code doc
 Here you can change the window size, volume etc.</p>
 <p>Here is a basic example:</p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">audio_master_gain</span><span class="p">(</span><span class="k">global</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">audio_master</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="k">global</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">window_mode</span> <span class="o">!=</span> <span class="n">window_get_fullscreen</span><span class="p">())</span> <span class="n">window_set_fullscreen</span><span class="p">(</span><span class="k">global</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">window_mode</span><span class="p">);</span>
-</pre></div>
-</div>
-</div></blockquote>
+<div><pre><code class="language-gml">
+    audio_master_gain(global.settings.audio_master);
+    if (global.settings.window_mode != window_get_fullscreen()) window_set_fullscreen(global.settings.window_mode);
+</code></pre></div></blockquote>
 </div>
 <div class="section" id="enabling-disabling-the-menu">
 <h2>Enabling/disabling the menu<a class="headerlink" href="#enabling-disabling-the-menu" title="Permalink to this headline">¶</a></h2>

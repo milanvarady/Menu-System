@@ -6,16 +6,20 @@ Features
 Okay so why do you need an input system? 
 If you ever wanted your player to move right with multiple inputs you did something like this:
 
- .. code-block:: none
+ .. raw:: html
 
-    var right = keyboard_check(vk_right) or keyboard_check(ord("D")) 
+    <pre><code class="language-gml">
+        var right = keyboard_check(vk_right) or keyboard_check(ord("D")) 
             or gamepad_button_check(0, gp_padr) or gamepad_axis_value(0, gp_axislh) > 0;
+    </code></pre>
 
 Thats pretty long isn’t it! Well with this input system you could do this:
 
- .. code-block:: none
+ .. raw:: html
 
-    var right = inputCheck([vk_right, "d", gp_padr, gp_axislr]);
+    <pre><code class="language-gml">
+        var right = inputCheck([vk_right, "d", gp_padr, gp_axislr]);
+    </code></pre>
 
 Read more about the :code:`inputCheck()` function :ref:`here <inputcheck>`.
 
@@ -24,25 +28,27 @@ move right and left, jump and shoot.
 For that you could create a new InputSystem wich stores inputs in categories and checks them automatically for you.
 Here is an example:
 
- .. code-block:: none
+ .. raw:: html
 
-    // Create event
-    in_sys = new InputSystem({
-        right:  [vk_right,  "d", gp_padr, gp_axislr],
-        left:   [vk_left,   "a", gp_padl, gp_axisll],
-        jump:   [vk_up,     "w", gp_a],
-        shoot:  [vk_space,  gp_shoulderrb, gp_x]
-    });
+    <pre><code class="language-gml">
+        // Create event
+        in_sys = new InputSystem({
+            right:  [vk_right,  "d", gp_padr, gp_axislr],
+            left:   [vk_left,   "a", gp_padl, gp_axisll],
+            jump:   [vk_up,     "w", gp_a],
+            shoot:  [vk_space,  gp_shoulderrb, gp_x]
+        });
 
-    // Step event
-    var input = in_sys.check();
+        // Step event
+        var input = in_sys.check();
 
-    if (input.right.down) x += 4;
-    if (input.left.down) x -= 4;
+        if (input.right.down) x += 4;
+        if (input.left.down) x -= 4;
 
-    if (input.jump.pressed) y -= 10;
+        if (input.jump.pressed) y -= 10;
 
-    if (input.shoot.down) shoot();
+        if (input.shoot.down) shoot();
+    </code></pre>
 
 As you can see first you create a new InputSystem with the categories and inputs. 
 Then you can call the InputSystem's check method which will check if any of the inputs are pressed.

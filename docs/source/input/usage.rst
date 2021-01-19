@@ -17,9 +17,11 @@ You can also supply the gamepad device to check.
 
 So the syntax is:
 
- .. code-block:: none
+ .. raw:: html
 
-    inputCheck(input/array, pressed, gamepad_device);
+    <pre><code class="language-gml">
+        inputCheck(input/array, pressed, gamepad_device);
+    </code></pre>
 
 The pressed parameter determins how the input is checked, 
 if :code:`false` it is checked as down if :code:`true` it is checked as pressed. 
@@ -37,32 +39,38 @@ The :code:`InputSystem()` allows you to organise your inputs into categories and
 
 To use it you will have to create one first. Most likely in a create event. The syntax is like this.
 
- .. code-block:: none
+ .. raw:: html
 
-    in_sys = new InputSystem({
-        category_1: [input1, input2, input3...],
-        category_2: [input1, input2, input3...],
-        category_3: [input1, input2, input3...]
-    });
+    <pre><code class="language-gml">
+        in_sys = new InputSystem({
+            category_1: [input1, input2, input3...],
+            category_2: [input1, input2, input3...],
+            category_3: [input1, input2, input3...]
+        });
+    </code></pre>
 
 And here is and example:
 
- .. code-block:: none
+ .. raw:: html
 
-    in_sys = new InputSystem({
-        right:  [vk_right,  "d", gp_padr, gp_axislr],
-        left:   [vk_left,   "a", gp_padl, gp_axisll],
-        jump:   [vk_up,     "w", gp_a],
-        shoot:  [vk_space,  gp_shoulderrb, gp_x]
-    });
+    <pre><code class="language-gml">
+        in_sys = new InputSystem({
+            right:  [vk_right,  "d", gp_padr, gp_axislr],
+            left:   [vk_left,   "a", gp_padl, gp_axisll],
+            jump:   [vk_up,     "w", gp_a],
+            shoot:  [vk_space,  gp_shoulderrb, gp_x]
+        });
+    </code></pre>
 
 Read more about defining inputs :ref:`here <defining_inputs>`.
 
 And then to check them do the following. Most likely in a step event.
 
- .. code-block:: none
+ .. raw:: html
 
-    in = in_sys.check();
+    <pre><code class="language-gml">
+        in = in_sys.check();
+    </code></pre>
 
 Now the variable :code:`in` holds the result of the check. To get the input do :code:`in.category.checking_method`.
 The **category** is one of the names you defined when you created the system (e.g. right).

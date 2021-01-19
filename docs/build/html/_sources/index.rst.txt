@@ -2,7 +2,7 @@ Welcome to the Menu and Input System's documentation!
 =====================================================
 
 
-.. raw:: html
+ .. raw:: html
 
    <pre><code class="language-gml">
        audio_master_gain(global.settings.audio_master);

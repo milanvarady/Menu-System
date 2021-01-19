@@ -51,29 +51,31 @@ Or if you want your button to switch to another menu page, the second element in
 
 Here is a basic example:
 
- .. code-block:: none
+ .. raw:: html
 
-    menu = [
-        ["Start",   new ScriptRunner(function() { room = rGame }],
+    <pre><code class="language-gml">
+        menu = [
+            ["Start",   new ScriptRunner(function() { room = rGame }],
 
-        ["Settings", [
-            ["Audio", [
-				["Master",	new Slider([0, 1], 0.3,		"audio_master")],
-				["Sounds",	new Slider([0, 1], 1,		"audio_sounds")],
-				["Music",	new Slider([0, 1], 1,		"audio_music")]
-			]],
-		
-			["Graphics", [
-				["Quality",	    new Shift(["Low", "Medium", "High", "Ultra"], 2, "quality")],
-				["Window Mode",	new Shift(["Windowed", "Fullscreen"], 1, "window_mode")],
-				["Vsync",		new Toggle(0,		"vsync")]
-			]],
-        ]],
+            ["Settings", [
+                ["Audio", [
+                    ["Master",	new Slider([0, 1], 0.3,		"audio_master")],
+                    ["Sounds",	new Slider([0, 1], 1,		"audio_sounds")],
+                    ["Music",	new Slider([0, 1], 1,		"audio_music")]
+                ]],
+            
+                ["Graphics", [
+                    ["Quality",	    new Shift(["Low", "Medium", "High", "Ultra"], 2, "quality")],
+                    ["Window Mode",	new Shift(["Windowed", "Fullscreen"], 1, "window_mode")],
+                    ["Vsync",		new Toggle(0,		"vsync")]
+                ]],
+            ]],
 
-        ["Credits", new Credits(credits_string)],
+            ["Credits", new Credits(credits_string)],
 
-        ["Quit",    new ScriptRunner(game_end]
-    ];
+            ["Quit",    new ScriptRunner(game_end]
+        ];
+    </code></pre>
 
 Ok this may look a bit confusing here is what is does:
 
@@ -101,16 +103,20 @@ You can have as many presets as you want.
 
 So the start button before:
 
- .. code-block:: none
+ .. raw:: html
 
-    ["Start",   new ScriptRunner(function() { room = rGame }]
+    <pre><code class="language-gml">
+        ["Start",   new ScriptRunner(function() { room = rGame }]
+    </code></pre>
 
 And the start button with an additional preset:
 
- .. code-block:: none
+ .. raw:: html
 
-    ["Start",   new ScriptRunner(function() { room = rGame },
-    "Resume",   new ScriptRunner(resumeGame)]
+    <pre><code class="language-gml">
+        ["Start",   new ScriptRunner(function() { room = rGame },
+        "Resume",   new ScriptRunner(resumeGame)]
+    </code></pre>
 
  .. warning::
     The second button is added to the end of an existing button array and it isn't in a separate array!
@@ -208,10 +214,12 @@ Here you can change the window size, volume etc.
 
 Here is a basic example:
 
- .. code-block::
+ .. raw:: html
 
-    audio_master_gain(global.settings.audio_master);
-    if (global.settings.window_mode != window_get_fullscreen()) window_set_fullscreen(global.settings.window_mode);
+    <pre><code class="language-gml">
+        audio_master_gain(global.settings.audio_master);
+        if (global.settings.window_mode != window_get_fullscreen()) window_set_fullscreen(global.settings.window_mode);
+    </code></pre>
 
 Enabling/disabling the menu
 ---------------------------
