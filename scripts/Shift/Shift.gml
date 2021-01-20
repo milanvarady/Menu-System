@@ -6,7 +6,7 @@
 /// @param {real}	default_val		Default value if save file doesn't exists
 /// @param {string} save_key		The name under the value is being stored in the settings struct
 
-/// @returns {struct}
+/// @return {struct}
 
 function Shift(options, default_val, save_key) : MenuElement() constructor {
 	self.save_key	= save_key;

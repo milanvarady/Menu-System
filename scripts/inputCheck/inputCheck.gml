@@ -6,7 +6,7 @@
 /// @param {bool}				[pressed]				Whether the input should be checked as pressed or not (default: false)
 /// @param {real}				[gamepad_device]		Damepad device to check (default: 0)
 
-/// @returns {bool}
+/// @return {bool}
 
 function inputCheck(inp, pressed, gp_num) {
 	if (pressed == undefined) pressed = false;

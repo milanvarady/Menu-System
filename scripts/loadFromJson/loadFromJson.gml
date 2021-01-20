@@ -4,7 +4,7 @@
 
 /// @param {string} filename	The file to load
 
-/// @returns {struct/array}
+/// @return {struct/array}
 
 function loadFromJson(filename) {
 	var str = loadStringFromFile(filename);

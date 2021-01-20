@@ -4,7 +4,7 @@
 
 /// @param {input}	input	The input to convert
 
-/// @returns {string}
+/// @return {string}
 
 function inputToString(in) {
 	var str = "";

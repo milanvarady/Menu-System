@@ -4,7 +4,7 @@
 
 /// @param {ds_list/array}  ds_list/array    The list/array to be converted
 
-/// @returns {ds_list/array}
+/// @return {ds_list/array}
 
 function convertList(ds) {
     if (is_array(ds)) {

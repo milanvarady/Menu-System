@@ -5,7 +5,7 @@
 /// @param {input}	input		The input to get the type of
 /// @param {bool}	[subtype]	Whether the type should be more or less detailed. If true it can return e_input_subtype.vk, uicode, gp, gp_axis and mouse.
 
-/// @returns {enum}
+/// @return {enum}
 
 // Types enum
 enum e_input_type {

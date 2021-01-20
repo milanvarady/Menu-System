@@ -4,7 +4,7 @@
 
 /// @param {string} filename	The file to load
 
-/// @returns {string/undefined}
+/// @return {string/undefined}
 
 function loadStringFromFile(filename){
 	try {

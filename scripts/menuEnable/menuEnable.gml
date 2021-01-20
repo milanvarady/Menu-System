@@ -4,7 +4,7 @@
 
 /// @param {bool} enable    Whether to enable or disable the menu
 
-/// @returns {undefined} N/A
+/// @return {undefined} N/A
 
 function menuEnable(enable) {
     if (enable) {

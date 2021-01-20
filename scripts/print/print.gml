@@ -4,7 +4,7 @@
 
 /// @param {any} values...
 
-/// @returns {undefined} N/A
+/// @return {undefined} N/A
 
 function print() {
 	for (var i = 0; i < argument_count; i++) {

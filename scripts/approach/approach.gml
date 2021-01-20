@@ -6,7 +6,7 @@
 /// @param {real} [target]	The target value (default: 0)
 /// @param {real} [amount]	The amount in wich the value is moved towards the target (defalut: 1)
 
-/// @returns {real}			The moved value
+/// @return {real}			The moved value
 
 function approach(value, target, amount) {
 	if (target == undefined) target = 0;

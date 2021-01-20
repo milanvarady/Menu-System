@@ -5,7 +5,7 @@
 /// @param {real}	x
 /// @param {real}	y
 /// @param {string} name
-/// @returns {undefined} N/A
+/// @return {undefined} N/A
 
 function drawButton(x, y, name) {
 	var look = oMenu.item_look.button

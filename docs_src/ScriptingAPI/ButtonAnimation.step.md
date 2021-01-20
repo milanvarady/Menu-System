@@ -10,3 +10,6 @@ step()
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | selected | `bool` |  |
+
+## Returns
+`undefined` N/A

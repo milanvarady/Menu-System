@@ -10,7 +10,7 @@
 /// @param {any}            item             The item to look for
 /// @param {ds_type}        [ds_type]        (optional) Only if dealing with a ds
 
-/// @returns {bool}
+/// @return {bool}
 
 function contains(ds, item, ds_type) {
     if (ds_type == undefined) {

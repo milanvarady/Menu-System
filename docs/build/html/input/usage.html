@@ -18,7 +18,9 @@
     <link rel="prev" title="Installation" href="installation.html" />
 <link rel="stylesheet" type="text/css" 
      href="../_static/custom.css" /> 
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" />
+<link rel="stylesheet" type="text/css" 
+     href="../_static/dracula.css" />      
+     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" /> -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js" integrity="sha512-YBk7HhgDZvBxmtOfUdvX0z8IH2d10Hp3aEygaMNhtF8fSOvBZ16D/1bXZTJV6ndk/L/DlXxYStP8jrF77v2MIg==" crossorigin="anonymous"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-gml.min.js" integrity="sha512-nnmnyMhyZC3NBvEVvzsQbzJbs7p+JUVp5GRcGrTZlO4LjQ+4wB58zNSn+TQcE/Bpe1fb0GYivV0/f/VRbZMChA==" crossorigin="anonymous"></script>
 
@@ -87,11 +89,22 @@ Read more about checking methods <a class="reference internal" href="#checking-m
 <p>Now the variable <code class="code docutils literal notranslate"><span class="pre">in</span></code> holds the result of the check. To get the input do <code class="code docutils literal notranslate"><span class="pre">in.category.checking_method</span></code>.
 The <strong>category</strong> is one of the names you defined when you created the system (e.g. right).
 The <strong>checking method</strong> can be either <code class="code docutils literal notranslate"><span class="pre">.down</span></code> or <code class="code docutils literal notranslate"><span class="pre">.pressed</span></code>. You can read more about the checking methods <a class="reference internal" href="#checking-methods"><span class="std std-ref">here</span></a>.</p>
+<p>The input system also has more useful methods and variables you can change.</p>
+<p>The most important is the <code class="code docutils literal notranslate"><span class="pre">inputs</span></code> variable. It holds its inputs. So if you want to redefine them in game do this:</p>
 <blockquote>
-<div></div></blockquote>
+<div><pre><code class="language-gml">
+    in_sys.inputs = {
+        new_category_1: [new_input1, new_input2, new_input3...],
+    }
+</code></pre></div></blockquote>
+<p id="defining-inputs">There is also a <code class="code docutils literal notranslate"><span class="pre">gamepad_device</span></code> variable which defines which gamepad is checked with the <code class="code docutils literal notranslate"><span class="pre">.check()</span></code> method.</p>
+<p>So to change it set it to any number between <code class="code docutils literal notranslate"><span class="pre">0</span></code> and <code class="code docutils literal notranslate"><span class="pre">12</span></code>.
+But also I recommend using the <code class="code docutils literal notranslate"><span class="pre">global.gamepads_connected</span></code> variable. Read more about it <a class="reference internal" href="#gamepads-connected"><span class="std std-ref">here</span></a>.</p>
+<p>And here is the list of methods.</p>
+<p>Insert methods here !!!</p>
 </div>
-<div class="section" id="defining-inputs">
-<span id="id3"></span><h2>Defining inputs<a class="headerlink" href="#defining-inputs" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>Defining inputs<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>This sytem uses different ways to define inputs than the default. Here is the list what you can use and what you cannot:</p>
 <div class="section" id="keyboard">
 <h3>Keyboard<a class="headerlink" href="#keyboard" title="Permalink to this headline">¶</a></h3>
@@ -140,7 +153,7 @@ Also this system adds four new constants the <code class="code docutils literal 
 </dl>
 </div>
 <div class="section" id="gamepads-connected-array">
-<span id="vk-constants"></span><h2>Gamepads connected array<a class="headerlink" href="#gamepads-connected-array" title="Permalink to this headline">¶</a></h2>
+<span id="gamepads-connected"></span><h2>Gamepads connected array<a class="headerlink" href="#gamepads-connected-array" title="Permalink to this headline">¶</a></h2>
 <p>This system has a <code class="code docutils literal notranslate"><span class="pre">global.gamepads_connected</span></code> array. Which makes handling gamepad connections/disconnections much easier.</p>
 <p>What it does is if a gamepad connects it adds it to the first empty index in the array. And if one disconnects it removes it.</p>
 <p>This is good because gamemaker indexes all connected gamepads with a number from <code class="code docutils literal notranslate"><span class="pre">0</span></code> to how many gamepads are connected.
@@ -149,9 +162,11 @@ gamemaker will reindex all that comes after it so the index <code class="code do
 <p>So essentially now everyone controls a different player in the game.</p>
 <p>So when you supply the <strong>gamepad device nuber</strong> to a function, and you don’t want the controllers to change index when one disconnects,
 use the <code class="code docutils literal notranslate"><span class="pre">global.gamepads_connected[0]</span></code> instead of just <code class="code docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<blockquote>
+<div></div></blockquote>
 </div>
 <div class="section" id="bonus-vk-constants">
-<h2>Bonus vk constants<a class="headerlink" href="#bonus-vk-constants" title="Permalink to this headline">¶</a></h2>
+<span id="vk-constants"></span><h2>Bonus vk constants<a class="headerlink" href="#bonus-vk-constants" title="Permalink to this headline">¶</a></h2>
 <dl class="simple">
 <dt>Here is the list of the <strong>vk</strong> constants this systems adds:</dt><dd><ul class="simple">
 <li><p><code class="code docutils literal notranslate"><span class="pre">vk_left_cmd</span></code> - Left command key (macOS only)</p></li>
@@ -203,7 +218,7 @@ use the <code class="code docutils literal notranslate"><span class="pre">global
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#inputcheck">InputCheck()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#inputsystem">InputSystem()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#defining-inputs">Defining inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Defining inputs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#checking-methods">Checking methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gamepads-connected-array">Gamepads connected array</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#bonus-vk-constants">Bonus vk constants</a></li>

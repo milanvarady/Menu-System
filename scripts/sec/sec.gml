@@ -5,7 +5,7 @@
 
 /// @param {real} seconds Senconds to conver to to frames
 
-/// @returns {real} Frames
+/// @return {real} Frames
 
 function sec(seconds) {
 	return seconds * game_get_speed(gamespeed_fps);

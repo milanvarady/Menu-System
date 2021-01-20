@@ -15,3 +15,6 @@ Changes a value in a range slider
 | range_array | `array` | The values range like this: [min_val, max_val] |
 | default_val | `real` | Default value if save file doesn't exists |
 | save_key | `string` | The name under the value is being stored in the settings struct |
+
+## Returns
+`struct` 

@@ -2,7 +2,7 @@
 
 /// @func getSettingsValue(default_val)
 /// @param {any} default_val
-/// @returns {any}
+/// @return {any}
 
 function getSettingsValue(default_val) {
 	if (variable_struct_get(global.settings, save_key) == undefined) {

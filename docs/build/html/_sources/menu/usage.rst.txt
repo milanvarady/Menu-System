@@ -172,7 +172,7 @@ But in case someting isn't working how you want it. Here are the other things I 
 Pausing
 #######
 
-If have a game you usally want to have a pause menu as well. 
+If have a game with a title menu you usally want to have a pause menu as well. 
 For that the system offers a bulit in pause system wich will basically take a "photo" of the screen, deactivate every object, and than draw the "photo" on the screen.
 This way it looks that the game is paused.
 

@@ -6,7 +6,7 @@
 /// @param {bool} [pressed] 	Whether to check as pressed or not (default: false)
 /// @param {real} [device]		Gamepad device number (default: 0)
 
-/// @returns {bool}
+/// @return {bool}
 
 function gpCheck(gp, pressed, gp_num) {
     if (pressed == undefined) pressed = false;

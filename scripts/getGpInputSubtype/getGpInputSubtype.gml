@@ -4,7 +4,7 @@
 
 /// @param {input} input	The input to get the type
 
-/// @returns {enum}
+/// @return {enum}
 
 enum e_gp_input_subtype {
     button,

@@ -11,6 +11,9 @@ new ButtonAnimation(type, selected)
 | ---- | ---- | ----------- |
 | type | `enum` |  |
 
+## Returns
+`undefined` N/A
+
 ## Methods
 | Name | Description |
 | ---- | ----------- |

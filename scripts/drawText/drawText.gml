@@ -8,7 +8,7 @@
 /// @param {real} 			[scale]				Text scale (default: 1)
 /// @param {color}			[outline_col]		The color of the outline or if nothing is passed in no outline will be drawn
 
-/// @returns {undefied}		N/A
+/// @return {undefied}		N/A
 
 function drawText(xx, yy, str, scale, oc) {
 	if (str == undefined) str = "";

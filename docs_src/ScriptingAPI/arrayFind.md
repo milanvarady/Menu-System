@@ -15,3 +15,6 @@ Finds a value in an array and returns its index.
 | array | `array` | The array |
 | item | `any` | Item to find |
 | all | `bool` | Whether to find all of the occurrences or just the first. All will be returned in an array. (default: false) |
+
+## Returns
+`real/array` 

@@ -17,3 +17,6 @@ Draws text with a certain scale and outline
 | str | `string` | String to be drawn |
 | scale | `real` | Text scale (default: 1) |
 | outline_col | `color` | The color of the outline or if nothing is passed in no outline will be drawn |
+
+## Returns
+`undefied` N/A

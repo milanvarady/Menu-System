@@ -5,7 +5,7 @@
 /// @param {vk or string}   key         The key to be checked. ord() is not accepted only vk and string (e.g. vk_left, "a", "1")
 /// @param {bool}          [pressed]	Whether to check as pressed or not (default: false)
 
-/// @returns {bool}
+/// @return {bool}
 
 function keyCheck(key, pressed) {
     if (pressed == undefined) pressed = false;

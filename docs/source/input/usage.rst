@@ -76,7 +76,28 @@ Now the variable :code:`in` holds the result of the check. To get the input do :
 The **category** is one of the names you defined when you created the system (e.g. right).
 The **checking method** can be either :code:`.down` or :code:`.pressed`. You can read more about the checking methods :ref:`here <checking_methods>`.
 
+The input system also has more useful methods and variables you can change.
+
+The most important is the :code:`inputs` variable. It holds its inputs. So if you want to redefine them in game do this:
+
+ .. raw:: html
+
+    <pre><code class="language-gml">
+        in_sys.inputs = {
+            new_category_1: [new_input1, new_input2, new_input3...],
+        }
+    </code></pre>
+
  .. _defining_inputs:
+
+There is also a :code:`gamepad_device` variable which defines which gamepad is checked with the :code:`.check()` method.
+
+So to change it set it to any number between :code:`0` and :code:`12`. 
+But also I recommend using the :code:`global.gamepads_connected` variable. Read more about it :ref:`here <gamepads_connected>`.
+
+And here is the list of methods.
+
+Insert methods here !!!
 
 Defining inputs
 ---------------
@@ -126,7 +147,7 @@ You can check inputs in two ways:
  * down - Returns :code:`true` continuously if the input is currently held down
  * pressed - Returns :code:`true` only at the moment when the input is pressed but not continuously
 
- .. _vk_constants:
+ .. _gamepads_connected:
 
 Gamepads connected array
 ------------------------
@@ -143,6 +164,8 @@ So essentially now everyone controls a different player in the game.
 
 So when you supply the **gamepad device nuber** to a function, and you don't want the controllers to change index when one disconnects,
 use the :code:`global.gamepads_connected[0]` instead of just :code:`0`.
+
+ .. _vk_constants:
 
 Bonus vk constants
 ------------------

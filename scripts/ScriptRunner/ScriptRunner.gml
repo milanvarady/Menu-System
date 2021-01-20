@@ -4,7 +4,7 @@
 
 /// @param {method}	method	The method wich will be run on press
 
-/// @returns {struct}
+/// @return {struct}
 
 function ScriptRunner(func) : MenuElement() constructor {
 	self.func = func;

@@ -13,3 +13,6 @@ Calls a method on press
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | method | `method` | The method wich will be run on press |
+
+## Returns
+`struct` 

@@ -16,3 +16,6 @@ Changes drawing color, font and alignment in one line
 | font | `font` | Font |
 | halign | `font_alignment` | Horizontal alignment (default: fa_centre) |
 | valign | `font_alignment` | Vertical alignment (default: fa_middle) |
+
+## Returns
+`undefined` N/A

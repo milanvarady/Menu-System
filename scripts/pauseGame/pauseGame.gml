@@ -4,7 +4,7 @@
 
 /// @param {array} [active_objs]  (optional) The list of objects to keep active after pausing
 
-/// @returns {undefined} N/A
+/// @return {undefined} N/A
 
 function pauseGame(active_objs) {
     with (oMenu) {

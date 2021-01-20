@@ -3,7 +3,7 @@
 
 /// @func pageFind(arr)
 /// @param {array} arr
-/// @returns {struct}
+/// @return {struct}
 
 function pageFind(arr) {
 	try {

@@ -5,7 +5,7 @@
 /// @param {data_structure} iterable
 /// @param {ds_type}        [ds_type] (optional) Only if getting the length of a ds
 
-/// @returns {real} Length of the iterable
+/// @return {real} Length of the iterable
 
 function getlen(iter, ds_type) {
     if (ds_type == undefined) {

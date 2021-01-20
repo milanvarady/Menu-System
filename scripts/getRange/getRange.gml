@@ -7,7 +7,7 @@
 /// @param {data_strucure}	iter 		Iterable data structure
 /// @param {ds_type}		[ds_type]	(optional) Only if dealing with a ds
 
-/// @returns {stuct} A struct with a minimum and maximum value
+/// @return {stuct} A struct with a minimum and maximum value
 
 function getRange(iter, ds_type) {
 	static range = function(_min, _max) constructor {

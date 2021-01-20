@@ -5,7 +5,7 @@
 /// @param {struct/array}	struct/array	The stuct/array nested datat structure to be saved
 /// @param {string}			filename		The name under the file will be saved
 
-/// @returns {undefined} N/A
+/// @return {undefined} N/A
 
 function saveToJson(struct_or_array, filename){
 	var str = json_stringify(struct_or_array);

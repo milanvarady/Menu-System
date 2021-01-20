@@ -1,5 +1,5 @@
 /// @func gotoPrevPage()
-/// @returns {undefined} N\A
+/// @return {undefined} N\A
 
 function gotoPrevPage() {
     with (oMenu) {

@@ -5,7 +5,7 @@
 /// @param {real} [preset]  (optional) The preset to change to
 /// @param {real} [room]    (optional) Room to go to
 
-/// @returns {undefined} N/A
+/// @return {undefined} N/A
 
 function menuModeTitle(preset, room) {
     if (preset != undefined) menuSetPreset(preset);

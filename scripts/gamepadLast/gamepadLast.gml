@@ -5,7 +5,7 @@
 /// @param {real} device	Gamepad device to check
 /// @param {bool} [pressed]	Whether the input should be checked as pressed or not (default: false)
 
-/// @returns {input}
+/// @return {input}
 
 #macro gp_none 0
 

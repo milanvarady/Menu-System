@@ -5,7 +5,7 @@
 /// @param {string} string		The string wich is going to be saved
 /// @param {string} filename	The name under the file will be saved
 
-/// @returns {undefined} N/A
+/// @return {undefined} N/A
 
 function saveStringToFile(str, filename) {
 	var buffer = buffer_create(string_byte_length(str)+1, buffer_fixed, 1);

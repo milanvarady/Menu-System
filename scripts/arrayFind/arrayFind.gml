@@ -6,7 +6,7 @@
 /// @param {any}    item    Item to find
 /// @param {bool}   [all]   Whether to find all of the occurrences or just the first. All will be returned in an array. (default: false)
 
-/// @returns {real/array}
+/// @return {real/array}
 
 function arrayFind(array, item, _all) {
     if (_all == undefined) _all = false;

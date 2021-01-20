@@ -4,7 +4,7 @@
 
 /// @param gamepad_device The gamepad to check (default: 0)
 
-/// @returns {input/undefined}
+/// @return {input/undefined}
 
 function inputLast(gp_num) {
 	if (gp_num == undefined) gp_num = 0;

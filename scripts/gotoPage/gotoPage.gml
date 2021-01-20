@@ -3,7 +3,7 @@
 
 /// @func gotoPage(page)
 /// @param {array} page
-/// @returns {undefined} N/A
+/// @return {undefined} N/A
 
 function gotoPage(_page) {
 	with (oMenu) {

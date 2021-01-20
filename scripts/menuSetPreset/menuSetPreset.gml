@@ -4,7 +4,7 @@
 
 /// @param {real} preset    The preset to swich to, indexing starts from 0.
 
-/// @returns {undefined} N/A
+/// @return {undefined} N/A
 
 function menuSetPreset(preset) {
     oMenu.menu_preset = preset + 1;

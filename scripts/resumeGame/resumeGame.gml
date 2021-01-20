@@ -4,7 +4,7 @@
 
 /// @param {bool} [keep_menu_active] If true the menu will remain active after resuming the game (default: false)
 
-/// @returns {undefined} N/A
+/// @return {undefined} N/A
 
 function resumeGame(keep_menu_active) {
 	if (keep_menu_active == undefined) keep_menu_active = false;

@@ -4,7 +4,7 @@
 
 /// @param {any} items...
 
-/// @returns {ds_list} The list created
+/// @return {ds_list} The list created
 
 function listCreate() {
 	var ls = ds_list_create();

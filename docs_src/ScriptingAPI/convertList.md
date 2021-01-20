@@ -13,3 +13,6 @@ Converts a ds_list into an array and vice versa
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | ds_list | `ds_list/array` | /array The list/array to be converted |
+
+## Returns
+`ds_list/array` 

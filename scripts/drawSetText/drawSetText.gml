@@ -7,7 +7,7 @@
 /// @param {font_alignment}	[halign]	Horizontal alignment (default: fa_centre)
 /// @param {font_alignment}	[valign]	Vertical alignment (default: fa_middle)
 
-/// @returns {undefined} N/A
+/// @return {undefined} N/A
 
 function drawSetText(col, font, ha, va) {
 	if (ha == undefined) ha = fa_center;
