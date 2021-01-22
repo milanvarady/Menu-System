@@ -8,6 +8,8 @@
 
 /// @return {bool}
 
+/// @example inputCheck([vk_right, "d", gp_axislr, gp_padr], true, global.gamepads_connected[0]); 
+
 function inputCheck(inp, pressed, gp_num) {
 	if (pressed == undefined) pressed = false;
 	if (gp_num == undefined) gp_num = 0;

@@ -6,6 +6,8 @@
 
 /// @return {undefined} N/A
 
+/// @example pauseGame([oMenu, oInputManager]);
+
 function pauseGame(active_objs) {
     with (oMenu) {
         menu_enabled = true;

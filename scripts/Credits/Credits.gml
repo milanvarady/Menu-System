@@ -4,7 +4,11 @@
 
 /// @param {string} string	The string to be displayed
 
-/// @returns {struct}
+/// @return {struct}
+
+/// @example new Credits(credits_string);
+
+/// @example new Credits(credits_string)
 
 function Credits(str) : MenuElement() constructor {
 	self.str = str;

@@ -8,6 +8,8 @@
 
 /// @return {bool}
 
+/// @example gpCheck(gp_axislr, true, global.gamepads_connected[0]);
+
 function gpCheck(gp, pressed, gp_num) {
     if (pressed == undefined) pressed = false;
     if (gp_num == undefined) gp_num = 0;

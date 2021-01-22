@@ -13,7 +13,9 @@
 /// @param {real}	[txt_scale]		Text scale (default: 1)
 /// @param {bool}	[left_origin]	If true sprites will be drawn with the origin on the left (default: false)
 
-/// @returns {undefined} N/A 
+/// @return {undefined} N/A
+
+/// @example drawInput(x, y, inputLast(), fDefault, 1, c_red, c_fuchsia, 2, false);
 
 function drawInput(x, y, input, font, scale, col, replace_col, txt_scale, left_origin) {
 	if (scale == undefined) scale = 1;

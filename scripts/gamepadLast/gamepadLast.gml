@@ -7,6 +7,8 @@
 
 /// @return {input}
 
+/// @example gamepadLast(0, false);
+
 #macro gp_none 0
 
 function gamepadLast(device, prs) {

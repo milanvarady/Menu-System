@@ -6,6 +6,8 @@
 
 /// @return {undefined} N/A
 
+/// @example menuEnable(false);
+
 function menuEnable(enable) {
     if (enable) {
         // Enable

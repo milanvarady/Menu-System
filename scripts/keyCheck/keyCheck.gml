@@ -7,6 +7,8 @@
 
 /// @return {bool}
 
+/// @example keyCheck(vk_right, true);
+
 function keyCheck(key, pressed) {
     if (pressed == undefined) pressed = false;
     

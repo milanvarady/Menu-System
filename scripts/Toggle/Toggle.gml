@@ -7,6 +7,8 @@
 
 /// @return {struct}
 
+/// @example new Toggle(1, "blood_effects")
+
 function Toggle(default_val, save_key) : MenuElement() constructor {
 	self.save_key	= save_key;
 	val				= getSettingsValue(default_val);

@@ -4,9 +4,11 @@
 
 /// @param {struct} 	input_system	The input system used
 /// @param {string}		[filename]		Save file name, or false if you don't want to save the inputs. (default: false)
-/// @param {array}		[order]			(optional) Order of inputs (e.g. ["right", "left", "jump")
+/// @param {array}		[order]			(optional) Order of inputs, because structs doesn't save their elements in order (e.g. ["right", "left", "jump")
 
-/// @returns {struct}
+/// @return {struct}
+
+/// @example new Controls(global.player_input_system, "input_save.json", ["right", "left", "jump"])
 
 function Controls(input_system, filename, order) : MenuElement() constructor {
 	if (filename == undefined) filename = false;
@@ -163,7 +165,7 @@ function Controls(input_system, filename, order) : MenuElement() constructor {
 /// @param inputs
 /// @param name
 
-/// @returns {struct}
+/// @return {struct}
 
 function Input(inputs, name) : MenuElement() constructor {
 	self.inputs = inputs;

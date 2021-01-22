@@ -8,6 +8,8 @@
 
 /// @return {struct}
 
+/// @example new Slider([0, 1], 0.3, "volume_master")
+
 function Slider(range_arr, default_val, save_key) : MenuElement() constructor {
 	self.save_key	= save_key;
 	val				= getSettingsValue(default_val);

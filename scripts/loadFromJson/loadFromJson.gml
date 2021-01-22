@@ -6,6 +6,8 @@
 
 /// @return {struct/array}
 
+/// @example loadFromJson("save.json");
+
 function loadFromJson(filename) {
 	var str = loadStringFromFile(filename);
 	

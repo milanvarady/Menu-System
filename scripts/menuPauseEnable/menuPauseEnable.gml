@@ -6,6 +6,8 @@
 
 /// @return {undefined} N/A
 
+/// @example menuPauseEnable(true);
+
 function menuPauseEnable(enable) {
     oMenu.pause_enabled = enable;
 }

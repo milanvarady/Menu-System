@@ -13,3 +13,6 @@ Saves the inputs to a file.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | filename | `string` | The name under the file will be saved |
+
+## Returns
+`undefined` N/A

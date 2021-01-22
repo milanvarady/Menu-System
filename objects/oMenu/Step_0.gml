@@ -1,9 +1,6 @@
 /// @desc Run button functions
 
-#region Change actual values !!!
-
-audio_master_gain(global.settings.audio_master);
-if (global.settings.window_mode != window_get_fullscreen()) window_set_fullscreen(global.settings.window_mode);
+#region Change actual values
 
 #endregion
 

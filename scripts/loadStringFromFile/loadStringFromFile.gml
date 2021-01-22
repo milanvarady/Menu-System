@@ -6,6 +6,8 @@
 
 /// @return {string/undefined}
 
+/// @example loadStringFromFile("save.json");
+
 function loadStringFromFile(filename){
 	try {
 		var buffer = buffer_load(filename);

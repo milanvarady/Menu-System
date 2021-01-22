@@ -7,6 +7,8 @@
 
 /// @return {bool}
 
+/// @example mbCheck(mb_left, true);
+
 function mbCheck(mb, pressed) {
     if (pressed == undefined) pressed = false;
     

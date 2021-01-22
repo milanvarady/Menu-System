@@ -6,6 +6,8 @@
 
 /// @return {undefined} N/A
 
+/// @example resumeGame(true);
+
 function resumeGame(keep_menu_active) {
 	if (keep_menu_active == undefined) keep_menu_active = false;
 	

@@ -13,3 +13,6 @@ Loads a saved input file.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | filename | `string` | The file to load |
+
+## Returns
+`undefined` N/A

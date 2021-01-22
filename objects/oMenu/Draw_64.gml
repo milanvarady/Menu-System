@@ -1,11 +1,6 @@
 /// @desc Drawing
 
-#region Title text !!!
-
-if (room == rTitle) {
-	drawSetText(c_white, fTitle)
-	drawText(gui_w / 2, gui_h / 5, "best game ever", 2, c_orange);
-}
+#region Title text
 
 #endregion
 

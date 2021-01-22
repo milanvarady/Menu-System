@@ -6,6 +6,8 @@
 
 /// @return {input/undefined}
 
+/// @example inputLast(global.gamepads_connected[0]);
+
 function inputLast(gp_num) {
 	if (gp_num == undefined) gp_num = 0;
 	

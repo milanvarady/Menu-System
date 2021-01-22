@@ -4,30 +4,17 @@
 
 /// @param {struct} inputs  The inputs in this format {name1: [in1, in2, in3...], name2: [in1, in2, in3...]...}
 
-/// @returns {struct} The input system
+/// @return {struct} The input system
 
-/*
-Usage:
-
-Create input system, most likely in a create event.
-Supply the input category names and and inputs in arrays.
-
-e.g.:
-in_sys = new InputSystem({
-    right:	[vk_right, "d", gp_padr,  gp_axislr],
-	left:	[vk_left,  "a", gp_padl,  gp_axisll],
-	jump:	[vk_up,    "w", gp_a]
-});
-
-Read more about how to define inputs here: !!!
-
-Methods:
-
-The input system has a bunch of useful methods. Here is the full list.
-
-/// insert methods here, add descriptions !!!
-
-*/
+/// @example
+/// ```gml
+/// in_sys = new InputSystem({
+///     right:  [vk_right,  "d", gp_padr, gp_axislr],
+///     left:   [vk_left,   "a", gp_padl, gp_axisll],
+///     jump:   [vk_up,     "w", gp_a],
+///     shoot:  [vk_space,  gp_shoulderrb, gp_x]
+/// });
+/// ```
 
 function InputSystem(inputs) constructor {
     self.inputs = inputs;
@@ -38,8 +25,9 @@ function InputSystem(inputs) constructor {
     /// @func check([gamepad_device])
     /// @desc Checks for the inputs. Retrurns a struct of each with a down, and pressed value. (e.g. right: {down: true, pressed: false)
     /// @param {real} [gamepad_device]  Gamepad device (default: 0)
-    /// @returns {struct}
-    
+    /// @return {struct}
+    /// @example in = in_sys.check();
+
     static check = function(gp_num) {
         if (gp_num != undefined and is_real(gp_num)) gamepad_device = gp_num;
         
@@ -75,7 +63,8 @@ function InputSystem(inputs) constructor {
     /// @func save(filename)
     /// @desc Saves the inputs to a file.
     /// @param {string} filename    The name under the file will be saved
-    /// @returns {undefined} N/A
+    /// @return {undefined} N/A
+    /// @example in_sys.save();
     
     static save = function(filename) {
         if (is_string(filename)) saveToJson(inputs, filename);
@@ -84,7 +73,8 @@ function InputSystem(inputs) constructor {
     /// @func load(filename)
     /// @desc Loads a saved input file.
     /// @param {string} filename    The file to load
-    /// @returns {undefined} N/A
+    /// @return {undefined} N/A
+    /// @example in_sys.load();
     
     static load = function(filename) {
         if (is_string(filename)) {
@@ -98,7 +88,8 @@ function InputSystem(inputs) constructor {
     
     /// @func describe()
     /// @desc Lists the currents inputs to the output window. Good for debugging purposes.
-    /// @returns {undefined} N/A
+    /// @return {undefined} N/A
+    /// @example in_sys.describe();
     
     static describe = function() {
         var str = json_stringify(inputs);
@@ -111,7 +102,8 @@ function InputSystem(inputs) constructor {
     
     /// @func clear()
     /// @desc Clears the input struct
-    /// @returns {undefined} N/A
+    /// @return {undefined} N/A
+    /// @example in_sys.clear();
     
     static clear = function() {
         inputs = {};

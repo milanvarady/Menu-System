@@ -2,11 +2,13 @@
 
 /// @desc Shifts a value between given options. The settings struct value is ranging from 0 to number of options - 1.
 
-/// @param {array}	options			The list of options (e.g. ["Easy", "Normal", "Hard"])
+/// @param {array}	options			The list of options with strings (e.g. ["Easy", "Normal", "Hard"])
 /// @param {real}	default_val		Default value if save file doesn't exists
 /// @param {string} save_key		The name under the value is being stored in the settings struct
 
 /// @return {struct}
+
+/// @example new Shift(["Easy", "Normal", "Hard"], 1, "difficulty")
 
 function Shift(options, default_val, save_key) : MenuElement() constructor {
 	self.save_key	= save_key;

@@ -72,6 +72,30 @@ And then to check them do the following. Most likely in a step event.
         in = in_sys.check();
     </code></pre>
 
+Here is an example how you can use this to move your player.
+
+ .. raw:: html
+
+    <pre><code class="language-gml">
+        // Create event
+        in_sys = new InputSystem({
+            right:  [vk_right,  "d", gp_padr, gp_axislr],
+            left:   [vk_left,   "a", gp_padl, gp_axisll],
+            jump:   [vk_up,     "w", gp_a],
+            shoot:  [vk_space,  gp_shoulderrb, gp_x]
+        });
+
+        // Step event
+        var input = in_sys.check();
+
+        if (input.right.down) x += 4;
+        if (input.left.down) x -= 4;
+
+        if (input.jump.pressed) y -= 10;
+
+        if (input.shoot.down) shoot();
+    </code></pre>
+
 Now the variable :code:`in` holds the result of the check. To get the input do :code:`in.category.checking_method`.
 The **category** is one of the names you defined when you created the system (e.g. right).
 The **checking method** can be either :code:`.down` or :code:`.pressed`. You can read more about the checking methods :ref:`here <checking_methods>`.

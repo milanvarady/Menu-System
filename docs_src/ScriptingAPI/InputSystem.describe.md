@@ -8,3 +8,6 @@ describe()
 
 ## Description
 Lists the currents inputs to the output window. Good for debugging purposes.
+
+## Returns
+`undefined` N/A

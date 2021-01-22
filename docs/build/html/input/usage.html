@@ -86,6 +86,27 @@ Read more about checking methods <a class="reference internal" href="#checking-m
 <div><pre><code class="language-gml">
     in = in_sys.check();
 </code></pre></div></blockquote>
+<p>Here is an example how you can use this to move your player.</p>
+<blockquote>
+<div><pre><code class="language-gml">
+    // Create event
+    in_sys = new InputSystem({
+        right:  [vk_right,  "d", gp_padr, gp_axislr],
+        left:   [vk_left,   "a", gp_padl, gp_axisll],
+        jump:   [vk_up,     "w", gp_a],
+        shoot:  [vk_space,  gp_shoulderrb, gp_x]
+    });
+
+    // Step event
+    var input = in_sys.check();
+
+    if (input.right.down) x += 4;
+    if (input.left.down) x -= 4;
+
+    if (input.jump.pressed) y -= 10;
+
+    if (input.shoot.down) shoot();
+</code></pre></div></blockquote>
 <p>Now the variable <code class="code docutils literal notranslate"><span class="pre">in</span></code> holds the result of the check. To get the input do <code class="code docutils literal notranslate"><span class="pre">in.category.checking_method</span></code>.
 The <strong>category</strong> is one of the names you defined when you created the system (e.g. right).
 The <strong>checking method</strong> can be either <code class="code docutils literal notranslate"><span class="pre">.down</span></code> or <code class="code docutils literal notranslate"><span class="pre">.pressed</span></code>. You can read more about the checking methods <a class="reference internal" href="#checking-methods"><span class="std std-ref">here</span></a>.</p>

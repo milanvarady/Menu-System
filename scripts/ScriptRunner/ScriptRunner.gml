@@ -6,6 +6,8 @@
 
 /// @return {struct}
 
+/// @example new ScriptRunner(function() { room_goto(rGame); })
+
 function ScriptRunner(func) : MenuElement() constructor {
 	self.func = func;
 	

@@ -2,13 +2,13 @@
 
 /// @desc Parent constructor of all other elements
 
-/// @returns {struct}
+/// @return {struct}
 
 function MenuElement() constructor {
 	/// @func setSettingsValue(value_key, val)
 	/// @param {string} value_key
 	/// @param {real}	val
-	/// @returns {undefined} N/A
+	/// @return {undefined} N/A
 	
 	static setSettingsValue = function(value_key, val) {
 		global.settings[$ value_key] = roundToN(val, 2);
@@ -18,7 +18,7 @@ function MenuElement() constructor {
 	/// @param {real}	amount
 	/// @param {array}	range_arr
 	/// @param {sound}	[sound]
-	/// @returns {undefined} N/A
+	/// @return {undefined} N/A
 	
 	static moveSettingsValue = function(amount, range_arr, sound) {
 		var new_val = val + amount;

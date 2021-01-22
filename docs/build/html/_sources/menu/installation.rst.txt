@@ -28,7 +28,7 @@ It requires:
 
 Do the same thing as above for for all of them.
 
-And you will also have to put the :code:`oMenu` object into the fist room. Otherwise the system won't work!
+And you will also have to put the :code:`oMenu` object into the first room. Otherwise the system won't work!
 
 And also make sure that :code:`oInputManager` is in the room and it gets created before the menu. 
 You can change this in the **Instance Creation Order** menu found in **Properties** at the left of the **Room Editor**.

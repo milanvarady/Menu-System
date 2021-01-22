@@ -7,6 +7,8 @@
 
 /// @return {undefined} N/A
 
+/// @example menuModePause(e_menu_presets.pause_menu, rGame);
+
 function menuModePause(preset, room) {
     if (preset != undefined) menuSetPreset(preset);
     if (room != undefined) room_goto(room);

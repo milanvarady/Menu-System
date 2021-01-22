@@ -88,7 +88,7 @@ You only want to change the <strong>(user)</strong> tagged regions.</p>
 <blockquote>
 <div><pre><code class="language-gml">
     menu = [
-        ["Start",   new ScriptRunner(function() { room = rGame }],
+        ["Start",   new ScriptRunner(function() { room = rGame })],
 
         ["Settings", [
             ["Audio", [
@@ -106,7 +106,7 @@ You only want to change the <strong>(user)</strong> tagged regions.</p>
 
         ["Credits", new Credits(credits_string)],
 
-        ["Quit",    new ScriptRunner(game_end]
+        ["Quit",    new ScriptRunner(game_end)]
     ];
 </code></pre></div></blockquote>
 <p>Ok this may look a bit confusing here is what is does:</p>
@@ -191,7 +191,7 @@ Set them to your liking.</p>
 <div class="section" id="pausing">
 <span id="id1"></span><h3>Pausing<a class="headerlink" href="#pausing" title="Permalink to this headline">¶</a></h3>
 <p>If have a game with a title menu you usally want to have a pause menu as well.
-For that the system offers a bulit in pause system wich will basically take a “photo” of the screen, deactivate every object, and than draw the “photo” on the screen.
+For that the system offers a built in pause system wich will basically take a “photo” of the screen, deactivate every object, and than draw the “photo” on the screen.
 This way it looks that the game is paused.</p>
 <dl class="simple">
 <dt>You can do this two ways:</dt><dd><ul class="simple">
@@ -212,6 +212,17 @@ This way it looks that the game is paused.</p>
 If you haven’t made any <strong>menu presets</strong> read about them <a class="reference internal" href="#menu-presets"><span class="std std-ref">here</span></a>.</p>
 <p>Ok, so when you want to switch to pause mode call the <code class="code docutils literal notranslate"><span class="pre">menuModePause()</span></code> function and set your preset by calling <code class="code docutils literal notranslate"><span class="pre">menuSetPreset()</span></code>.
 And when you want to set it back to title screen mode call <code class="code docutils literal notranslate"><span class="pre">menuModeTitle()</span></code> and set you preset back with <code class="code docutils literal notranslate"><span class="pre">menuSetPreset()</span></code>.</p>
+<p>Here is an example of a <strong>start</strong> and <strong>resume</strong> button, with pausing stuff.</p>
+<blockquote>
+<div><pre><code class="language-gml">
+    ["Start", new ScriptRunner(function() {
+        menuModePause();
+        menuSetPreset(e_menu_presets.pause_menu);
+        room_goto(rGame);
+    }),
+
+    "Resume", new ScriptRunner(resumeGame)]
+</code></pre></div></blockquote>
 <p>To change how the menu looks when the game is paused go to the <strong>Pause settings</strong> region in the create event.</p>
 </div>
 </div>

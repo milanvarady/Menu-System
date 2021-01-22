@@ -6,6 +6,8 @@
 
 /// @return {string}
 
+/// @example inputToString(inputLast());
+
 function inputToString(in) {
 	var str = "";
 

@@ -6,6 +6,8 @@
 
 /// @return {enum}
 
+/// @example getGpInputSubtype(gamepadLast());
+
 enum e_gp_input_subtype {
     button,
     dpad,

@@ -27,4 +27,4 @@ It requires:
 
 Do the same thing as above for both.
 
-And you will also have to put the :code:`oInputManager` object into the fist room. Otherwise the system won't work!
+And you will also have to put the :code:`oInputManager` object into the first room. Otherwise the system won't work!

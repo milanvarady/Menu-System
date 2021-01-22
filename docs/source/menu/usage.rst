@@ -55,7 +55,7 @@ Here is a basic example:
 
     <pre><code class="language-gml">
         menu = [
-            ["Start",   new ScriptRunner(function() { room = rGame }],
+            ["Start",   new ScriptRunner(function() { room = rGame })],
 
             ["Settings", [
                 ["Audio", [
@@ -69,11 +69,13 @@ Here is a basic example:
                     ["Window Mode",	new Shift(["Windowed", "Fullscreen"], 1, "window_mode")],
                     ["Vsync",		new Toggle(0,		"vsync")]
                 ]],
+
+                ["Controls", new Controls(global.input_sys, "input_save.json", ["right", "left", "up", "down"])]
             ]],
 
             ["Credits", new Credits(credits_string)],
 
-            ["Quit",    new ScriptRunner(game_end]
+            ["Quit",    new ScriptRunner(game_end)]
         ];
     </code></pre>
 
@@ -88,6 +90,11 @@ Then comes the :code:`"Credits"` which displays the credits text defined in the 
 
 And at last :code:`"Quit"` which runs the built in function :code:`game_end()`.
 
+Here are some some tips:
+ * The :code:`ScriptRunner` can call built in functions as well.
+ * When creating a :code:`Controls` menu it's good to make the input system :code:`global`, so the menu can acces it easily.
+ * :code:`Controls` generates a new menu page for it's self so you don't have to put it in an additional menu page.
+
  .. _menu_presets:
 
 Creating menu presets
@@ -95,6 +102,7 @@ Creating menu presets
 
 If you have a title menu you most likely want to have a pause menu as well. 
 But obviously a pause menu should have different buttons in it than a title menu, for instance instead of a **start** button you might want a **resume** button.
+Basically you can create alternatives of buttons for different situations.
 So for that this system has **menu presets** which allows you to change what buttos do when the game is running.
 
 To create a new preset for a button you simply add another name and button function to it.
@@ -109,7 +117,7 @@ So the start button before:
         ["Start",   new ScriptRunner(function() { room = rGame }]
     </code></pre>
 
-And the start button with an additional preset:
+And the start button with an additional **Resume** preset:
 
  .. raw:: html
 
@@ -124,7 +132,26 @@ And the start button with an additional preset:
 
 To change presets use the :code:`menuSetPreset()` function. Give it the preset number from :code:`0` to the :code:`number of presets - 1`.
 
-You can also use an enumerator for this purpose. There is one by default at the bottom of the **Menu array** region. Feel free to add your presets to it.
+I recommend using an enumerator for this purpose. There is one by default at the bottom of the **Menu array** region. Feel free to add your presets to it.
+
+Here is an example for a **Title** and **Pause menu** preset:
+
+ .. raw:: html
+
+    <pre><code class="language-gml">
+        enum e_menu_presets {
+            title_screen,
+            pause_menu
+	    }
+    </code></pre>
+
+So then later you can call :code:`menuSetPreset()` like this:
+
+ .. raw:: html
+
+    <pre><code class="language-gml">
+        menuSetPreset(e_menu_presets.pause_menu);
+    </code></pre>
 
 See more about pausing :ref:`here <pausing>`.
 
@@ -167,13 +194,21 @@ But in case someting isn't working how you want it. Here are the other things I 
  * To change things about pausing go to **Pause settings**
  * To change buttons used to navigate the menu go to **Input setup**
 
+And here are some tips if your font looks odd.
+
+If you are using a pixelated font turn of anti-aliasing on it. And if it still doesn't look right try changing the size of the asset until it looks good, 
+the nuber should be around the height of the font in pixels.
+
+On the other hand you are using a non-pixelated font scaling will mess it up, so go into **look** > **txt** and set scale to :code:`1`. 
+Now you will have to change the font assets size until it is properly sized, it takes some time but it's worth it.
+
  .. _pausing:
 
 Pausing
 #######
 
 If have a game with a title menu you usally want to have a pause menu as well. 
-For that the system offers a bulit in pause system wich will basically take a "photo" of the screen, deactivate every object, and than draw the "photo" on the screen.
+For that the system offers a built in pause system wich will basically take a "photo" of the screen, deactivate every object, and than draw the "photo" on the screen.
 This way it looks that the game is paused.
 
 You can do this two ways:
@@ -192,16 +227,43 @@ If you haven't made any **menu presets** read about them :ref:`here <menu_preset
 Ok, so when you want to switch to pause mode call the :code:`menuModePause()` function and set your preset by calling :code:`menuSetPreset()`.
 And when you want to set it back to title screen mode call :code:`menuModeTitle()` and set you preset back with :code:`menuSetPreset()`.
 
+Here is an example of a **Start** button with a **Resume** preset.
+
+ .. raw:: html
+
+    <pre><code class="language-gml">
+        ["Start", new ScriptRunner(function() { 
+            menuModePause();
+            menuSetPreset(e_menu_presets.pause_menu);
+            room_goto(rGame);
+        }),
+        
+        "Resume", new ScriptRunner(resumeGame)]
+    </code></pre>
+
+And here is an example of a **Quit** button with a **Back to title** preset.
+
+ .. raw:: html
+
+    <pre><code class="language-gml">
+        ["Quit",		new ScriptRunner(game_end),
+
+		"Title Screen", new ScriptRunner(function() { 
+			menuModeTitle(); 
+			menuSetPreset(e_menu_presets.title_screen);
+			room = rTitle;
+		})]
+    </code></pre>
+
 To change how the menu looks when the game is paused go to the **Pause settings** region in the create event.
 
-The settings struct
--------------------
+The settings struct (getting values)
+------------------------------------
 
 After you have created your menu you want to get the values of settings somehow.
 
-To do this first you have to define a **save key** in the menu array for every element that changes a value. This is the name under the value will be saved in a struct called :code:`global.settings`.
-
-So to get a value just write :code:`global.setting.save_key` where the :code:`save_key` is what you defined in the menu array.
+The values are stored in a struct called :code:`global.settings`. 
+To get the value of an item write :code:`global.settings.save_key` where the :code:`save_key` is the string what you defined in the menu array when you created the item.
 
 Here is how the different elements save their values:
  * :code:`Slider` - (type: real) The value will be in the range you defined when you created it

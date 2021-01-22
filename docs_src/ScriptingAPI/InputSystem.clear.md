@@ -8,3 +8,6 @@ clear()
 
 ## Description
 Clears the input struct
+
+## Returns
+`undefined` N/A

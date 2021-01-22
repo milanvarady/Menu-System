@@ -7,6 +7,8 @@
 
 /// @return {enum}
 
+/// @example getInputType(inputLast());
+
 // Types enum
 enum e_input_type {
 	keyboard,

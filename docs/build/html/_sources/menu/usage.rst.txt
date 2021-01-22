@@ -55,7 +55,7 @@ Here is a basic example:
 
     <pre><code class="language-gml">
         menu = [
-            ["Start",   new ScriptRunner(function() { room = rGame }],
+            ["Start",   new ScriptRunner(function() { room = rGame })],
 
             ["Settings", [
                 ["Audio", [
@@ -73,7 +73,7 @@ Here is a basic example:
 
             ["Credits", new Credits(credits_string)],
 
-            ["Quit",    new ScriptRunner(game_end]
+            ["Quit",    new ScriptRunner(game_end)]
         ];
     </code></pre>
 
@@ -173,7 +173,7 @@ Pausing
 #######
 
 If have a game with a title menu you usally want to have a pause menu as well. 
-For that the system offers a bulit in pause system wich will basically take a "photo" of the screen, deactivate every object, and than draw the "photo" on the screen.
+For that the system offers a built in pause system wich will basically take a "photo" of the screen, deactivate every object, and than draw the "photo" on the screen.
 This way it looks that the game is paused.
 
 You can do this two ways:
@@ -191,6 +191,20 @@ If you haven't made any **menu presets** read about them :ref:`here <menu_preset
 
 Ok, so when you want to switch to pause mode call the :code:`menuModePause()` function and set your preset by calling :code:`menuSetPreset()`.
 And when you want to set it back to title screen mode call :code:`menuModeTitle()` and set you preset back with :code:`menuSetPreset()`.
+
+Here is an example of a **start** and **resume** button, with pausing stuff.
+
+ .. raw:: html
+
+    <pre><code class="language-gml">
+        ["Start", new ScriptRunner(function() { 
+            menuModePause();
+            menuSetPreset(e_menu_presets.pause_menu);
+            room_goto(rGame);
+        }),
+        
+        "Resume", new ScriptRunner(resumeGame)]
+    </code></pre>
 
 To change how the menu looks when the game is paused go to the **Pause settings** region in the create event.
 

@@ -7,6 +7,8 @@
 
 /// @return {undefined} N/A
 
+/// @example saveStringToFile();
+
 function saveStringToFile(str, filename) {
 	var buffer = buffer_create(string_byte_length(str)+1, buffer_fixed, 1);
 

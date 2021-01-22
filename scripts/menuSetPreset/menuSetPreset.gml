@@ -6,6 +6,8 @@
 
 /// @return {undefined} N/A
 
+/// @example menuSetPreset(e_menu_presets.pause_menu);
+
 function menuSetPreset(preset) {
     oMenu.menu_preset = preset + 1;
 }

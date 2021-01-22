@@ -14,6 +14,9 @@ This constructor creates a new input system.
 | ---- | ---- | ----------- |
 | inputs | `struct` | The inputs in this format {name1: [in1, in2, in3...], name2: [in1, in2, in3...]...} |
 
+## Returns
+`struct` The input system
+
 ## Methods
 | Name | Description |
 | ---- | ----------- |
