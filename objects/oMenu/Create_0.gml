@@ -157,12 +157,19 @@ var credits_string =
 				}
 			},
 			
-			// Text at the bottom (saying: "ENTER - Add Inputs DELETE - Clear Inputs")
-			bottom_text: {
-				font:			oMenu.look.txt.small.font,			// Text font
-				scale:			auto,								// (A) Text scale
-				col:			oMenu.look.col.selected.normal,		// Text color
-				dis_from_side:	auto								// (A) Distance from the side of the screen
+			// Selected item rectangle
+			rect: {
+				w:				auto,								// (A) Width
+				h:				auto,								// (A) Height
+				roundness:		auto,								// (A) Corner roundness
+				col:			oMenu.look.col.unselected.normal,	// Color
+				
+				// Alpha values
+				alpha: {
+					unselected:	0.2,	// Unselected alpha
+					selected:	0.5,	// Selected alpha
+					edit:		0.8		// Edit mode alpha
+				}
 			}
 		},
 		
@@ -248,8 +255,28 @@ var credits_string =
 #region Menu array (user)
 
 	menu = [
-		
-	];
+        ["Start",   new ScriptRunner(function() { room = rGame })],
+
+        ["Settings", [
+            ["Audio", [
+                ["Master",  new Slider([0, 1], 0.3,         "audio_master")],
+                ["Sounds",  new Slider([0, 1], 1,           "audio_sounds")],
+                ["Music",   new Slider([0, 1], 1,           "audio_music")]
+            ]],
+
+            ["Graphics", [
+                ["Quality",			new Shift(["Low", "Medium", "High", "Ultra"], 2, "quality")],
+                ["Window Mode",     new Shift(["Windowed", "Fullscreen"], 1, "window_mode")],
+                ["Vsync",           new Toggle(0,           "vsync")]
+            ]],
+
+            ["Controls", new Controls(global.input_sys, "input_save.json", ["right", "left", "up", "down"])]
+        ]],
+
+        ["Credits", new Credits(credits_string)],
+
+        ["Quit",    new ScriptRunner(game_end)]
+    ];
 	
 	enum e_menu_presets {
 		
@@ -324,8 +351,9 @@ var icon_h = sprite_get_height(global.input_sprites.key.simple);
 automate(item_look.controls.icon,		"x_buffer",	r_side_w / item_look.controls.max_inputs);
 automate(item_look.controls.icon,		"scale",	text_height.normal / icon_h);
 automate(item_look.controls.icon.txt,	"scale",	((icon_h * item_look.controls.icon.scale) * 0.6) / (text_height.small));
-automate(item_look.controls.bottom_text,"scale",	look.txt.small.scale);
-automate(item_look.controls.bottom_text,"dis_from_side",	look.pos.buffer.x * 0.5);
+automate(item_look.controls.rect,		"w",		item_look.controls.icon.x_buffer * 0.9);
+automate(item_look.controls.rect,		"h",		sprite_get_height(global.input_sprites.key.simple) * item_look.controls.icon.scale * 1.2);
+automate(item_look.controls.rect,		"roundness",oMenu.item_look.button.roundness);
 
 // Credits
 draw_set_font(item_look.credits.txt.font);
@@ -410,6 +438,7 @@ delete text_height;
 	anim_array = [];
 	scrolling_y = undefined;
 	scrolling_y_to = 0;
+	in_column = 0;
 	
 	#endregion
 

@@ -89,7 +89,7 @@ Read more about checking methods <a class="reference internal" href="#checking-m
 <p>Here is an example how you can use this to move your player.</p>
 <blockquote>
 <div><pre><code class="language-gml">
-    // Create event
+    /// Create event
     in_sys = new InputSystem({
         right:  [vk_right,  "d", gp_padr, gp_axislr],
         left:   [vk_left,   "a", gp_padl, gp_axisll],
@@ -97,7 +97,7 @@ Read more about checking methods <a class="reference internal" href="#checking-m
         shoot:  [vk_space,  gp_shoulderrb, gp_x]
     });
 
-    // Step event
+    /// Step event
     var input = in_sys.check();
 
     if (input.right.down) x += 4;
@@ -121,8 +121,35 @@ The <strong>checking method</strong> can be either <code class="code docutils li
 <p id="defining-inputs">There is also a <code class="code docutils literal notranslate"><span class="pre">gamepad_device</span></code> variable which defines which gamepad is checked with the <code class="code docutils literal notranslate"><span class="pre">.check()</span></code> method.</p>
 <p>So to change it set it to any number between <code class="code docutils literal notranslate"><span class="pre">0</span></code> and <code class="code docutils literal notranslate"><span class="pre">12</span></code>.
 But also I recommend using the <code class="code docutils literal notranslate"><span class="pre">global.gamepads_connected</span></code> variable. Read more about it <a class="reference internal" href="#gamepads-connected"><span class="std std-ref">here</span></a>.</p>
-<p>And here is the list of methods.</p>
-<p>Insert methods here !!!</p>
+<dl class="simple">
+<dt>And here is the list of methods you can use.</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">.check</span></code> - Checks for the inputs.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">.save</span></code> - Saves the input system into a file.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">.load</span></code> - Loads a saved input system from a file.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">.describe</span></code> - Lists the currents inputs to the output window. Good for debugging purposes.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">.clear</span></code> - Clears the input struct.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Here is an example how you can use these methods.</p>
+<blockquote>
+<div><pre><code class="language-gml">
+    /// Create event
+
+    // Create system
+    in_sys = new InputSystem({
+        right:  [vk_right,  "d", gp_padr, gp_axislr],
+        left:   [vk_left,   "a", gp_padl, gp_axisll]
+    });
+
+    // Load in save file
+    if (file_exists("input_save.json")) in_sys.load("input_save.json");
+
+    /// Cleanup event
+    in_sys.save("input_save.json");
+    in_sys.clear();
+    delete in_sys;
+</code></pre></div></blockquote>
 </div>
 <div class="section" id="id3">
 <h2>Defining inputs<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>

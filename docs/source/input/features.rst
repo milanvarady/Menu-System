@@ -3,7 +3,7 @@
 Features
 ========
 
-Okay so why do you need an input system? 
+Okay, so why do you need an input system? 
 If you ever wanted your player to move right with multiple inputs you did something like this:
 
  .. raw:: html
@@ -25,7 +25,7 @@ Read more about the :code:`inputCheck()` function :ref:`here <inputcheck>`.
 
 But we can go a step further with this system. Imagine that you want your player to do the following: 
 move right and left, jump and shoot.
-For that you could create a new InputSystem wich stores inputs in categories and checks them automatically for you.
+For that, you could create a new InputSystem that stores a set of inputs in categories and checks them automatically for you.
 Here is an example:
 
  .. raw:: html
@@ -63,7 +63,7 @@ The system contains a lot more useful stuff. Here is a list of what else it can 
  * Getting the last input pressed from any type
  * Getting the type of any input
  * Turning an input into a string (good for drawing and debugging)
- * Drawing inputs with nice looking icons
+ * Drawing inputs with nice-looking icons
  * Replacing :code:`ord(“X”)` with :code:`“x”`
  * Replacing :code:`gamepad_axis_value()` with new constants like :code:`gp_axislr`
  * Checking gamepad axis inputs as pressed

@@ -77,7 +77,7 @@ Here is an example how you can use this to move your player.
  .. raw:: html
 
     <pre><code class="language-gml">
-        // Create event
+        /// Create event
         in_sys = new InputSystem({
             right:  [vk_right,  "d", gp_padr, gp_axislr],
             left:   [vk_left,   "a", gp_padl, gp_axisll],
@@ -85,7 +85,7 @@ Here is an example how you can use this to move your player.
             shoot:  [vk_space,  gp_shoulderrb, gp_x]
         });
 
-        // Step event
+        /// Step event
         var input = in_sys.check();
 
         if (input.right.down) x += 4;
@@ -119,9 +119,34 @@ There is also a :code:`gamepad_device` variable which defines which gamepad is c
 So to change it set it to any number between :code:`0` and :code:`12`. 
 But also I recommend using the :code:`global.gamepads_connected` variable. Read more about it :ref:`here <gamepads_connected>`.
 
-And here is the list of methods.
+And here is the list of methods you can use.
+ * :code:`.check` - Checks for the inputs.
+ * :code:`.save` - Saves the input system into a file.
+ * :code:`.load` - Loads a saved input system from a file.
+ * :code:`.describe` - Lists the currents inputs to the output window. Good for debugging purposes.
+ * :code:`.clear` - Clears the input struct.
 
-Insert methods here !!!
+Here is an example how you can use these methods.
+
+ .. raw:: html
+
+    <pre><code class="language-gml">
+        /// Create event
+
+        // Create system
+        in_sys = new InputSystem({
+            right:  [vk_right,  "d", gp_padr, gp_axislr],
+            left:   [vk_left,   "a", gp_padl, gp_axisll]
+        });
+
+        // Load in save file
+        if (file_exists("input_save.json")) in_sys.load("input_save.json");
+
+        /// Cleanup event
+        in_sys.save("input_save.json");
+        in_sys.clear();
+        delete in_sys;
+    </code></pre>
 
 Defining inputs
 ---------------

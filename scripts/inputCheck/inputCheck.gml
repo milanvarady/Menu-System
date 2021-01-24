@@ -14,13 +14,17 @@ function inputCheck(inp, pressed, gp_num) {
 	if (pressed == undefined) pressed = false;
 	if (gp_num == undefined) gp_num = 0;
 	
-	var input = false;
 	var arr = is_array(inp) ? inp : [inp];
 	
-	var num = array_length(arr);
+	var input = false;
 	
-	for (var i = 0; i < num; i++) {
+	var len = getlen(arr);
+	
+	for (var i = 0; i < len; i++) {
 		var in = arr[i];
+		
+		if (in == 0 or in == undefined) continue;
+		
 		var type = getInputType(in);
 		
 		switch (type) {

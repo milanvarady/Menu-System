@@ -107,6 +107,9 @@ global.input_range = {
 	ord_numbers:	getRange([ord("0"), ord("9")])
 };
 
+// Debugging
+//print("###########\nInput ranges\n", "Key", global.input_range.key, "Gamepad", global.input_range.gamepad, "Mouse", global.input_range.mouse, "\n\n");
+
 #endregion
 
 #region Gamepad last array (system)

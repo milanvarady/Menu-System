@@ -4,7 +4,7 @@ Usage
 Setup guide
 -----------
 
-This will guide you through the important seps to set up a fully functional menu.
+This will guide you through the important steps to set up a fully functional menu.
 
 Regions
 #######
@@ -14,7 +14,7 @@ Open :code:`oMenu`'s create event, here is everything for configuring the menu.
 Here you'll see a lot of regions. All of them are marked either with a **(system)** or a **(user)** tag.
 You only want to change the **(user)** tagged regions.
 
-Basically every region is a settings for something.
+Every region is a settings for something.
 
 Here is a list of the regions and what they do:
  * Audio settings       - Menu sound effects settings
@@ -29,7 +29,7 @@ Here is a list of the regions and what they do:
 Creating the menu array
 #######################
 
-First you should create the menu array. Which defines how your menu structured, what buttons are on which page and what do they do.
+First, you should create the menu array. Which defines how your menu is structured, what buttons are on which page and what do they do.
 
 Go to the menu's **Menu array** region, here will be an empty array. This is where your buttons go.
 
@@ -79,7 +79,7 @@ Here is a basic example:
         ];
     </code></pre>
 
-Ok this may look a bit confusing here is what is does:
+Okay, this may look a bit confusing here is what it does:
 
 The first button is the :code:`"Start"`, it runs a function which simply goes to another room.
 
@@ -90,9 +90,9 @@ Then comes the :code:`"Credits"` which displays the credits text defined in the 
 
 And at last :code:`"Quit"` which runs the built in function :code:`game_end()`.
 
-Here are some some tips:
- * The :code:`ScriptRunner` can call built in functions as well.
- * When creating a :code:`Controls` menu it's good to make the input system :code:`global`, so the menu can acces it easily.
+Here are some tips:
+ * The :code:`ScriptRunner` can call built-in functions as well.
+ * When creating a :code:`Controls` menu it's good to make the input system :code:`global`, so the menu can access it easily.
  * :code:`Controls` generates a new menu page for it's self so you don't have to put it in an additional menu page.
 
  .. _menu_presets:

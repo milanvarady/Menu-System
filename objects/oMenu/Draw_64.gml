@@ -175,7 +175,8 @@ if (menu_h > (gui_h - start_y)) {
 				
 				// Run items draw method
 				if (item.item != undefined) {
-					if (variable_struct_get(item.item, "draw") != undefined) item.item.draw(xx, yy);
+					var selected = menu_option == i;
+					if (variable_struct_get(item.item, "draw") != undefined) item.item.draw(xx, yy, selected);
 				}
 			}
 		}

@@ -41,13 +41,13 @@
 <h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="setup-guide">
 <h2>Setup guide<a class="headerlink" href="#setup-guide" title="Permalink to this headline">¶</a></h2>
-<p>This will guide you through the important seps to set up a fully functional menu.</p>
+<p>This will guide you through the important steps to set up a fully functional menu.</p>
 <div class="section" id="regions">
 <h3>Regions<a class="headerlink" href="#regions" title="Permalink to this headline">¶</a></h3>
 <p>Open <code class="code docutils literal notranslate"><span class="pre">oMenu</span></code>’s create event, here is everything for configuring the menu.</p>
 <p>Here you’ll see a lot of regions. All of them are marked either with a <strong>(system)</strong> or a <strong>(user)</strong> tag.
 You only want to change the <strong>(user)</strong> tagged regions.</p>
-<p>Basically every region is a settings for something.</p>
+<p>Every region is a settings for something.</p>
 <dl class="simple">
 <dt>Here is a list of the regions and what they do:</dt><dd><ul class="simple">
 <li><p>Audio settings       - Menu sound effects settings</p></li>
@@ -64,7 +64,7 @@ You only want to change the <strong>(user)</strong> tagged regions.</p>
 </div>
 <div class="section" id="creating-the-menu-array">
 <h3>Creating the menu array<a class="headerlink" href="#creating-the-menu-array" title="Permalink to this headline">¶</a></h3>
-<p>First you should create the menu array. Which defines how your menu structured, what buttons are on which page and what do they do.</p>
+<p>First, you should create the menu array. Which defines how your menu is structured, what buttons are on which page and what do they do.</p>
 <p>Go to the menu’s <strong>Menu array</strong> region, here will be an empty array. This is where your buttons go.</p>
 <dl class="simple">
 <dt>That empty array is a page array which means that it stores buttons. Buttons are also arrays they consist of two elements:</dt><dd><ul class="simple">
@@ -102,6 +102,8 @@ You only want to change the <strong>(user)</strong> tagged regions.</p>
                 ["Window Mode",     new Shift(["Windowed", "Fullscreen"], 1, "window_mode")],
                 ["Vsync",           new Toggle(0,           "vsync")]
             ]],
+
+            ["Controls", new Controls(global.input_sys, "input_save.json", ["right", "left", "up", "down"])]
         ]],
 
         ["Credits", new Credits(credits_string)],
@@ -109,19 +111,26 @@ You only want to change the <strong>(user)</strong> tagged regions.</p>
         ["Quit",    new ScriptRunner(game_end)]
     ];
 </code></pre></div></blockquote>
-<p>Ok this may look a bit confusing here is what is does:</p>
+<p>Okay, this may look a bit confusing here is what it does:</p>
 <p>The first button is the <code class="code docutils literal notranslate"><span class="pre">&quot;Start&quot;</span></code>, it runs a function which simply goes to another room.</p>
 <p>After that comes <code class="code docutils literal notranslate"><span class="pre">&quot;Settings&quot;</span></code> which holds another menu page.
 Inside the <code class="code docutils literal notranslate"><span class="pre">&quot;Settings&quot;</span></code> there are also two menu pages <code class="code docutils literal notranslate"><span class="pre">&quot;Audio&quot;</span></code> and <code class="code docutils literal notranslate"><span class="pre">&quot;Graphics&quot;</span></code>. These have a mix of <strong>sliders</strong>, <strong>toggles</strong>, and <strong>shifts</strong> in them.</p>
 <p>Then comes the <code class="code docutils literal notranslate"><span class="pre">&quot;Credits&quot;</span></code> which displays the credits text defined in the <strong>Credits text</strong> region.</p>
 <p>And at last <code class="code docutils literal notranslate"><span class="pre">&quot;Quit&quot;</span></code> which runs the built in function <code class="code docutils literal notranslate"><span class="pre">game_end()</span></code>.</p>
-<blockquote>
-<div></div></blockquote>
+<dl class="simple">
+<dt>Here are some tips:</dt><dd><ul class="simple">
+<li><p>The <code class="code docutils literal notranslate"><span class="pre">ScriptRunner</span></code> can call built-in functions as well.</p></li>
+<li><p>When creating a <code class="code docutils literal notranslate"><span class="pre">Controls</span></code> menu it’s good to make the input system <code class="code docutils literal notranslate"><span class="pre">global</span></code>, so the menu can access it easily.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Controls</span></code> generates a new menu page for it’s self so you don’t have to put it in an additional menu page.</p></li>
+</ul>
+</dd>
+</dl>
 </div>
 <div class="section" id="creating-menu-presets">
 <span id="menu-presets"></span><h3>Creating menu presets<a class="headerlink" href="#creating-menu-presets" title="Permalink to this headline">¶</a></h3>
 <p>If you have a title menu you most likely want to have a pause menu as well.
 But obviously a pause menu should have different buttons in it than a title menu, for instance instead of a <strong>start</strong> button you might want a <strong>resume</strong> button.
+Basically you can create alternatives of buttons for different situations.
 So for that this system has <strong>menu presets</strong> which allows you to change what buttos do when the game is running.</p>
 <p>To create a new preset for a button you simply add another name and button function to it.</p>
 <p>You can have as many presets as you want.</p>
@@ -130,7 +139,7 @@ So for that this system has <strong>menu presets</strong> which allows you to ch
 <div><pre><code class="language-gml">
     ["Start",   new ScriptRunner(function() { room = rGame }]
 </code></pre></div></blockquote>
-<p>And the start button with an additional preset:</p>
+<p>And the start button with an additional <strong>Resume</strong> preset:</p>
 <blockquote>
 <div><pre><code class="language-gml">
     ["Start",   new ScriptRunner(function() { room = rGame },
@@ -141,7 +150,20 @@ So for that this system has <strong>menu presets</strong> which allows you to ch
 </div>
 </div></blockquote>
 <p>To change presets use the <code class="code docutils literal notranslate"><span class="pre">menuSetPreset()</span></code> function. Give it the preset number from <code class="code docutils literal notranslate"><span class="pre">0</span></code> to the <code class="code docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">presets</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p>
-<p>You can also use an enumerator for this purpose. There is one by default at the bottom of the <strong>Menu array</strong> region. Feel free to add your presets to it.</p>
+<p>I recommend using an enumerator for this purpose. There is one by default at the bottom of the <strong>Menu array</strong> region. Feel free to add your presets to it.</p>
+<p>Here is an example for a <strong>Title</strong> and <strong>Pause menu</strong> preset:</p>
+<blockquote>
+<div><pre><code class="language-gml">
+    enum e_menu_presets {
+        title_screen,
+        pause_menu
+        }
+</code></pre></div></blockquote>
+<p>So then later you can call <code class="code docutils literal notranslate"><span class="pre">menuSetPreset()</span></code> like this:</p>
+<blockquote>
+<div><pre><code class="language-gml">
+    menuSetPreset(e_menu_presets.pause_menu);
+</code></pre></div></blockquote>
 <p>See more about pausing <a class="reference internal" href="#pausing"><span class="std std-ref">here</span></a>.</p>
 </div>
 <div class="section" id="changing-the-look">
@@ -187,6 +209,13 @@ Set them to your liking.</p>
 </ul>
 </dd>
 </dl>
+<p>And here are some tips if your font looks odd.</p>
+<p>If you are using a pixelated font turn of anti-aliasing on it. And if it still doesn’t look right try changing the size of the asset until it looks good,
+the nuber should be around the height of the font in pixels.</p>
+<p>On the other hand you are using a non-pixelated font scaling will mess it up, so go into <strong>look</strong> &gt; <strong>txt</strong> and set scale to <code class="code docutils literal notranslate"><span class="pre">1</span></code>.
+Now you will have to change the font assets size until it is properly sized, it takes some time but it’s worth it.</p>
+<blockquote>
+<div></div></blockquote>
 </div>
 <div class="section" id="pausing">
 <span id="id1"></span><h3>Pausing<a class="headerlink" href="#pausing" title="Permalink to this headline">¶</a></h3>
@@ -212,7 +241,7 @@ This way it looks that the game is paused.</p>
 If you haven’t made any <strong>menu presets</strong> read about them <a class="reference internal" href="#menu-presets"><span class="std std-ref">here</span></a>.</p>
 <p>Ok, so when you want to switch to pause mode call the <code class="code docutils literal notranslate"><span class="pre">menuModePause()</span></code> function and set your preset by calling <code class="code docutils literal notranslate"><span class="pre">menuSetPreset()</span></code>.
 And when you want to set it back to title screen mode call <code class="code docutils literal notranslate"><span class="pre">menuModeTitle()</span></code> and set you preset back with <code class="code docutils literal notranslate"><span class="pre">menuSetPreset()</span></code>.</p>
-<p>Here is an example of a <strong>start</strong> and <strong>resume</strong> button, with pausing stuff.</p>
+<p>Here is an example of a <strong>Start</strong> button with a <strong>Resume</strong> preset.</p>
 <blockquote>
 <div><pre><code class="language-gml">
     ["Start", new ScriptRunner(function() {
@@ -223,14 +252,25 @@ And when you want to set it back to title screen mode call <code class="code doc
 
     "Resume", new ScriptRunner(resumeGame)]
 </code></pre></div></blockquote>
+<p>And here is an example of a <strong>Quit</strong> button with a <strong>Back to title</strong> preset.</p>
+<blockquote>
+<div><pre><code class="language-gml">
+    ["Quit",                new ScriptRunner(game_end),
+
+            "Title Screen", new ScriptRunner(function() {
+                    menuModeTitle();
+                    menuSetPreset(e_menu_presets.title_screen);
+                    room = rTitle;
+            })]
+</code></pre></div></blockquote>
 <p>To change how the menu looks when the game is paused go to the <strong>Pause settings</strong> region in the create event.</p>
 </div>
 </div>
-<div class="section" id="the-settings-struct">
-<h2>The settings struct<a class="headerlink" href="#the-settings-struct" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-settings-struct-getting-values">
+<h2>The settings struct (getting values)<a class="headerlink" href="#the-settings-struct-getting-values" title="Permalink to this headline">¶</a></h2>
 <p>After you have created your menu you want to get the values of settings somehow.</p>
-<p>To do this first you have to define a <strong>save key</strong> in the menu array for every element that changes a value. This is the name under the value will be saved in a struct called <code class="code docutils literal notranslate"><span class="pre">global.settings</span></code>.</p>
-<p>So to get a value just write <code class="code docutils literal notranslate"><span class="pre">global.setting.save_key</span></code> where the <code class="code docutils literal notranslate"><span class="pre">save_key</span></code> is what you defined in the menu array.</p>
+<p>The values are stored in a struct called <code class="code docutils literal notranslate"><span class="pre">global.settings</span></code>.
+To get the value of an item write <code class="code docutils literal notranslate"><span class="pre">global.settings.save_key</span></code> where the <code class="code docutils literal notranslate"><span class="pre">save_key</span></code> is the string what you defined in the menu array when you created the item.</p>
 <dl class="simple">
 <dt>Here is how the different elements save their values:</dt><dd><ul class="simple">
 <li><p><code class="code docutils literal notranslate"><span class="pre">Slider</span></code> - (type: real) The value will be in the range you defined when you created it</p></li>
@@ -285,7 +325,7 @@ Here you can change the window size, volume etc.</p>
 <li class="toctree-l3"><a class="reference internal" href="#pausing">Pausing</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#the-settings-struct">The settings struct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-settings-struct-getting-values">The settings struct (getting values)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#enabling-disabling-the-menu">Enabling/disabling the menu</a></li>
 </ul>
 </li>

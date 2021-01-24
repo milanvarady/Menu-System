@@ -75,6 +75,7 @@
     {"id":{"name":"Credits","path":"scripts/Credits/Credits.yy",},"order":6,},
     {"id":{"name":"keyCheck","path":"scripts/keyCheck/keyCheck.yy",},"order":7,},
     {"id":{"name":"gpCheck","path":"scripts/gpCheck/gpCheck.yy",},"order":8,},
+    {"id":{"name":"sBgCoverSize","path":"sprites/sBgCoverSize/sBgCoverSize.yy",},"order":4,},
     {"id":{"name":"mbCheck","path":"scripts/mbCheck/mbCheck.yy",},"order":9,},
     {"id":{"name":"roundToN","path":"scripts/roundToN/roundToN.yy",},"order":12,},
     {"id":{"name":"arrayFind","path":"scripts/arrayFind/arrayFind.yy",},"order":13,},

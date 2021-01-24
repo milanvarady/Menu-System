@@ -26,10 +26,17 @@ function Controls(input_system, filename, order) : MenuElement() constructor {
 	// Set names
 	names = order != undefined ? order : variable_struct_get_names(inputs);
 	
+	// Extend input arrays
+	var max_inputs = oMenu.item_look.controls.max_inputs - 1;
+	
+	for (var i = 0; i < getlen(names); i++) {
+		var name = names[i];
+		
+		if (getlen(inputs[$ name]) < max_inputs) inputs[$ name][max_inputs] = 0;
+	}
+	
 	last_input = undefined;
-	max_input_text_max = sec(1);
-	max_inputs_text = -1;
-	max_inputs_alpha = 0;
+	end_inputting = false;
 	
 	static step = function() {
 		var num = getlen(names);
@@ -40,55 +47,47 @@ function Controls(input_system, filename, order) : MenuElement() constructor {
 		// Get last input
 		var input = inputLast();
 		
-		// Check if its the same as last step
+		// Check if its the same as in last step
 		in = input != last_input and input != undefined ? input : undefined;
 		
-		#region Add inputs
+		// Change columns
+		var hin = oMenu.hinput_pressed;
 		
-		if (in != undefined) {
-			if (in == vk_enter) {
-				// Set inputting
-				with (oMenu) {
-					inputting = !inputting;
-					sn = audio.shift;
-				}
-			} else {
-				#region Add and clear inputs
-				
-				if (oMenu.inputting) {
-					name = names[oMenu.menu_option];
-					var arr = inputs[$ name];
-					var arr_len = getlen(arr);
-				
-					switch (in) {
-						default:
-							// Remove if pressed again
-							// if (contains(arr, in)) {
-							// 	var pos = arrayFind(inputs[$ name], in);
-							// 	array_delete(inputs[$ name], pos, 1);
-							// 	break;
-							// }
-							
-							if (getlen(arr) >= (oMenu.item_look.controls.max_inputs)) {
-								// Show message: "Input limit reached!"
-								max_inputs_text = max_input_text_max;
-							} else {
-								// Add input to array
-								if (!contains(arr, in)) {
-									array_push(inputs[$ name], in);
-								}
-							}
-							break;
-					
-						case vk_backspace:
-						case vk_delete:
-							// Clear input array
-							inputs[$ name] = [];
-							break;
-					}
-				}
-				
-				#endregion
+		if (hin != 0 and !oMenu.inputting and !end_inputting) {
+			var max_inputs = oMenu.item_look.controls.max_inputs - 1;
+			
+			if (inRange(oMenu.in_column + hin, 0, max_inputs)) oMenu.sn = oMenu.audio.shift;
+			
+			oMenu.in_column = clamp(oMenu.in_column + hin, 0, max_inputs);
+		}
+		
+		var enter = oMenu.in.enter.pressed;
+		
+		#region Add and remove inputs
+		
+		var name = names[oMenu.menu_option];
+		var column = oMenu.in_column;
+		end_inputting = false;
+		
+		if (!oMenu.inputting) {
+			if (enter) {
+				// Enter inputting
+				oMenu.inputting = true;
+				with (oMenu) sn = audio.shift;
+			} else if (inputCheck([vk_backspace, vk_delete, gp_b], true) and inputs[$ name][column] != 0) {
+				// Delete inputs
+				inputs[$ name][column] = 0;
+				oMenu.in.back.pressed = false;
+			}
+		} else if (keyCheck(vk_escape, true)) {
+			// Escape inputting
+			end_inputting = true;
+		} else {
+			// Add inputs
+			if (in != undefined) {
+				inputs[$ name][column] = in;
+				end_inputting = true;
+				with (oMenu) sn = audio.shift;
 			}
 		}
 		
@@ -97,34 +96,17 @@ function Controls(input_system, filename, order) : MenuElement() constructor {
 		last_input = input;
 	}
 	
-	// Draw texts to bottom
 	static draw = function() {
-		max_inputs_alpha = max_inputs_text < 1 ? max_inputs_alpha - 0.05 : 1;
-		
-		var look	= oMenu.item_look.controls.bottom_text
-		var buf		= look.dis_from_side;
-		var yy		= gui_h - buf / 2;
-		var col		= look.col;
-		var scale	= look.scale;
-		
-		drawSetText(col, look.font, fa_left, fa_bottom);
-		drawText(buf , yy, "ENTER - Add Inputs\nDELETE - Clear Inputs", scale, false);
-		
-		draw_set_halign(fa_right);
-		draw_set_alpha(max_inputs_alpha);
-		drawText(gui_w - buf, yy, "Input limit reached!", scale, false);
-		draw_set_alpha(1);
-		
-		
-		max_inputs_text--;
+		if (end_inputting) oMenu.inputting = false;
 	}
 	
 	static cleanup = function() {
+		// Save inputs
 		in_sys.save(filename);
 	}
-
-	// Set self as menu extension
+	
 	static on_press = function() {
+		// Set self as menu extension
 		oMenu.menu_extension = self;
 		
 		#region Create menu page for menu obj
@@ -148,10 +130,6 @@ function Controls(input_system, filename, order) : MenuElement() constructor {
 		// Delete page
 		delete page
 		
-		// Set last input to enter so it does not
-		// switch to inputting after page shift
-		last_input = vk_enter;
-		
 		#endregion
 	}
 }
@@ -171,43 +149,53 @@ function Input(inputs, name) : MenuElement() constructor {
 	self.inputs = inputs;
 	self.name = name;
 				
-	static draw = function(x, y) {
+	static draw = function(x, y, selected) {
 		var arr = inputs[$ name];
 		
 		var arr_len = getlen(arr);
 		var look = oMenu.item_look.controls.icon;
 		
-		// Draw rectangle if inputting
-		if (oMenu.inputting) {
-			var c = oMenu.col.dkunsel_selint.c1;
-			
-			if (c == oMenu.look.col.selected.intense) {
-				var buff = oMenu.look.pos.buffer;
-				
-				draw_set_color(oMenu.look.col.selected.intense);
-				draw_set_alpha(0.4);
-				
-				// Draw rectangle
-				draw_rectangle(x - buff.x / 2, y - buff.y / 2, gui_w - buff.x / 2, y + buff.y / 2, false);
-				
-				draw_set_alpha(1);
-			}
-		}
-		
 		// Draw icon or empty text
 		x += look.x_buffer / 4;
 		
-		if (arr_len > 0) {
-			// Icon
-			for (var i = 0; i < arr_len; i++) {
-				var in = arr[i];
-				
-				drawInput(x, y, in, look.txt.font, look.scale, look.highlight_col, look.replace_col, look.txt.scale, true);
-				x += look.x_buffer;
+		for (var i = 0; i < arr_len; i++) {
+			// Selected rectangle
+			var rect_look = oMenu.item_look.controls.rect;
+			var spr_w = sprite_get_width(global.input_sprites.key.wide) * look.scale;
+			var rect_x = x - ((rect_look.w - spr_w) / 2);
+			var h_half = rect_look.h / 2;
+			
+			var rect = {
+				x1: rect_x,
+				y1: y - h_half,
+				x2: rect_x + rect_look.w,
+				y2: y + h_half
 			}
-		} else {
-			// Empty text
-			drawText(x, y, "- EMPTY -", oMenu.look.txt.normal.right_scale, false);
+			
+			// Inner rectange
+			if (selected and oMenu.in_column == i) {
+				draw_set_alpha(rect_look.alpha.selected);
+				draw_set_color(oMenu.inputting ? oMenu.look.col.selected.intense : oMenu.look.col.selected.normal);
+				draw_roundrect(rect.x1, rect.y1, rect.x2, rect.y2, false);
+			} else {
+				draw_set_alpha(rect_look.alpha.unselected);
+				draw_set_color(rect_look.col);
+				draw_roundrect(rect.x1, rect.y1, rect.x2, rect.y2, false);
+			}
+			
+			// Outline
+			draw_set_alpha(1);
+			draw_set_color(oMenu.look.col.selected.normal);
+			draw_roundrect(rect.x1, rect.y1, rect.x2, rect.y2, true);
+			
+			// Icon
+			var in = arr[i];
+			
+			if (in != 0 and in != undefined) {
+				drawInput(x, y, in, look.txt.font, look.scale, look.highlight_col, look.replace_col, look.txt.scale, true);
+			}
+			
+			x += look.x_buffer;
 		}
 	}
 }
