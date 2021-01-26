@@ -17,14 +17,14 @@ You only want to change the **(user)** tagged regions.
 Every region is a settings for something.
 
 Here is a list of the regions and what they do:
- * Audio settings       - Menu sound effects settings
- * Credits text         - Text for credits (if you have one)
- * Look settings        - The menu's look, visual settings
- * Animation settings   - Button animation settings
- * Scrolling settings   - Settings for scrolling (if you have a big menu page)
- * Pause settings       - Pause menu settings
- * Menu array           - The menu's structure (buttons and what they do)
- * Input setup          - Menu navigation settings  
+ * **Audio settings**       - Menu sound effects settings
+ * **Credits text**         - Text for credits (if you have one)
+ * **Look settings**        - The menu's look, visual settings
+ * **Animation settings**   - Button animation settings
+ * **Scrolling settings**   - Settings for scrolling (if you have a big menu page)
+ * **Pause settings**       - Pause menu settings
+ * **Menu array**           - The menu's structure (buttons and what they do)
+ * **Input setup**          - Menu navigation settings  
 
 Creating the menu array
 #######################
@@ -142,7 +142,7 @@ Here is an example for a **Title** and **Pause menu** preset:
         enum e_menu_presets {
             title_screen,
             pause_menu
-	    }
+        }
     </code></pre>
 
 So then later you can call :code:`menuSetPreset()` like this:
@@ -232,7 +232,7 @@ Here is an example of a **Start** button with a **Resume** preset.
  .. raw:: html
 
     <pre><code class="language-gml">
-        ["Start", new ScriptRunner(function() { 
+        ["Start",   new ScriptRunner(function() { 
             menuModePause();
             menuSetPreset(e_menu_presets.pause_menu);
             room_goto(rGame);
@@ -246,13 +246,13 @@ And here is an example of a **Quit** button with a **Back to title** preset.
  .. raw:: html
 
     <pre><code class="language-gml">
-        ["Quit",		new ScriptRunner(game_end),
+        ["Quit",    new ScriptRunner(game_end),
 
-		"Title Screen", new ScriptRunner(function() { 
-			menuModeTitle(); 
-			menuSetPreset(e_menu_presets.title_screen);
-			room = rTitle;
-		})]
+            "Title Screen", new ScriptRunner(function() { 
+            menuModeTitle(); 
+            menuSetPreset(e_menu_presets.title_screen);
+            room = rTitle;
+        })]
     </code></pre>
 
 To change how the menu looks when the game is paused go to the **Pause settings** region in the create event.

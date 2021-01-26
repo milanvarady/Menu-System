@@ -1,6 +1,8 @@
 /// @desc Drawing
 
-#region Title text
+#region Title text (user)
+
+// You can draw your title text here
 
 #endregion
 

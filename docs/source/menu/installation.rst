@@ -1,7 +1,7 @@
 Installation
 ============
 
-Download the **"menu_system.yymps"** file from here. !!!
+You can buy the system `here <https://milanvarady.itch.io/menu-and-input-system>`__.
 Open up your GameMaker project, and in the menubar click on **“Tools">”Import Local Package”**.
 
  .. image:: /images/menubar.png
@@ -23,7 +23,7 @@ This system requires three other packages to work!
 
 It requires:
  * Input System - For navigating menu and controls
- * Essentials - Useful scripts made by me
+ * Essentials - Useful scripts made by me needed by the system
  * Json - For saving and loading
 
 Do the same thing as above for for all of them.
@@ -32,3 +32,6 @@ And you will also have to put the :code:`oMenu` object into the first room. Othe
 
 And also make sure that :code:`oInputManager` is in the room and it gets created before the menu. 
 You can change this in the **Instance Creation Order** menu found in **Properties** at the left of the **Room Editor**.
+
+.. image:: /images/menu/creation_order.png
+   :scale: 40 %

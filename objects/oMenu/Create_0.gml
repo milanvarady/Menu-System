@@ -255,31 +255,12 @@ var credits_string =
 #region Menu array (user)
 
 	menu = [
-        ["Start",   new ScriptRunner(function() { room = rGame })],
-
-        ["Settings", [
-            ["Audio", [
-                ["Master",  new Slider([0, 1], 0.3,         "audio_master")],
-                ["Sounds",  new Slider([0, 1], 1,           "audio_sounds")],
-                ["Music",   new Slider([0, 1], 1,           "audio_music")]
-            ]],
-
-            ["Graphics", [
-                ["Quality",			new Shift(["Low", "Medium", "High", "Ultra"], 2, "quality")],
-                ["Window Mode",     new Shift(["Windowed", "Fullscreen"], 1, "window_mode")],
-                ["Vsync",           new Toggle(0,           "vsync")]
-            ]],
-
-            ["Controls", new Controls(global.input_sys, "input_save.json", ["right", "left", "up", "down"])]
-        ]],
-
-        ["Credits", new Credits(credits_string)],
-
-        ["Quit",    new ScriptRunner(game_end)]
+		
     ];
 	
 	enum e_menu_presets {
-		
+		title_screen,
+		pause_menu
 	}
 
 #endregion

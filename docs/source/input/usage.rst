@@ -23,12 +23,25 @@ So the syntax is:
         inputCheck(input/array, pressed, gamepad_device);
     </code></pre>
 
+Here is an example of moving right:
+
+ .. raw:: html
+
+    <pre><code class="language-gml">
+        if (inputCheck([vk_right, "d", gp_padr, gp_axislr], true)) x += 4;
+    </code></pre>
+
 The pressed parameter determins how the input is checked, 
 if :code:`false` it is checked as down if :code:`true` it is checked as pressed. 
-Read more about checking methods :ref:`here <checking_methods>`
+Read more about checking methods :ref:`here <checking_methods>`.
 
-So in most cases you only have to give one parameter to the function.
+There is also a function for each input type (keyboard, gamepad, mouse).
+If you only need to check one type use these:
+ * :code:`keyCheck()` - for keyboard
+ * :code:`gpCheck()` - for gamepads
+ * :code:`mbCheck()` - for mouse
 
+These functions essentially replace the built in :code:`check` and :code:`check_pressed` functions but combine them into one, with a :code:`pressed` parameter.
 
 .. _InputSystem:
 
@@ -102,22 +115,12 @@ The **checking method** can be either :code:`.down` or :code:`.pressed`. You can
 
 The input system also has more useful methods and variables you can change.
 
-The most important is the :code:`inputs` variable. It holds its inputs. So if you want to redefine them in game do this:
+Here are the variables:
+ * :code:`.inputs` - It holds the systems inputs. You can change the inputs in game by changing this variable.
+ * :code:`.gamepad_device` - The gamepad device to check for. Set it to any number between :code:`0` and :code:`12`.
 
- .. raw:: html
-
-    <pre><code class="language-gml">
-        in_sys.inputs = {
-            new_category_1: [new_input1, new_input2, new_input3...],
-        }
-    </code></pre>
-
- .. _defining_inputs:
-
-There is also a :code:`gamepad_device` variable which defines which gamepad is checked with the :code:`.check()` method.
-
-So to change it set it to any number between :code:`0` and :code:`12`. 
-But also I recommend using the :code:`global.gamepads_connected` variable. Read more about it :ref:`here <gamepads_connected>`.
+For the :code:`gamepad_device` I recommend using the :code:`global.gamepads_connected` variable if you are controlling a player. 
+Read more about it :ref:`here <gamepads_connected>`.
 
 And here is the list of methods you can use.
  * :code:`.check` - Checks for the inputs.
@@ -126,7 +129,7 @@ And here is the list of methods you can use.
  * :code:`.describe` - Lists the currents inputs to the output window. Good for debugging purposes.
  * :code:`.clear` - Clears the input struct.
 
-Here is an example how you can use these methods.
+Here is an example how you can use these variables and methods.
 
  .. raw:: html
 
@@ -142,11 +145,16 @@ Here is an example how you can use these methods.
         // Load in save file
         if (file_exists("input_save.json")) in_sys.load("input_save.json");
 
+        // Add an "up" category to the system
+        in_sys.inputs.up = [vk_up, "w", gp_padu, gp_axislu];
+
         /// Cleanup event
         in_sys.save("input_save.json");
         in_sys.clear();
         delete in_sys;
     </code></pre>
+
+.. _defining_inputs:
 
 Defining inputs
 ---------------
@@ -206,12 +214,12 @@ This system has a :code:`global.gamepads_connected` array. Which makes handling 
 What it does is if a gamepad connects it adds it to the first empty index in the array. And if one disconnects it removes it.
 
 This is good because gamemaker indexes all connected gamepads with a number from :code:`0` to how many gamepads are connected.
-But if you disconnect controller index :code:`0`, because you want to swap it for an other one, 
+But if you want to swap controller index :code:`0` for an other one, and disconnect the controller,
 gamemaker will reindex all that comes after it so the index :code:`1` controller will be index :code:`0`, index :code:`2` will be :code:`1` etc.
 
 So essentially now everyone controls a different player in the game.
 
-So when you supply the **gamepad device nuber** to a function, and you don't want the controllers to change index when one disconnects,
+So when you supply the :code:`gamepad_device` to a function, and you don't want the controllers to change index when one disconnects,
 use the :code:`global.gamepads_connected[0]` instead of just :code:`0`.
 
  .. _vk_constants:

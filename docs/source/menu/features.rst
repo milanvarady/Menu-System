@@ -2,12 +2,15 @@ Features
 ========
 
 This is a menu system for gms 2.3.1+. This menu system allows you to make a title and pause menu in a matter of minutes.
-It has a bunch of different menu elements like sliders, toggles, credits, and shifts (multi-option select). 
+How it works is that you can create menu pages where you can put different elements like 
+sliders, toggles, credits, shifts (multi-option select).
+And then you can set things according to that.
+
 It also allows you to make a controls menu with one line of code with my :ref:`InputSystem <InputSystem>`.
 
 And the best thing is that you don't have to worry about how big things should be. The system will adjust the size of every element to your window size, even if it's really small.
 
-But if you want to you can change the size of nearly everything.
+But if you want to, you can change the size of nearly everything.
 
 It also has a built-in pause system which allows you to pause any game with one line of code.
 

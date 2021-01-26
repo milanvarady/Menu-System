@@ -1,7 +1,7 @@
 Installation
 ============
 
-Download the **"input_system.yymps"** file from here. !!!
+You can buy the system `here <https://milanvarady.itch.io/menu-and-input-system>`__.
 Open up your GameMaker project, and in the menubar click on **“Tools">”Import Local Package”**.
 
  .. image:: /images/menubar.png
@@ -22,7 +22,7 @@ Then this window pops up. Click on **“Add All”**, then **“Import"**.
 This system requires two other packages to work!
 
 It requires:
- * Essentials - Useful scripts made by me
+ * Essentials - Useful scripts made by me needed by the system
  * Json - For saving and loading
 
 Do the same thing as above for both.

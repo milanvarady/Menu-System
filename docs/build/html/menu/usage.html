@@ -50,14 +50,14 @@ You only want to change the <strong>(user)</strong> tagged regions.</p>
 <p>Every region is a settings for something.</p>
 <dl class="simple">
 <dt>Here is a list of the regions and what they do:</dt><dd><ul class="simple">
-<li><p>Audio settings       - Menu sound effects settings</p></li>
-<li><p>Credits text         - Text for credits (if you have one)</p></li>
-<li><p>Look settings        - The menu’s look, visual settings</p></li>
-<li><p>Animation settings   - Button animation settings</p></li>
-<li><p>Scrolling settings   - Settings for scrolling (if you have a big menu page)</p></li>
-<li><p>Pause settings       - Pause menu settings</p></li>
-<li><p>Menu array           - The menu’s structure (buttons and what they do)</p></li>
-<li><p>Input setup          - Menu navigation settings</p></li>
+<li><p><strong>Audio settings</strong>       - Menu sound effects settings</p></li>
+<li><p><strong>Credits text</strong>         - Text for credits (if you have one)</p></li>
+<li><p><strong>Look settings</strong>        - The menu’s look, visual settings</p></li>
+<li><p><strong>Animation settings</strong>   - Button animation settings</p></li>
+<li><p><strong>Scrolling settings</strong>   - Settings for scrolling (if you have a big menu page)</p></li>
+<li><p><strong>Pause settings</strong>       - Pause menu settings</p></li>
+<li><p><strong>Menu array</strong>           - The menu’s structure (buttons and what they do)</p></li>
+<li><p><strong>Input setup</strong>          - Menu navigation settings</p></li>
 </ul>
 </dd>
 </dl>
@@ -157,7 +157,7 @@ So for that this system has <strong>menu presets</strong> which allows you to ch
     enum e_menu_presets {
         title_screen,
         pause_menu
-        }
+    }
 </code></pre></div></blockquote>
 <p>So then later you can call <code class="code docutils literal notranslate"><span class="pre">menuSetPreset()</span></code> like this:</p>
 <blockquote>
@@ -244,7 +244,7 @@ And when you want to set it back to title screen mode call <code class="code doc
 <p>Here is an example of a <strong>Start</strong> button with a <strong>Resume</strong> preset.</p>
 <blockquote>
 <div><pre><code class="language-gml">
-    ["Start", new ScriptRunner(function() {
+    ["Start",   new ScriptRunner(function() {
         menuModePause();
         menuSetPreset(e_menu_presets.pause_menu);
         room_goto(rGame);
@@ -255,13 +255,13 @@ And when you want to set it back to title screen mode call <code class="code doc
 <p>And here is an example of a <strong>Quit</strong> button with a <strong>Back to title</strong> preset.</p>
 <blockquote>
 <div><pre><code class="language-gml">
-    ["Quit",                new ScriptRunner(game_end),
+    ["Quit",    new ScriptRunner(game_end),
 
-            "Title Screen", new ScriptRunner(function() {
-                    menuModeTitle();
-                    menuSetPreset(e_menu_presets.title_screen);
-                    room = rTitle;
-            })]
+        "Title Screen", new ScriptRunner(function() {
+        menuModeTitle();
+        menuSetPreset(e_menu_presets.title_screen);
+        room = rTitle;
+    })]
 </code></pre></div></blockquote>
 <p>To change how the menu looks when the game is paused go to the <strong>Pause settings</strong> region in the create event.</p>
 </div>

@@ -21,11 +21,11 @@
     {"spriteId":{"name":"sTitleBackground","path":"sprites/sTitleBackground/sTitleBackground.yy",},"colour":4285241522,"x":0,"y":0,"htiled":false,"vtiled":false,"hspeed":0.0,"vspeed":0.0,"stretch":true,"animationFPS":30.0,"animationSpeedType":0,"userdefinedAnimFPS":false,"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Background","tags":[],"resourceType":"GMRBackgroundLayer",},
   ],
   "inheritLayers": false,
-  "creationCodeFile": "",
+  "creationCodeFile": "${project_dir}/rooms/rTitle/RoomCreationCode.gml",
   "inheritCode": false,
   "instanceCreationOrder": [
-    {"name":"inst_44165EAE","path":"rooms/rTitle/rTitle.yy",},
     {"name":"inst_4DAF56D7","path":"rooms/rTitle/rTitle.yy",},
+    {"name":"inst_44165EAE","path":"rooms/rTitle/rTitle.yy",},
     {"name":"inst_7084CF42","path":"rooms/rTitle/rTitle.yy",},
   ],
   "inheritCreationOrder": false,
