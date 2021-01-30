@@ -17,3 +17,6 @@ This function will set the menu into title mode. Which means that the menu will 
 
 ## Returns
 `undefined` N/A
+
+## Example
+menuModeTitle(e_menu_presets.title, rTitle);

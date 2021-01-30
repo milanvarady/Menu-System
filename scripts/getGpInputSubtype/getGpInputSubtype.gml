@@ -1,3 +1,18 @@
+enum e_gp_input_subtype {
+	/// @member Gamepad button (e.g. a, b, x, y)
+    button,
+    /// @member Dpad
+    dpad,
+    /// @member Analog sticks
+    axis,
+    /// @member Triggers (e.g. gp_shoulderrb, gp_shoulderlb)
+    trigger,
+    /// @member Bumpers (e.g. gp_shoulderr, gp_shoulderl)
+    bumper,
+    /// @member Start button (e.g. gp_start, gp_select)
+    start
+}
+
 /// @func getGpInputSubtype
 
 /// @desc Returns the sub type of the gamepad input, which can be e_gp_input_subtype.button, dpad, axis, trigger, bumper and start. The enum can be found in the function.
@@ -7,16 +22,6 @@
 /// @return {enum}
 
 /// @example getGpInputSubtype(gamepadLast());
-
-enum e_gp_input_subtype {
-    button,
-    dpad,
-    axis,
-    trigger,
-    bumper,
-    start
-    
-}
 
 function getGpInputSubtype(in) {
     if (getInputType(in) == e_input_type.gamepad) {

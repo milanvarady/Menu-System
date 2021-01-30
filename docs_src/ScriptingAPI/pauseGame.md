@@ -16,3 +16,6 @@ This function pauses the game.
 
 ## Returns
 `undefined` N/A
+
+## Example
+pauseGame([oMenu, oInputManager]);

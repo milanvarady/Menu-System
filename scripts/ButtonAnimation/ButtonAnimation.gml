@@ -1,6 +1,7 @@
 /// @func ButtonAnimation(type, selected)
 /// @param {enum} type
 /// @return {undefined} N/A
+/// @private
 
 function ButtonAnimation(type) constructor {
     self.type = type;
@@ -11,6 +12,7 @@ function ButtonAnimation(type) constructor {
 	/// @func step()
 	/// @param {bool} selected
 	/// @return {undefined} N/A
+	/// @private
 	
 	static step = function(selected) {
 	    var target = 0;

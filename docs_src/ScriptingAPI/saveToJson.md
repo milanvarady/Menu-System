@@ -17,3 +17,6 @@ Saves a stuct/array nested datat structure to a file.
 
 ## Returns
 `undefined` N/A
+
+## Example
+saveToJson(player_data, "player_save.json");

@@ -1,6 +1,8 @@
 /// @desc Settings
 
+/// @private
 #macro gui_w display_get_gui_width()
+/// @private
 #macro gui_h display_get_gui_height()
 
 #region Settings struct setup (system)
@@ -170,7 +172,9 @@ var credits_string =
 					selected:	0.5,	// Selected alpha
 					edit:		0.8		// Edit mode alpha
 				}
-			}
+			},
+			
+			reset_button_name:	"Reset Defaults" 	// Reset defaults button name 
 		},
 		
 		// Credits
@@ -254,9 +258,11 @@ var credits_string =
 
 #region Menu array (user)
 
+
 	menu = [
 		
     ];
+
 	
 	enum e_menu_presets {
 		title_screen,

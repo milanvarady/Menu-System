@@ -4,19 +4,34 @@
 
 /// @param {struct} 	input_system	The input system used
 /// @param {string}		[filename]		Save file name, or false if you don't want to save the inputs. (default: false)
+/// @param {bool}		[reset_on]		Whether to make a reset defaults option for the controls or not (default: false)
 /// @param {array}		[order]			(optional) Order of inputs, because structs doesn't save their elements in order (e.g. ["right", "left", "jump")
 
 /// @return {struct}
 
 /// @example new Controls(global.player_input_system, "input_save.json", ["right", "left", "jump"])
 
-function Controls(input_system, filename, order) : MenuElement() constructor {
+function Controls(input_system, filename, reset_on, order) : MenuElement() constructor {
 	if (filename == undefined) filename = false;
+	if (reset_on == undefined) reset_on = false;
 	
 	// Setup
 	arr = [];
 	in_sys = input_system;
+	
 	self.filename = filename;
+	self.filename_default = "";
+	self.reset_on = reset_on;
+	
+	// Add json extension to filename
+	if (string_pos(".json", filename) == 0) filename = filename + ".json";
+	
+	// Reset save
+	if (reset_on) {
+		filename_default = string_replace(filename, ".json", "_default.json");
+		
+		in_sys.save(filename_default);
+	}
 	
 	// Load inputs
 	in_sys.load(filename);
@@ -90,7 +105,7 @@ function Controls(input_system, filename, order) : MenuElement() constructor {
 				with (oMenu) sn = audio.shift;
 			}
 		}
-		
+			
 		#endregion
 		
 		last_input = input;
@@ -119,10 +134,12 @@ function Controls(input_system, filename, order) : MenuElement() constructor {
 		
 		for (var i = 0; i < len; i++) {
 			var name = names[i];
-			var arr = inputs[$ name];
 			
-			page[i] = [name, new oMenu.Input(inputs, name)]
+			page[i] = [name, new oMenu.Input(in_sys, name)]
 		}
+		
+		// Add reset button
+		if (reset_on) array_push(page, [oMenu.item_look.controls.reset_button_name, new Reset(self)]);
 		
 		// Set page
 		gotoPage(page);
@@ -134,23 +151,23 @@ function Controls(input_system, filename, order) : MenuElement() constructor {
 	}
 }
 
-#region Input Costructor (system)
+#region Input constructor (system)
 
 // This constructor is needed by the system, you don't have to do anything with it!
 
 /// @func Input(arr)
 
-/// @param inputs
-/// @param name
+/// @param {struct} in_sys
+/// @param {string} name
 
 /// @return {struct}
 
-function Input(inputs, name) : MenuElement() constructor {
-	self.inputs = inputs;
+function Input(in_sys, name) : MenuElement() constructor {
+	self.in_sys = in_sys;
 	self.name = name;
 				
 	static draw = function(x, y, selected) {
-		var arr = inputs[$ name];
+		var arr = in_sys.inputs[$ name];
 		
 		var arr_len = getlen(arr);
 		var look = oMenu.item_look.controls.icon;
@@ -197,6 +214,32 @@ function Input(inputs, name) : MenuElement() constructor {
 			
 			x += look.x_buffer;
 		}
+	}
+}
+
+#endregion
+
+#region Reset constructor (system)
+
+// This constructor is needed by the system, you don't have to do anything with it!
+
+/// @func ResetToDefaults(controls_struct)
+
+/// @param {struct} controls_struct
+
+/// @returns {struct}
+
+
+function Reset(strc) : MenuElement() constructor {
+	self.strc = strc;
+	
+	static on_press = function() {
+		with (strc) {
+			in_sys.load(filename_default);
+			inputs = in_sys.inputs;
+		}
+		
+		with (oMenu) sn = oMenu.audio.press;
 	}
 }
 

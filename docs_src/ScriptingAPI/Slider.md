@@ -18,3 +18,6 @@ Changes a value in a range slider
 
 ## Returns
 `struct` 
+
+## Example
+new Slider([0, 1], 0.3, "volume_master")

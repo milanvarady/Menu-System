@@ -18,3 +18,6 @@ Checks one or more inputs of any type, returns true if any of them are pressed.
 
 ## Returns
 `bool` 
+
+## Example
+inputCheck([vk_right, "d", gp_axislr, gp_padr], true, global.gamepads_connected[0]);

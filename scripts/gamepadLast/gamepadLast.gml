@@ -1,3 +1,5 @@
+#macro gp_none 0
+
 /// @func gamepadLast(device, [pressed])
 
 /// @desc Gets last gamepad button that was pressed, similar to keyboard_key
@@ -8,8 +10,6 @@
 /// @return {input}
 
 /// @example gamepadLast(0, false);
-
-#macro gp_none 0
 
 function gamepadLast(device, prs) {
 	if (prs == undefined) prs = false;

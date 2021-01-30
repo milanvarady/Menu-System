@@ -16,3 +16,6 @@ Returns the last input pressed of any type: keyboard, mouse, gamepad. Or undefin
 
 ## Returns
 `input/undefined` 
+
+## Example
+inputLast(global.gamepads_connected[0]);

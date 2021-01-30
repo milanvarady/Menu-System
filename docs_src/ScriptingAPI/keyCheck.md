@@ -17,3 +17,6 @@ Checks if a key is pressed or not
 
 ## Returns
 `bool` 
+
+## Example
+keyCheck(vk_right, true);

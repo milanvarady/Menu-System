@@ -16,3 +16,6 @@ This function resumes the game
 
 ## Returns
 `undefined` N/A
+
+## Example
+resumeGame(true);

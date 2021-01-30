@@ -21,3 +21,9 @@ Draws an input to the screen as an icon
 | replace_col | `color` | The color to be replaced with the theme color (default: $8c0ed) |
 | txt_scale | `real` | Text scale (default: 1) |
 | left_origin | `bool` | If true sprites will be drawn with the origin on the left (default: false) |
+
+## Returns
+`undefined` N/A
+
+## Example
+drawInput(x, y, inputLast(), fDefault, 1, c_red, c_fuchsia, 2, false);

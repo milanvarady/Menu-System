@@ -1,3 +1,24 @@
+// Types enum
+enum e_input_type {
+	keyboard,
+	gamepad,
+	mouse
+}
+
+// Subtype enum
+enum e_input_subtype {
+	/// @member vk_constants
+	vk,
+	/// @member Unicode charaters (a-z, 1-9)
+	unicode,
+	/// @member Gamepad
+	gp,
+	/// @member Gamepad sticks
+	gp_axis,
+	/// @member Mouse
+	mouse
+}
+
 /// @func getInputType(input, [subtype])
 
 /// @desc Returns the type of any input. Can be e_input_type.keyboard, gamepad and mouse.
@@ -8,22 +29,6 @@
 /// @return {enum}
 
 /// @example getInputType(inputLast());
-
-// Types enum
-enum e_input_type {
-	keyboard,
-	gamepad,
-	mouse
-}
-
-// Subtype enum
-enum e_input_subtype {
-	vk,
-	unicode,
-	gp,
-	gp_axis,
-	mouse
-}
 
 function getInputType(input, sub) {
 	if (sub == undefined) sub = false;

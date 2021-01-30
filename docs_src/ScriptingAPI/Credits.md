@@ -13,3 +13,9 @@ Displays a scrolling credits screen when pressed
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | string | `string` | The string to be displayed |
+
+## Returns
+`struct` 
+
+## Example
+new Credits(credits_string);

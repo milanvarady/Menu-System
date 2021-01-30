@@ -11,3 +11,6 @@ Clears the input struct
 
 ## Returns
 `undefined` N/A
+
+## Example
+in_sys.clear();

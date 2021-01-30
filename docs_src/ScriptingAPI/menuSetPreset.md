@@ -16,3 +16,6 @@ Switches menu preset
 
 ## Returns
 `undefined` N/A
+
+## Example
+menuSetPreset(e_menu_presets.pause_menu);

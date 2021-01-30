@@ -18,3 +18,6 @@ Checks if a gamepad button is pressed or not
 
 ## Returns
 `bool` 
+
+## Example
+gpCheck(gp_axislr, true, global.gamepads_connected[0]);

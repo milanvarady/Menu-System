@@ -16,3 +16,6 @@ This function enables/disables the ability to pause
 
 ## Returns
 `undefined` N/A
+
+## Example
+menuPauseEnable(true);

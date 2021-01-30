@@ -25,3 +25,13 @@ This constructor creates a new input system.
 | [describe](InputSystem.describe.html) | Lists the currents inputs to the output window. Good for debugging purposes. |
 | [load](InputSystem.load.html) | Loads a saved input file. |
 | [save](InputSystem.save.html) | Saves the inputs to a file. |
+
+## Example
+```gml
+in_sys = new InputSystem({
+    right:  [vk_right,  "d", gp_padr, gp_axislr],
+    left:   [vk_left,   "a", gp_padl, gp_axisll],
+    jump:   [vk_up,     "w", gp_a],
+    shoot:  [vk_space,  gp_shoulderrb, gp_x]
+});
+```

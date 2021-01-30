@@ -16,3 +16,6 @@ This function enables/disables menu
 
 ## Returns
 `undefined` N/A
+
+## Example
+menuEnable(false);

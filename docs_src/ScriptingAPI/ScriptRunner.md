@@ -16,3 +16,6 @@ Calls a method on press
 
 ## Returns
 `struct` 
+
+## Example
+new ScriptRunner(function() { room_goto(rGame); })

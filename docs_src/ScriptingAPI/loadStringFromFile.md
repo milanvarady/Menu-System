@@ -16,3 +16,6 @@ Loads a string from a file. If the file does not exists retruns undefined.
 
 ## Returns
 `string/undefined` 
+
+## Example
+loadStringFromFile("save.json");

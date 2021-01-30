@@ -17,3 +17,6 @@ Saves a string to a file.
 
 ## Returns
 `undefined` N/A
+
+## Example
+saveStringToFile();

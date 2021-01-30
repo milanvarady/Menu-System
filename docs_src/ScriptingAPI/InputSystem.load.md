@@ -16,3 +16,6 @@ Loads a saved input file.
 
 ## Returns
 `undefined` N/A
+
+## Example
+in_sys.load();

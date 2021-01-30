@@ -16,3 +16,6 @@ Loads json file and turns it into struct and array nested data structure
 
 ## Returns
 `struct/array` 
+
+## Example
+loadFromJson("save.json");

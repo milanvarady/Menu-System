@@ -3,4 +3,4 @@
 <span class="badge badge-secondary">variable</span>
 
 ## Description
-Clear map
+Destroy ds map

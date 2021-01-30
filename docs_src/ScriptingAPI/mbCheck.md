@@ -17,3 +17,6 @@ Checks if a mouse button is pressed or not
 
 ## Returns
 `bool` 
+
+## Example
+mbCheck(mb_left, true);

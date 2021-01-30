@@ -16,3 +16,6 @@ Saves the inputs to a file.
 
 ## Returns
 `undefined` N/A
+
+## Example
+in_sys.save();

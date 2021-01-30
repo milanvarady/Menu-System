@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="fontawesome-free-5.8.1-web/css/all.min.css">
   <link href="prism.css" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
-  <title>Menu System Docs: getInputType</title>
+  <title>Menu System Docs: getGpInputSubtype</title>
 </head>
 <body>
   <div class="d-flex flex-column h-100">
@@ -54,9 +54,9 @@
 <li><i data-target="#folder-23" class="fas fa-circle text-primary bullet"></i> <a href="drawText.html" class="text-dark">drawText</a></li>
 <li><i data-target="#folder-24" class="fas fa-circle text-primary bullet"></i> <a href="fontGetHeight.html" class="text-dark">fontGetHeight</a></li>
 <li><i data-target="#folder-25" class="fas fa-circle text-primary bullet"></i> <a href="gamepadLast.html" class="text-dark">gamepadLast</a></li>
-<li><i data-target="#folder-26" class="fas fa-circle text-primary bullet"></i> <a href="getGpInputSubtype.html" class="text-dark">getGpInputSubtype</a></li>
+<li><i data-target="#folder-26" class="fas fa-circle text-primary bullet"></i> <a href="getGpInputSubtype.html" class="text-dark font-weight-bold active">getGpInputSubtype</a></li>
 <li><i data-target="#folder-27" class="fas fa-circle text-primary bullet"></i> <a href="getInputRange.html" class="text-dark">getInputRange</a></li>
-<li><i data-target="#folder-28" class="fas fa-circle text-primary bullet"></i> <a href="getInputType.html" class="text-dark font-weight-bold active">getInputType</a></li>
+<li><i data-target="#folder-28" class="fas fa-circle text-primary bullet"></i> <a href="getInputType.html" class="text-dark">getInputType</a></li>
 <li><i data-target="#folder-29" class="fas fa-circle text-primary bullet"></i> <a href="getRange.html" class="text-dark">getRange</a></li>
 <li><i data-target="#folder-30" class="fas fa-circle text-primary bullet"></i> <a href="getSettingsValue.html" class="text-dark">getSettingsValue</a></li>
 <li><i data-target="#folder-31" class="fas fa-circle text-primary bullet"></i> <a href="getlen.html" class="text-dark">getlen</a></li>
@@ -92,9 +92,12 @@
       </aside>
       <div id="page-wrapper" class="container-fluid overflow-x-auto overflow-y-auto p-0 bg-white">
         <div id="page-content" class="container py-3">
-          <nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="ScriptingAPI.html">Scripting API</a></li><li class="breadcrumb-item active">getInputType</li></nav></ol>
-<h1>getInputType</h1>
+          <nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="ScriptingAPI.html">Scripting API</a></li><li class="breadcrumb-item active">getGpInputSubtype</li></nav></ol>
+<h1>getGpInputSubtype</h1>
 <p><span class="badge badge-secondary">function</span></p>
+<pre class="rounded"><code class="lang-gml">getGpInputSubtype</code></pre>
+<h2>Description</h2>
+<p>Returns the sub type of the gamepad input, which can be e_gp_input_subtype.button, dpad, axis, trigger, bumper and start. The enum can be found in the function.</p>
 <h2>Arguments</h2>
 <div class="table-responsive"><table class="table table-sm table-striped border table-arguments">
 <thead><tr>
@@ -106,25 +109,24 @@
 <tbody>
 <tr>
 <td>input</td>
-<td><code>None</code></td>
-<td></td>
-</tr>
-<tr>
-<td>subtype</td>
-<td><code>None</code></td>
-<td></td>
+<td><code>input</code></td>
+<td>The input to get the type</td>
 </tr>
 </tbody>
 </table></div>
+<h2>Returns</h2>
+<p><code>enum</code></p>
+<h2>Example</h2>
+<p>getGpInputSubtype(gamepadLast());</p>
 
 
           
 
           <div class="d-flex w-100 rounded bg-light align-items-center justify-content-between px-3 mt-3" style="font-size: 3em;">
-            <a href="getInputRange.html">
+            <a href="gamepadLast.html">
               <i class="fas fa-arrow-circle-left text-dark"></i>
             </a>
-            <a href="getRange.html">
+            <a href="getInputRange.html">
               <i class="fas fa-arrow-circle-right text-dark"></i>
             </a>
           </div>

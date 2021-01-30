@@ -17,3 +17,6 @@ This function will set the menu into pause screen mode. Which means that the men
 
 ## Returns
 `undefined` N/A
+
+## Example
+menuModePause(e_menu_presets.pause_menu, rGame);

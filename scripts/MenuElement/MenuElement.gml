@@ -4,11 +4,14 @@
 
 /// @return {struct}
 
+/// @private
+
 function MenuElement() constructor {
 	/// @func setSettingsValue(value_key, val)
 	/// @param {string} value_key
 	/// @param {real}	val
 	/// @return {undefined} N/A
+	/// @private
 	
 	static setSettingsValue = function(value_key, val) {
 		global.settings[$ value_key] = roundToN(val, 2);
@@ -19,6 +22,7 @@ function MenuElement() constructor {
 	/// @param {array}	range_arr
 	/// @param {sound}	[sound]
 	/// @return {undefined} N/A
+	/// @private
 	
 	static moveSettingsValue = function(amount, range_arr, sound) {
 		var new_val = val + amount;

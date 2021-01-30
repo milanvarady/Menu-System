@@ -16,3 +16,6 @@ Turns any input into a string describing the input
 
 ## Returns
 `string` 
+
+## Example
+inputToString(inputLast());

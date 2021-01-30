@@ -70,7 +70,7 @@ Here is a basic example:
                     ["Vsync",		new Toggle(0,		"vsync")]
                 ]],
 
-                ["Controls", new Controls(global.input_sys, "input_save.json", ["right", "left", "up", "down"])]
+                ["Controls", new Controls(global.input_sys, "input_save.json", true, ["right", "left", "up", "down"])]
             ]],
 
             ["Credits", new Credits(credits_string)],
@@ -89,6 +89,8 @@ Inside the :code:`"Settings"` there are also two menu pages :code:`"Audio"` and 
 Then comes the :code:`"Credits"` which displays the credits text defined in the **Credits text** region.
 
 And at last :code:`"Quit"` which runs the built in function :code:`game_end()`.
+
+To see how a menu array looks like with pausing, click :ref:`here <example>`.
 
 Here are some tips:
  * The :code:`ScriptRunner` can call built-in functions as well.
@@ -255,6 +257,8 @@ And here is an example of a **Quit** button with a **Back to title** preset.
         })]
     </code></pre>
 
+To see a fully set up menu example with pausing, click :ref:`here <example>`.
+
 To change how the menu looks when the game is paused go to the **Pause settings** region in the create event.
 
 The settings struct (getting values)
@@ -287,3 +291,50 @@ Enabling/disabling the menu
 ---------------------------
 
 To enable/disable the menu simply call the :code:`menuEnable()` function, with a :code:`true` or :code:`false` argument.
+
+ .. _example:
+
+Menu array example
+------------------
+
+Here is an example of a menu array with pausing and everything. If you are starting a new project just paste this into your project to save time.
+
+ .. raw:: html
+
+    <pre><code class="language-gml">
+        menu = [
+            ["Start",   new ScriptRunner(function() {
+                menuModePause();
+                menuSetPreset(e_menu_presets.pause_menu);
+                room_goto(rGame);
+            }),
+        
+            "Resume", new ScriptRunner(resumeGame)],
+        
+            ["Settings", [
+                ["Audio", [
+                    ["Master",  new Slider([0, 1], 0.3,         "audio_master")],
+                    ["Sounds",  new Slider([0, 1], 1,           "audio_sounds")],
+                    ["Music",   new Slider([0, 1], 1,           "audio_music")]
+                ]],
+        
+                ["Graphics", [
+                    ["Quality",     new Shift(["Low", "Medium", "High", "Ultra"], 2, "quality")],
+                    ["Window Mode",     new Shift(["Windowed", "Fullscreen"], 1, "window_mode")],
+                    ["Vsync",           new Toggle(0,           "vsync")]
+                ]],
+        
+                ["Controls", new Controls(global.input_sys, "input_save.json", true, ["right", "left", "up", "down"])]
+            ]],
+        
+            ["Credits", new Credits(credits_string)],
+        
+            ["Quit",    new ScriptRunner(game_end),
+
+            "Title Screen", new ScriptRunner(function() {
+                menuModeTitle();
+                menuSetPreset(e_menu_presets.title_screen);
+                room = rTitle;
+            })]
+        ];
+    </code></pre>

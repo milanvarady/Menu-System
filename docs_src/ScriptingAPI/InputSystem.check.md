@@ -18,4 +18,4 @@ Checks for the inputs. Retrurns a struct of each with a down, and pressed value.
 `struct` 
 
 ## Example
-in = in_sys.check()
+in = in_sys.check();

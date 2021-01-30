@@ -17,3 +17,6 @@ Toggles a value ON or OFF. The settings struct value is a boolian value (0 or 1)
 
 ## Returns
 `struct` 
+
+## Example
+new Toggle(1, "blood_effects")
