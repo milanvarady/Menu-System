@@ -20,7 +20,7 @@ So the syntax is:
  .. raw:: html
 
     <pre><code class="language-gml">
-        inputCheck(input/array, pressed, gamepad_device);
+    inputCheck(input/array, pressed, gamepad_device);
     </code></pre>
 
 Here is an example of moving right:
@@ -28,7 +28,7 @@ Here is an example of moving right:
  .. raw:: html
 
     <pre><code class="language-gml">
-        if (inputCheck([vk_right, "d", gp_padr, gp_axislr], true)) x += 4;
+    if (inputCheck([vk_right, "d", gp_padr, gp_axislr], true)) x += 4;
     </code></pre>
 
 The pressed parameter determins how the input is checked, 
@@ -55,11 +55,11 @@ To use it you will have to create one first. Most likely in a create event. The 
  .. raw:: html
 
     <pre><code class="language-gml">
-        in_sys = new InputSystem({
-            category_1: [input1, input2, input3...],
-            category_2: [input1, input2, input3...],
-            category_3: [input1, input2, input3...]
-        });
+    in_sys = new InputSystem({
+        category_1: [input1, input2, input3...],
+        category_2: [input1, input2, input3...],
+        category_3: [input1, input2, input3...]
+    });
     </code></pre>
 
 And here is and example:
@@ -67,12 +67,12 @@ And here is and example:
  .. raw:: html
 
     <pre><code class="language-gml">
-        in_sys = new InputSystem({
-            right:  [vk_right,  "d", gp_padr, gp_axislr],
-            left:   [vk_left,   "a", gp_padl, gp_axisll],
-            jump:   [vk_up,     "w", gp_a],
-            shoot:  [vk_space,  gp_shoulderrb, gp_x]
-        });
+    in_sys = new InputSystem({
+        right:  [vk_right,  "d", gp_padr, gp_axislr],
+        left:   [vk_left,   "a", gp_padl, gp_axisll],
+        jump:   [vk_up,     "w", gp_a],
+        shoot:  [vk_space,  gp_shoulderrb, gp_x]
+    });
     </code></pre>
 
 Read more about defining inputs :ref:`here <defining_inputs>`.
@@ -82,7 +82,7 @@ And then to check them do the following. Most likely in a step event.
  .. raw:: html
 
     <pre><code class="language-gml">
-        in = in_sys.check();
+    in = in_sys.check();
     </code></pre>
 
 Here is an example how you can use this to move your player.
@@ -90,23 +90,23 @@ Here is an example how you can use this to move your player.
  .. raw:: html
 
     <pre><code class="language-gml">
-        /// Create event
-        in_sys = new InputSystem({
-            right:  [vk_right,  "d", gp_padr, gp_axislr],
-            left:   [vk_left,   "a", gp_padl, gp_axisll],
-            jump:   [vk_up,     "w", gp_a],
-            shoot:  [vk_space,  gp_shoulderrb, gp_x]
-        });
+    /// Create event
+    in_sys = new InputSystem({
+        right:  [vk_right,  "d", gp_padr, gp_axislr],
+        left:   [vk_left,   "a", gp_padl, gp_axisll],
+        jump:   [vk_up,     "w", gp_a],
+        shoot:  [vk_space,  gp_shoulderrb, gp_x]
+    });
 
-        /// Step event
-        var input = in_sys.check();
+    /// Step event
+    var input = in_sys.check();
 
-        if (input.right.down) x += 4;
-        if (input.left.down) x -= 4;
+    if (input.right.down) x += 4;
+    if (input.left.down) x -= 4;
 
-        if (input.jump.pressed) y -= 10;
+    if (input.jump.pressed) y -= 10;
 
-        if (input.shoot.down) shoot();
+    if (input.shoot.down) shoot();
     </code></pre>
 
 Now the variable :code:`in` holds the result of the check. To get the input do :code:`in.category.checking_method`.
@@ -134,24 +134,24 @@ Here is an example how you can use these variables and methods.
  .. raw:: html
 
     <pre><code class="language-gml">
-        /// Create event
+    /// Create event
 
-        // Create system
-        in_sys = new InputSystem({
-            right:  [vk_right,  "d", gp_padr, gp_axislr],
-            left:   [vk_left,   "a", gp_padl, gp_axisll]
-        });
+    // Create system
+    in_sys = new InputSystem({
+        right:  [vk_right,  "d", gp_padr, gp_axislr],
+        left:   [vk_left,   "a", gp_padl, gp_axisll]
+    });
 
-        // Load in save file
-        if (file_exists("input_save.json")) in_sys.load("input_save.json");
+    // Load in save file
+    if (file_exists("input_save.json")) in_sys.load("input_save.json");
 
-        // Add an "up" category to the system
-        in_sys.inputs.up = [vk_up, "w", gp_padu, gp_axislu];
+    // Add an "up" category to the system
+    in_sys.inputs.up = [vk_up, "w", gp_padu, gp_axislu];
 
-        /// Cleanup event
-        in_sys.save("input_save.json");
-        in_sys.clear();
-        delete in_sys;
+    /// Cleanup event
+    in_sys.save("input_save.json");
+    in_sys.clear();
+    delete in_sys;
     </code></pre>
 
 .. _defining_inputs:

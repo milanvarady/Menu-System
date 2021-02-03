@@ -54,29 +54,29 @@ Here is a basic example:
  .. raw:: html
 
     <pre><code class="language-gml">
-        menu = [
-            ["Start",   new ScriptRunner(function() { room = rGame })],
+    menu = [
+        ["Start",   new ScriptRunner(function() { room = rGame })],
 
-            ["Settings", [
-                ["Audio", [
-                    ["Master",	new Slider([0, 1], 0.3,		"audio_master")],
-                    ["Sounds",	new Slider([0, 1], 1,		"audio_sounds")],
-                    ["Music",	new Slider([0, 1], 1,		"audio_music")]
-                ]],
-            
-                ["Graphics", [
-                    ["Quality",	    new Shift(["Low", "Medium", "High", "Ultra"], 2, "quality")],
-                    ["Window Mode",	new Shift(["Windowed", "Fullscreen"], 1, "window_mode")],
-                    ["Vsync",		new Toggle(0,		"vsync")]
-                ]],
-
-                ["Controls", new Controls(global.input_sys, "input_save.json", true, ["right", "left", "up", "down"])]
+        ["Settings", [
+            ["Audio", [
+                ["Master",	new Slider([0, 1], 0.3,		"audio_master")],
+                ["Sounds",	new Slider([0, 1], 1,		"audio_sounds")],
+                ["Music",	new Slider([0, 1], 1,		"audio_music")]
+            ]],
+        
+            ["Graphics", [
+                ["Quality",	    new Shift(["Low", "Medium", "High", "Ultra"], 2, "quality")],
+                ["Window Mode",	new Shift(["Windowed", "Fullscreen"], 1, "window_mode")],
+                ["Vsync",		new Toggle(0,		"vsync")]
             ]],
 
-            ["Credits", new Credits(credits_string)],
+            ["Controls", new Controls(global.input_sys, "input_save.json", true, ["right", "left", "up", "down"])]
+        ]],
 
-            ["Quit",    new ScriptRunner(game_end)]
-        ];
+        ["Credits", new Credits(credits_string)],
+
+        ["Quit",    new ScriptRunner(game_end)]
+    ];
     </code></pre>
 
 Okay, this may look a bit confusing here is what it does:
@@ -116,7 +116,7 @@ So the start button before:
  .. raw:: html
 
     <pre><code class="language-gml">
-        ["Start",   new ScriptRunner(function() { room = rGame }]
+    ["Start",   new ScriptRunner(function() { room = rGame }]
     </code></pre>
 
 And the start button with an additional **Resume** preset:
@@ -124,8 +124,8 @@ And the start button with an additional **Resume** preset:
  .. raw:: html
 
     <pre><code class="language-gml">
-        ["Start",   new ScriptRunner(function() { room = rGame },
-        "Resume",   new ScriptRunner(resumeGame)]
+    ["Start",   new ScriptRunner(function() { room = rGame },
+    "Resume",   new ScriptRunner(resumeGame)]
     </code></pre>
 
  .. warning::
@@ -141,10 +141,10 @@ There is a :code:`title_screen` and :code:`pause_menu` preset added by default:
  .. raw:: html
 
     <pre><code class="language-gml">
-        enum e_menu_presets {
-            title_screen,
-            pause_menu
-        }
+    enum e_menu_presets {
+        title_screen,
+        pause_menu
+    }
     </code></pre>
 
 So then later you can call :code:`menuSetPreset()` like this:
@@ -152,7 +152,7 @@ So then later you can call :code:`menuSetPreset()` like this:
  .. raw:: html
 
     <pre><code class="language-gml">
-        menuSetPreset(e_menu_presets.pause_menu);
+    menuSetPreset(e_menu_presets.pause_menu);
     </code></pre>
 
 See more about pausing :ref:`here <pausing>`.
@@ -234,13 +234,13 @@ Here is an example of a **Start** button with a **Resume** preset.
  .. raw:: html
 
     <pre><code class="language-gml">
-        ["Start",   new ScriptRunner(function() { 
-            menuModePause();
-            menuSetPreset(e_menu_presets.pause_menu);
-            room_goto(rGame);
-        }),
-        
-        "Resume", new ScriptRunner(resumeGame)]
+    ["Start",   new ScriptRunner(function() { 
+        menuModePause();
+        menuSetPreset(e_menu_presets.pause_menu);
+        room_goto(rGame);
+    }),
+    
+    "Resume", new ScriptRunner(resumeGame)]
     </code></pre>
 
 And here is an example of a **Quit** button with a **Back to title** preset.
@@ -248,13 +248,13 @@ And here is an example of a **Quit** button with a **Back to title** preset.
  .. raw:: html
 
     <pre><code class="language-gml">
-        ["Quit",    new ScriptRunner(game_end),
+    ["Quit",    new ScriptRunner(game_end),
 
-            "Title Screen", new ScriptRunner(function() { 
-            menuModeTitle(); 
-            menuSetPreset(e_menu_presets.title_screen);
-            room = rTitle;
-        })]
+    "Title Screen", new ScriptRunner(function() { 
+        menuModeTitle(); 
+        menuSetPreset(e_menu_presets.title_screen);
+        room = rTitle;
+    })]
     </code></pre>
 
 To see a fully set up menu example with pausing, click :ref:`here <example>`.
@@ -283,8 +283,8 @@ Here is a basic example:
  .. raw:: html
 
     <pre><code class="language-gml">
-        audio_master_gain(global.settings.audio_master);
-        if (global.settings.window_mode != window_get_fullscreen()) window_set_fullscreen(global.settings.window_mode);
+    audio_master_gain(global.settings.audio_master);
+    if (global.settings.window_mode != window_get_fullscreen()) window_set_fullscreen(global.settings.window_mode);
     </code></pre>
 
 Enabling/disabling the menu
@@ -302,39 +302,39 @@ Here is an example of a menu array with pausing and everything. If you are start
  .. raw:: html
 
     <pre><code class="language-gml">
-        menu = [
-            ["Start",   new ScriptRunner(function() {
-                menuModePause();
-                menuSetPreset(e_menu_presets.pause_menu);
-                room_goto(rGame);
-            }),
-        
-            "Resume", new ScriptRunner(resumeGame)],
-        
-            ["Settings", [
-                ["Audio", [
-                    ["Master",  new Slider([0, 1], 0.3,         "audio_master")],
-                    ["Sounds",  new Slider([0, 1], 1,           "audio_sounds")],
-                    ["Music",   new Slider([0, 1], 1,           "audio_music")]
-                ]],
-        
-                ["Graphics", [
-                    ["Quality",     new Shift(["Low", "Medium", "High", "Ultra"], 2, "quality")],
-                    ["Window Mode",     new Shift(["Windowed", "Fullscreen"], 1, "window_mode")],
-                    ["Vsync",           new Toggle(0,           "vsync")]
-                ]],
-        
-                ["Controls", new Controls(global.input_sys, "input_save.json", true, ["right", "left", "up", "down"])]
+    menu = [
+        ["Start",   new ScriptRunner(function() {
+            menuModePause();
+            menuSetPreset(e_menu_presets.pause_menu);
+            room_goto(rGame);
+        }),
+    
+        "Resume", new ScriptRunner(resumeGame)],
+    
+        ["Settings", [
+            ["Audio", [
+                ["Master",  new Slider([0, 1], 0.3,         "audio_master")],
+                ["Sounds",  new Slider([0, 1], 1,           "audio_sounds")],
+                ["Music",   new Slider([0, 1], 1,           "audio_music")]
             ]],
-        
-            ["Credits", new Credits(credits_string)],
-        
-            ["Quit",    new ScriptRunner(game_end),
+    
+            ["Graphics", [
+                ["Quality",     new Shift(["Low", "Medium", "High", "Ultra"], 2, "quality")],
+                ["Window Mode",     new Shift(["Windowed", "Fullscreen"], 1, "window_mode")],
+                ["Vsync",           new Toggle(0,           "vsync")]
+            ]],
+    
+            ["Controls", new Controls(global.input_sys, "input_save.json", true, ["right", "left", "up", "down"])]
+        ]],
+    
+        ["Credits", new Credits(credits_string)],
+    
+        ["Quit",    new ScriptRunner(game_end),
 
-            "Title Screen", new ScriptRunner(function() {
-                menuModeTitle();
-                menuSetPreset(e_menu_presets.title_screen);
-                room = rTitle;
-            })]
-        ];
+        "Title Screen", new ScriptRunner(function() {
+            menuModeTitle();
+            menuSetPreset(e_menu_presets.title_screen);
+            room = rTitle;
+        })]
+    ];
     </code></pre>

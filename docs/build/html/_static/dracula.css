@@ -10,7 +10,7 @@
 
  code[class*="language-"],
  pre[class*="language-"] {
-     color: #a9b7c6;
+     color: #a9b7c6 !important;
      background:#2b2b2b;
      font-family: Consolas, Monaco, 'Andale Mono', monospace;
      direction: ltr;
