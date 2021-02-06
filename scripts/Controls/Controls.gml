@@ -24,11 +24,29 @@ function Controls(input_system, filename, reset_on, order) : MenuElement() const
 	self.reset_on = reset_on;
 	
 	// Add json extension to filename
-	if (string_pos(".json", filename) == 0) filename = filename + ".json";
+	if (string_pos(".json", filename) == 0) self.filename = filename + ".json";
+	
+	// Extend func
+	var max_inputs = oMenu.item_look.controls.max_inputs;
+	
+	var extend = function(max_inputs) {
+		var len = getlen(names);
+		
+		for (var i = 0; i < len; i++) {
+			var name = names[i];
+			
+			if (getlen(in_sys.inputs[$ name]) < max_inputs) in_sys.inputs[$ name][max_inputs - 1] = 0;
+		}
+	}
+	
+	// Set names
+	names = order != undefined ? order : variable_struct_get_names(in_sys.inputs);
 	
 	// Reset save
 	if (reset_on) {
-		filename_default = string_replace(filename, ".json", "_default.json");
+		filename_default = string_replace(self.filename, ".json", "_default.json");
+		
+		extend(max_inputs);
 		
 		in_sys.save(filename_default);
 	}
@@ -38,17 +56,8 @@ function Controls(input_system, filename, reset_on, order) : MenuElement() const
 	
 	inputs = in_sys.inputs;
 	
-	// Set names
-	names = order != undefined ? order : variable_struct_get_names(inputs);
-	
-	// Extend input arrays
-	var max_inputs = oMenu.item_look.controls.max_inputs - 1;
-	
-	for (var i = 0; i < getlen(names); i++) {
-		var name = names[i];
-		
-		if (getlen(inputs[$ name]) < max_inputs) inputs[$ name][max_inputs] = 0;
-	}
+	// Extend inputs array
+	extend(max_inputs);
 	
 	last_input = undefined;
 	end_inputting = false;
@@ -193,17 +202,17 @@ function Input(in_sys, name) : MenuElement() constructor {
 			if (selected and oMenu.in_column == i) {
 				draw_set_alpha(rect_look.alpha.selected);
 				draw_set_color(oMenu.inputting ? oMenu.look.col.selected.intense : oMenu.look.col.selected.normal);
-				draw_roundrect(rect.x1, rect.y1, rect.x2, rect.y2, false);
+				draw_roundrect_ext(rect.x1, rect.y1, rect.x2, rect.y2, rect_look.roundness, rect_look.roundness, false);
 			} else {
 				draw_set_alpha(rect_look.alpha.unselected);
 				draw_set_color(rect_look.col);
-				draw_roundrect(rect.x1, rect.y1, rect.x2, rect.y2, false);
+				draw_roundrect_ext(rect.x1, rect.y1, rect.x2, rect.y2, rect_look.roundness, rect_look.roundness, false);
 			}
 			
 			// Outline
 			draw_set_alpha(1);
 			draw_set_color(oMenu.look.col.selected.normal);
-			draw_roundrect(rect.x1, rect.y1, rect.x2, rect.y2, true);
+			draw_roundrect_ext(rect.x1, rect.y1, rect.x2, rect.y2, rect_look.roundness, rect_look.roundness, true);
 			
 			// Icon
 			var in = arr[i];
