@@ -21,7 +21,7 @@ if (!surface_exists(pause_surf)) {
 	}
 	
 	// Draw to surface
-    pause_surf = surface_create(room_width, room_height);
+    pause_surf = surface_create(gui_w, gui_h);
     surface_set_target(pause_surf);
     draw_surface(application_surface, 0, 0);
     surface_reset_target();
