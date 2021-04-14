@@ -21,7 +21,6 @@ function InputSystem(inputs) constructor {
     
     gamepad_device = 0;
     
-    
     /// @func check([gamepad_device])
     /// @desc Checks for the inputs. Retrurns a struct of each with a down, and pressed value. (e.g. right: {down: true, pressed: false)
     /// @param {real} [gamepad_device]  Gamepad device (default: 0)
@@ -29,7 +28,7 @@ function InputSystem(inputs) constructor {
     /// @example in = in_sys.check();
 
     static check = function(gp_num) {
-        if (gp_num != undefined and is_real(gp_num)) gamepad_device = gp_num;
+        if (is_real(gp_num)) gamepad_device = gp_num;
         
         // Create empty input struct
         var in_strc = {};

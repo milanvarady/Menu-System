@@ -16,7 +16,7 @@ function gpCheck(gp, pressed, gp_num) {
     
 	var input = false;
 
-	if (gp_num != undefined) {
+	if (inRange(gp_num, 0, 11)) {
 		if (is_string(gp)) {
 			// Gamepad axis
 		

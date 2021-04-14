@@ -1,4 +1,6 @@
 
+gamepad_deadzone = 0.1;
+
 #region Create maps (system)
 
 global.axis_last_val = ds_map_create();
@@ -123,9 +125,9 @@ array_copy(global.gamepad_inputs, array_length(global.gamepad_inputs), gamepad, 
 
 #endregion
 
-#region Gamepads connected
+#region Gamepads connected (system)
 
-global.gamepads_connected = array_create(12, undefined);
+global.gamepads_connected = array_create(12, -1);
 
 #endregion
 

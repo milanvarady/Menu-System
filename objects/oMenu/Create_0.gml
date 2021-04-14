@@ -260,9 +260,9 @@ var credits_string =
 
 
 	menu = [
-		
-    ];
-
+			
+	];
+	
 	
 	enum e_menu_presets {
 		title_screen,

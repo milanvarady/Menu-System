@@ -153,7 +153,6 @@ if (menu_h > (gui_h - start_y)) {
 			
 			if (!sidebar) {
 				// Draw buttons
-				xx = gui_w / 2;
 				yy += anim_pos;
 				drawButton(xx, yy, item.name);
 			} else {
