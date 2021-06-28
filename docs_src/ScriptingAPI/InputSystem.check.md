@@ -7,7 +7,7 @@ check([gamepad_device])
 ```
 
 ## Description
-Checks for the inputs. Retrurns a struct of each with a down, and pressed value. (e.g. right: {down: true, pressed: false)
+Checks for the inputs. Retrurns a struct of each with a down, pressed, and released value. (e.g. right: {down: true, pressed: false, released: true)
 
 ## Arguments
 | Name | Type | Description |

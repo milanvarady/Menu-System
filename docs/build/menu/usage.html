@@ -1,0 +1,808 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Usage &mdash; Menu And Input System 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="/css/s4defs-roles.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Features" href="../input/features.html" />
+    <link rel="prev" title="Features" href="features.html" />
+<link rel="stylesheet" type="text/css" 
+     href="../_static/custom.css" /> 
+<link rel="stylesheet" type="text/css" 
+     href="../_static/dracula.css" />      
+     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" /> -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js" integrity="sha512-YBk7HhgDZvBxmtOfUdvX0z8IH2d10Hp3aEygaMNhtF8fSOvBZ16D/1bXZTJV6ndk/L/DlXxYStP8jrF77v2MIg==" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-gml.min.js" integrity="sha512-nnmnyMhyZC3NBvEVvzsQbzJbs7p+JUVp5GRcGrTZlO4LjQ+4wB58zNSn+TQcE/Bpe1fb0GYivV0/f/VRbZMChA==" crossorigin="anonymous"></script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://github.com/mpariente/asteroid" aria-label="Apex Vision">
+       <img class="call-to-action-img" height="50" src="../_static/images/apexvision.png"/>
+      </a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://veddmegvagymeghalsz.hu/menusystem/usage">Usage</a>
+          </li>
+
+          <li>
+            <a href="https://milanvarady.itch.io/menu-and-input-system">Download</a>
+          </li>
+
+          <li>
+            <a href="https://veddmegvagymeghalsz.hu/menusystem/api">API documentation</a>
+          </li>
+
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+
+  </div>
+</div>
+
+
+<body class="pytorch-body">
+
+   
+
+    
+
+    <div class="table-of-contents-link-wrapper">
+      <span>Table of Contents</span>
+      <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+    </div>
+
+    <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+      <div class="pytorch-side-scroll">
+        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <div class="pytorch-left-menu-search">
+            
+
+            
+              
+              
+            
+
+            
+
+
+  
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+            
+          </div>
+
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Installation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation_itch.html">Itch io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation_gm.html">GameMaker Marketplace</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Menu System:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Input System:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../input/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../input/usage.html">Usage</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="pytorch-container">
+      <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+        <div class="pytorch-breadcrumbs-wrapper">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="../index.html">
+          
+            Docs
+          
+        </a> &gt;
+      </li>
+
+        
+      <li>Usage</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/menu/usage.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+        </div>
+
+        <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+          Shortcuts
+        </div>
+      </div>
+
+      <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+        <div class="pytorch-content-left">
+
+        
+          
+          <div class="rst-content">
+          
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+             <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+              
+  <blockquote>
+<div></div></blockquote>
+<div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="setup-guide">
+<h2>Setup guide<a class="headerlink" href="#setup-guide" title="Permalink to this headline">¶</a></h2>
+<p>This will guide you through the important steps to set up a fully functional menu.</p>
+<div class="section" id="regions">
+<h3>Regions<a class="headerlink" href="#regions" title="Permalink to this headline">¶</a></h3>
+<p>Open <code class="code docutils literal notranslate"><span class="pre">oMenu</span></code>’s create event, here is everything for configuring the menu.</p>
+<p>Here you’ll see a lot of regions. All of them are marked either with a <strong>(system)</strong> or a <strong>(user)</strong> tag.
+You only want to change the <strong>(user)</strong> tagged regions.</p>
+<p>Every region is a settings for something.</p>
+<dl class="simple">
+<dt>Here is a list of the regions and what they do:</dt><dd><ul class="simple">
+<li><p><strong>Audio settings</strong>       - Menu sound effects settings</p></li>
+<li><p><strong>Credits text</strong>         - Text for credits (if you have one)</p></li>
+<li><p><strong>Look settings</strong>        - The menu’s look, visual settings</p></li>
+<li><p><strong>Animation settings</strong>   - Button animation settings</p></li>
+<li><p><strong>Scrolling settings</strong>   - Settings for scrolling (if you have a big menu page)</p></li>
+<li><p><strong>Pause settings</strong>       - Pause menu settings</p></li>
+<li><p><strong>Menu array</strong>           - The menu’s structure (buttons and what they do)</p></li>
+<li><p><strong>Input setup</strong>          - Menu navigation settings</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="creating-the-menu-array">
+<h3>Creating the menu array<a class="headerlink" href="#creating-the-menu-array" title="Permalink to this headline">¶</a></h3>
+<p>First, you should create the menu array. Which defines how your menu is structured, what buttons are on which page and what do they do.</p>
+<p>Go to the menu’s <strong>Menu array</strong> region, here will be an empty array. This is where your buttons go.</p>
+<dl class="simple">
+<dt>That empty array is a page array which means that it stores buttons. Buttons are also arrays they consist of two elements:</dt><dd><ul class="simple">
+<li><p>Button name</p></li>
+<li><p>Button function</p></li>
+</ul>
+</dd>
+<dt>Here is the list of button functions:</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">ScriptRunner</span></code> - Runs a script or a method</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Slider</span></code>       - Changes a value in a range (usually used for volume settings)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Shift</span></code>        - Changes a value between a set of options (good for graphics, difficulty settings, etc.)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Toggle</span></code>       - Toggles a value on or off.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Controls</span></code>     - Creates a controls menu from an <a class="reference internal" href="../input/usage.html#inputsystem"><span class="std std-ref">InputSystem</span></a></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Credits</span></code>      - Displays a scrolling credits screen</p></li>
+</ul>
+</dd>
+</dl>
+<p>These are constructors so they should be created with the <code class="code docutils literal notranslate"><span class="pre">new</span></code> keyword in front of them.</p>
+<p>Or if you want your button to switch to another menu page, the second element in the array should be another array that will also have buttons in it.</p>
+<p>Here is a basic example:</p>
+<blockquote>
+<div><pre><code class="language-gml">
+menu = [
+    ["Start",   new ScriptRunner(function() { room = rGame })],
+
+    ["Settings", [
+        ["Audio", [
+            ["Master",      new Slider([0, 1], 0.3,         "audio_master")],
+            ["Sounds",      new Slider([0, 1], 1,           "audio_sounds")],
+            ["Music",       new Slider([0, 1], 1,           "audio_music")]
+        ]],
+
+        ["Graphics", [
+            ["Quality",         new Shift(["Low", "Medium", "High", "Ultra"], 2, "quality")],
+            ["Window Mode", new Shift(["Windowed", "Fullscreen"], 1, "window_mode")],
+            ["Vsync",               new Toggle(0,           "vsync")]
+        ]],
+
+        ["Controls", new Controls(global.input_sys, "input_save.json", true, ["right", "left", "up", "down"])]
+    ]],
+
+    ["Credits", new Credits(credits_string)],
+
+    ["Quit",    new ScriptRunner(game_end)]
+];
+</code></pre></div></blockquote>
+<p>Okay, this may look a bit confusing here is what it does:</p>
+<p>The first button is the <code class="code docutils literal notranslate"><span class="pre">&quot;Start&quot;</span></code>, it runs a function which simply goes to another room.</p>
+<p>After that comes <code class="code docutils literal notranslate"><span class="pre">&quot;Settings&quot;</span></code> which holds another menu page.
+Inside the <code class="code docutils literal notranslate"><span class="pre">&quot;Settings&quot;</span></code> there are also two menu pages <code class="code docutils literal notranslate"><span class="pre">&quot;Audio&quot;</span></code> and <code class="code docutils literal notranslate"><span class="pre">&quot;Graphics&quot;</span></code>. These have a mix of <strong>sliders</strong>, <strong>toggles</strong>, and <strong>shifts</strong> in them.</p>
+<p>Then comes the <code class="code docutils literal notranslate"><span class="pre">&quot;Credits&quot;</span></code> which displays the credits text defined in the <strong>Credits text</strong> region.</p>
+<p>And at last <code class="code docutils literal notranslate"><span class="pre">&quot;Quit&quot;</span></code> which runs the built in function <code class="code docutils literal notranslate"><span class="pre">game_end()</span></code>.</p>
+<p>To see how a menu array looks like with pausing, click <a class="reference internal" href="#example"><span class="std std-ref">here</span></a>.</p>
+<dl class="simple">
+<dt>Here are some tips:</dt><dd><ul class="simple">
+<li><p>The <code class="code docutils literal notranslate"><span class="pre">ScriptRunner</span></code> can call built-in functions as well.</p></li>
+<li><p>When creating a <code class="code docutils literal notranslate"><span class="pre">Controls</span></code> menu it’s good to make the input system <code class="code docutils literal notranslate"><span class="pre">global</span></code>, so the menu can access it easily.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Controls</span></code> generates a new menu page for it’s self so you don’t have to put it in an additional menu page.</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="creating-menu-presets">
+<span id="menu-presets"></span><h3>Creating menu presets<a class="headerlink" href="#creating-menu-presets" title="Permalink to this headline">¶</a></h3>
+<p>If you have a title menu you most likely want to have a pause menu as well.
+But obviously a pause menu should have different buttons in it than a title menu, for instance instead of a <strong>start</strong> button you might want a <strong>resume</strong> button.
+Basically you can create alternatives of buttons for different situations.
+So for that this system has <strong>menu presets</strong> which allows you to change what buttos do when the game is running.</p>
+<p>To create a new preset for a button you simply add another name and button function to it.</p>
+<p>You can have as many presets as you want.</p>
+<p>So the start button before:</p>
+<blockquote>
+<div><pre><code class="language-gml">
+["Start",   new ScriptRunner(function() { room = rGame }]
+</code></pre></div></blockquote>
+<p>And the start button with an additional <strong>Resume</strong> preset:</p>
+<blockquote>
+<div><pre><code class="language-gml">
+["Start",   new ScriptRunner(function() { room = rGame },
+"Resume",   new ScriptRunner(resumeGame)]
+</code></pre><div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The second button is added to the end of an existing button array and it isn’t in a separate array!</p>
+</div>
+</div></blockquote>
+<p>To change presets use the <code class="code docutils literal notranslate"><span class="pre">menuSetPreset()</span></code> function. Give it the preset number from <code class="code docutils literal notranslate"><span class="pre">0</span></code> to the <code class="code docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">presets</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p>
+<p>I recommend using an enumerator for this purpose. There is one by default at the bottom of the <strong>Menu array</strong> region. Feel free to add your presets to it.</p>
+<p>There is a <code class="code docutils literal notranslate"><span class="pre">title_screen</span></code> and <code class="code docutils literal notranslate"><span class="pre">pause_menu</span></code> preset added by default:</p>
+<blockquote>
+<div><pre><code class="language-gml">
+enum e_menu_presets {
+    title_screen,
+    pause_menu
+}
+</code></pre></div></blockquote>
+<p>So then later you can call <code class="code docutils literal notranslate"><span class="pre">menuSetPreset()</span></code> like this:</p>
+<blockquote>
+<div><pre><code class="language-gml">
+menuSetPreset(e_menu_presets.pause_menu);
+</code></pre></div></blockquote>
+<p>See more about pausing <a class="reference internal" href="#pausing"><span class="std std-ref">here</span></a>.</p>
+</div>
+<div class="section" id="changing-the-look">
+<h3>Changing the look<a class="headerlink" href="#changing-the-look" title="Permalink to this headline">¶</a></h3>
+<p>To change the way your menu looks go into the <strong>Look settings</strong> region.</p>
+<dl class="simple">
+<dt>Here you will see two structs:</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">look</span></code> - The look settings of the entire menu</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">item_look</span></code> - The look of individual items (e.g. sliders, toggles, shifts, etc.)</p></li>
+</ul>
+</dd>
+</dl>
+<p>There are a bazillion options so I won’t go through all of them but here are the imporant ones.</p>
+<p>Start with the <code class="code docutils literal notranslate"><span class="pre">look</span></code> struct.</p>
+<dl class="simple">
+<dt>Here are are the three main settings.</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">txt</span></code> - Text font, size, outline etc.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">col</span></code> - Color settings</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">pos</span></code> - Position of the menu and elements</p></li>
+</ul>
+</dd>
+</dl>
+<p>In the text settings there is a <strong>normal</strong> and <strong>small</strong> text type. <strong>Normal</strong> is used most of the time, <strong>small</strong> is for input icons and disclaimer text at the bottom.</p>
+<p>Set your own fonts for both if you don’t like the default one.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are options marked with an <strong>(A)</strong> tag. These can be set to <code class="code docutils literal notranslate"><span class="pre">auto</span></code> (automatic). If so the system will predict an appropriate size for the item.
+If the systems prediction is wrong just try until you find a good-looking value for it.</p>
+</div>
+</div></blockquote>
+<p>Then go onto the <code class="code docutils literal notranslate"><span class="pre">col</span></code> struct. Here are two types <strong>selected</strong> and <strong>unselected</strong>. You have to set two colors each, one used most of the time and a more intense/dark color.
+Set them to your liking.</p>
+<p>Then in the <code class="code docutils literal notranslate"><span class="pre">pos</span></code> struct, you most likely want to change the <code class="code docutils literal notranslate"><span class="pre">menu_pos.y</span></code> because the menu is in the middle by default so it may cover the title of your game or something.</p>
+<p>You can set a nine slice sprite four your buttons background, to set it go to <code class="code docutils literal notranslate"><span class="pre">item_look</span></code> &gt; <code class="code docutils literal notranslate"><span class="pre">button</span></code> and set the <code class="code docutils literal notranslate"><span class="pre">nine_slice</span></code>
+variable to a sprite that is nine slice enabled.</p>
+<dl class="simple">
+<dt>But in case someting isn’t working how you want it. Here are the other things I didn’t talk about:</dt><dd><ul class="simple">
+<li><p>If a specific menu element looks wrong find it in <strong>Look settings</strong> &gt; <code class="code docutils literal notranslate"><span class="pre">item_look</span></code> struct</p></li>
+<li><p>To change the menu’s sounds go to <strong>Audio settings</strong></p></li>
+<li><p>To change the button animation or turn it off go to <strong>Animation settings</strong></p></li>
+<li><p>To change scrolling behaviour go to <strong>Scrolling settings</strong></p></li>
+<li><p>To change things about pausing go to <strong>Pause settings</strong></p></li>
+<li><p>To change buttons used to navigate the menu go to <strong>Input setup</strong></p></li>
+</ul>
+</dd>
+</dl>
+<p>And here are some tips if your font looks odd.</p>
+<p>If you are using a pixelated font turn of anti-aliasing on it. And if it still doesn’t look right try changing the size of the asset until it looks good,
+the nuber should be around the height of the font in pixels.</p>
+<p>On the other hand you are using a non-pixelated font scaling will mess it up, so go into <strong>look</strong> &gt; <strong>txt</strong> and set scale to <code class="code docutils literal notranslate"><span class="pre">1</span></code>.
+Now you will have to change the font assets size until it is properly sized, it takes some time but it’s worth it.</p>
+<blockquote>
+<div></div></blockquote>
+</div>
+<div class="section" id="pausing">
+<span id="id1"></span><h3>Pausing<a class="headerlink" href="#pausing" title="Permalink to this headline">¶</a></h3>
+<p>If have a game with a title menu you usally want to have a pause menu as well.
+For that the system offers a built in pause system wich will basically take a “photo” of the screen, deactivate every object, and than draw the “photo” on the screen.
+This way it looks that the game is paused.</p>
+<dl class="simple">
+<dt>You can do this two ways:</dt><dd><ul class="simple">
+<li><p>Manually - by calling the <code class="code docutils literal notranslate"><span class="pre">pauseGame()</span></code> and <code class="code docutils literal notranslate"><span class="pre">resumeGame()</span></code> functions</p></li>
+<li><p>Automatically - by calling the <code class="code docutils literal notranslate"><span class="pre">menuPauseEnable()</span></code>, and from then the menu will handle pausing</p></li>
+</ul>
+</dd>
+</dl>
+<p>You also have to disable the menu when you enable pausing, because it would cover half of your game. But you want to reenable it when you go back to the title screen.</p>
+<dl class="simple">
+<dt>For this purpose I made two useful scripts.</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">menuModeTitle()</span></code> enables the menu and disables pausing, because you don’t want the player to pause the game when it isn’t started yet.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">menuModePause()</span></code> disables the menu so that you can see the game, and enables pausing so that you can use the pause menu.</p></li>
+</ul>
+</dd>
+</dl>
+<p>And also when you enable pausing you most likely want the menu to look a bit differently, for instance replacing a start button <strong>start</strong> with <strong>resume</strong>.
+If you haven’t made any <strong>menu presets</strong> read about them <a class="reference internal" href="#menu-presets"><span class="std std-ref">here</span></a>.</p>
+<p>Ok, so when you want to switch to pause mode call the <code class="code docutils literal notranslate"><span class="pre">menuModePause()</span></code> function and set your preset by calling <code class="code docutils literal notranslate"><span class="pre">menuSetPreset()</span></code>.
+And when you want to set it back to title screen mode call <code class="code docutils literal notranslate"><span class="pre">menuModeTitle()</span></code> and set you preset back with <code class="code docutils literal notranslate"><span class="pre">menuSetPreset()</span></code>.</p>
+<p>Here is an example of a <strong>Start</strong> button with a <strong>Resume</strong> preset.</p>
+<blockquote>
+<div><pre><code class="language-gml">
+["Start",   new ScriptRunner(function() {
+    menuModePause();
+    menuSetPreset(e_menu_presets.pause_menu);
+    room_goto(rGame);
+}),
+
+"Resume", new ScriptRunner(resumeGame)]
+</code></pre></div></blockquote>
+<p>And here is an example of a <strong>Quit</strong> button with a <strong>Back to title</strong> preset.</p>
+<blockquote>
+<div><pre><code class="language-gml">
+["Quit",    new ScriptRunner(game_end),
+
+"Title Screen", new ScriptRunner(function() {
+    menuModeTitle();
+    menuSetPreset(e_menu_presets.title_screen);
+    room = rTitle;
+})]
+</code></pre></div></blockquote>
+<p>To see a fully set up menu example with pausing, click <a class="reference internal" href="#example"><span class="std std-ref">here</span></a>.</p>
+<p>To change how the menu looks when the game is paused go to the <strong>Pause settings</strong> region in the create event.</p>
+</div>
+</div>
+<div class="section" id="the-settings-struct-getting-values">
+<h2>The settings struct (getting values)<a class="headerlink" href="#the-settings-struct-getting-values" title="Permalink to this headline">¶</a></h2>
+<p>After you have created your menu you want to get the values of settings somehow.</p>
+<p>The values are stored in a struct called <code class="code docutils literal notranslate"><span class="pre">global.settings</span></code>.
+To get the value of an item write <code class="code docutils literal notranslate"><span class="pre">global.settings.save_key</span></code> where the <code class="code docutils literal notranslate"><span class="pre">save_key</span></code> is the string what you defined in the menu array when you created the item.</p>
+<dl class="simple">
+<dt>Here is how the different elements save their values:</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">Slider</span></code> - (type: real) The value will be in the range you defined when you created it</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Shift</span></code> - (type: real) The value will range from <code class="code docutils literal notranslate"><span class="pre">0</span></code> to the <code class="code docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">options</span> <span class="pre">-</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Toggle</span></code> - (type: bool) Either <code class="code docutils literal notranslate"><span class="pre">true</span></code> or <code class="code docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">Controls</span></code> - The controls changes the given input system directly it does not return anything</p></li>
+</ul>
+</dd>
+</dl>
+<p>You can do anyting with these values in any object but there is a <strong>Change actual values</strong> region in the menu’s step event for it.
+Here you can change the window size, volume etc.</p>
+<p>Here is a basic example:</p>
+<blockquote>
+<div><pre><code class="language-gml">
+audio_master_gain(global.settings.audio_master);
+if (global.settings.window_mode != window_get_fullscreen()) window_set_fullscreen(global.settings.window_mode);
+</code></pre></div></blockquote>
+</div>
+<div class="section" id="enabling-disabling-the-menu">
+<h2>Enabling/disabling the menu<a class="headerlink" href="#enabling-disabling-the-menu" title="Permalink to this headline">¶</a></h2>
+<p>To enable/disable the menu simply call the <code class="code docutils literal notranslate"><span class="pre">menuEnable()</span></code> function, with a <code class="code docutils literal notranslate"><span class="pre">true</span></code> or <code class="code docutils literal notranslate"><span class="pre">false</span></code> argument.</p>
+<blockquote>
+<div></div></blockquote>
+</div>
+<div class="section" id="menu-array-example">
+<span id="example"></span><h2>Menu array example<a class="headerlink" href="#menu-array-example" title="Permalink to this headline">¶</a></h2>
+<p>Here is an example of a menu array with pausing and everything. If you are starting a new project just paste this into your project to save time.</p>
+<blockquote>
+<div><pre><code class="language-gml">
+menu = [
+    ["Start",   new ScriptRunner(function() {
+        menuModePause();
+        menuSetPreset(e_menu_presets.pause_menu);
+        room_goto(rGame);
+    }),
+
+    "Resume", new ScriptRunner(resumeGame)],
+
+    ["Settings", [
+        ["Audio", [
+            ["Master",  new Slider([0, 1], 0.3,         "audio_master")],
+            ["Sounds",  new Slider([0, 1], 1,           "audio_sounds")],
+            ["Music",   new Slider([0, 1], 1,           "audio_music")]
+        ]],
+
+        ["Graphics", [
+            ["Quality",     new Shift(["Low", "Medium", "High", "Ultra"], 2, "quality")],
+            ["Window Mode",     new Shift(["Windowed", "Fullscreen"], 1, "window_mode")],
+            ["Vsync",           new Toggle(0,           "vsync")]
+        ]],
+
+        ["Controls", new Controls(global.input_sys, "input_save.json", true, ["right", "left", "up", "down"])]
+    ]],
+
+    ["Credits", new Credits(credits_string)],
+
+    ["Quit",    new ScriptRunner(game_end),
+
+    "Title Screen", new ScriptRunner(function() {
+        menuModeTitle();
+        menuSetPreset(e_menu_presets.title_screen);
+        room = rTitle;
+    })]
+];
+</code></pre></div></blockquote>
+</div>
+</div>
+
+
+             </article>
+             
+            </div>
+            <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../input/features.html" class="btn btn-neutral float-right" title="Features" accesskey="n" rel="next">Next <img src="../_static/images/chevron-right-orange.svg" class="next-page"></a>
+      
+      
+        <a href="features.html" class="btn btn-neutral" title="Features" accesskey="p" rel="prev"><img src="../_static/images/chevron-right-orange.svg" class="previous-page"> Previous</a>
+      
+    </div>
+  
+
+  
+
+    <hr>
+
+  
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Milan Varady.
+
+    </p>
+  </div>
+    
+      <div>
+        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+      </div>
+     
+
+</footer>
+
+          </div>
+        </div>
+
+        <div class="pytorch-content-right" id="pytorch-content-right">
+          <div class="pytorch-right-menu" id="pytorch-right-menu">
+            <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+              <ul>
+<li><a class="reference internal" href="#">Usage</a><ul>
+<li><a class="reference internal" href="#setup-guide">Setup guide</a><ul>
+<li><a class="reference internal" href="#regions">Regions</a></li>
+<li><a class="reference internal" href="#creating-the-menu-array">Creating the menu array</a></li>
+<li><a class="reference internal" href="#creating-menu-presets">Creating menu presets</a></li>
+<li><a class="reference internal" href="#changing-the-look">Changing the look</a></li>
+<li><a class="reference internal" href="#pausing">Pausing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-settings-struct-getting-values">The settings struct (getting values)</a></li>
+<li><a class="reference internal" href="#enabling-disabling-the-menu">Enabling/disabling the menu</a></li>
+<li><a class="reference internal" href="#menu-array-example">Menu array example</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  
+
+
+  
+
+     
+       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+         <script src="../_static/jquery.js"></script>
+         <script src="../_static/underscore.js"></script>
+         <script src="../_static/doctools.js"></script>
+     
+
+  
+
+  <script type="text/javascript" src="../_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="../_static/js/vendor/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid" id="docs-tutorials-resources">
+    <div class="container">
+      <div class="row">
+        <!--
+        <div class="col-md-4 text-center">
+          <h2>Docs</h2>
+          <p>Access comprehensive developer documentation for PyTorch</p>
+          <a class="with-right-arrow" href="https://pytorch.org/docs/stable/index.html">View Docs</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Tutorials</h2>
+          <p>Get in-depth tutorials for beginners and advanced developers</p>
+          <a class="with-right-arrow" href="https://pytorch.org/tutorials">View Tutorials</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Resources</h2>
+          <p>Find development resources and get your questions answered</p>
+          <a class="with-right-arrow" href="https://pytorch.org/resources">View Resources</a>
+        </div>
+        -->
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-logo-wrapper">
+        <a href="https://github.com/mpariente/asteroid" class="footer-logo"></a>
+      </div>
+
+      <div class="footer-links-wrapper">
+
+        <div class="footer-logo-col">
+          <img class="footer-logo-img" src="../_static/images/dark_asteroid_logo.svg"/>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/mpariente/asteroid">Asteroid</a></li>
+            <li><a href="https://pytorch.org/get-started">Get Started</a></li>
+            <li><a href="https://pytorch.org/features">Features</a></li>
+            <li><a href="">Ecosystem</a></li>
+            <li><a href="https://pytorch.org/blog/">Blog</a></li>
+            <li><a href="https://pytorch.org/resources">Resources</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://pytorch.org/support">Support</a></li>
+            <li><a href="https://pytorch.org/tutorials">Tutorials</a></li>
+            <li><a href="https://pytorch.org/docs/stable/index.html">Docs</a></li>
+            <li><a href="https://discuss.pytorch.org" target="_blank">Discuss</a></li>
+            <li><a href="https://github.com/mpariente/asteroid/issues" target="_blank">Github Issues</a></li>
+            <li><a href="" target="_blank">Slack</a></li>
+            <li><a href="https://github.com/mpariente/asteroid/blob/master/CONTRIBUTING.md" target="_blank">Contributing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col follow-us-col">
+          <ul>
+            <li class="list-title">Follow Us</li>
+            <li>
+              <div id="mc_embed_signup">
+                <form
+                  action="https://twitter.us14.list-manage.com/subscribe/post?u=75419c71fe0a935e53dfa4a3f&id=91d0dccd39"
+                  method="post"
+                  id="mc-embedded-subscribe-form"
+                  name="mc-embedded-subscribe-form"
+                  class="email-subscribe-form validate"
+                  target="_blank"
+                  novalidate>
+                  <div id="mc_embed_signup_scroll" class="email-subscribe-form-fields-wrapper">
+                    <div class="mc-field-group">
+                      <label for="mce-EMAIL" style="display:none;">Email Address</label>
+                      <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email Address">
+                    </div>
+
+                    <div id="mce-responses" class="clear">
+                      <div class="response" id="mce-error-response" style="display:none"></div>
+                      <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>
+
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_75419c71fe0a935e53dfa4a3f_91d0dccd39" tabindex="-1" value=""></div>
+
+                    <div class="clear">
+                      <input type="submit" value="" name="subscribe" id="mc-embedded-subscribe" class="button email-subscribe-button">
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+            </li>
+          </ul>
+
+          <div class="footer-social-icons">
+            <a href="" target="_blank" class="facebook"></a>
+            <a href="https://twitter.com" target="_blank" class="twitter"></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer> -->
+
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://github.com/mpariente/asteroid" aria-label="PyTorch Lightning"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://pytorch.org/get-started">Get Started</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/features">Features</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/blog/">Blog</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/tutorials">Tutorials</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/docs/stable/index.html">Docs</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/resources">Resources</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/mpariente/asteroid">Github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="../_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function(e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+</html>

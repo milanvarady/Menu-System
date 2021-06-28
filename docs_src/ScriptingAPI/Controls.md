@@ -14,7 +14,7 @@ Automatically creates a controls menu based on an input system
 | ---- | ---- | ----------- |
 | input_system | `struct` | The input system used |
 | filename | `string` | Save file name, or false if you don't want to save the inputs. (default: false) |
-| reset_on | `bool` | Whether to make a reset to defaults option for the controls (default: false) |
+| reset_on | `bool` | Whether to make a reset defaults option for the controls or not (default: false) |
 | order | `array` | (optional) Order of inputs, because structs doesn't save their elements in order (e.g. ["right", "left", "jump") |
 
 ## Returns

@@ -83,6 +83,7 @@
     {"id":{"name":"gotoPrevPage","path":"scripts/gotoPrevPage/gotoPrevPage.yy",},"order":4,},
     {"id":{"name":"menuSetPreset","path":"scripts/menuSetPreset/menuSetPreset.yy",},"order":2,},
     {"id":{"name":"fontGetHeight","path":"scripts/fontGetHeight/fontGetHeight.yy",},"order":14,},
+    {"id":{"name":"sNineSlice","path":"sprites/sNineSlice/sNineSlice.yy",},"order":5,},
     {"id":{"name":"menuEnable","path":"scripts/menuEnable/menuEnable.yy",},"order":3,},
     {"id":{"name":"menuPauseEnable","path":"scripts/menuPauseEnable/menuPauseEnable.yy",},"order":4,},
     {"id":{"name":"menuModeTitle","path":"scripts/menuModeTitle/menuModeTitle.yy",},"order":5,},
@@ -132,7 +133,7 @@
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":".DS_Store","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
-    "IDEVersion": "2.3.2.556",
+    "IDEVersion": "2.3.2.560",
   },
   "resourceVersion": "1.4",
   "name": "Menu System",

@@ -20,7 +20,7 @@ This constructor creates a new input system.
 ## Methods
 | Name | Description |
 | ---- | ----------- |
-| [check](InputSystem.check.html) | Checks for the inputs. Retrurns a struct of each with a down, and pressed value. (e.g. right: {down: true, pressed: false) |
+| [check](InputSystem.check.html) | Checks for the inputs. Retrurns a struct of each with a down, pressed, and released value. (e.g. right: {down: true, pressed: false, released: true) |
 | [clear](InputSystem.clear.html) | Clears the input struct |
 | [describe](InputSystem.describe.html) | Lists the currents inputs to the output window. Good for debugging purposes. |
 | [load](InputSystem.load.html) | Loads a saved input file. |

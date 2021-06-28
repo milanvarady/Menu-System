@@ -3,7 +3,7 @@
 <span class="badge badge-secondary">function</span>
 
 ```gml
-gamepadLast(device, [pressed])
+gamepadLast(device, [mode])
 ```
 
 ## Description
@@ -13,7 +13,7 @@ Gets last gamepad button that was pressed, similar to keyboard_key
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | device | `real` | Gamepad device to check |
-| pressed | `bool` | Whether the input should be checked as pressed or not (default: false) |
+| mode | `enum` | Input check mode CHECK_MODE.DOWN, PRESSED or RELEASED (default: DOWN) |
 
 ## Returns
 `input` 

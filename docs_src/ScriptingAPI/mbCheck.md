@@ -3,7 +3,7 @@
 <span class="badge badge-secondary">function</span>
 
 ```gml
-mbCheck(mouse_button, [pressed])
+mbCheck(mouse_button, [mode])
 ```
 
 ## Description
@@ -13,10 +13,10 @@ Checks if a mouse button is pressed or not
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | mouse_button | `mb` | Mouse button to check for |
-| pressed | `bool` | Whether to check as pressed or not (default: false) |
+| mode | `enum` | Input check mode CHECK_MODE.DOWN, PRESSED or RELEASED (default: DOWN) |
 
 ## Returns
 `bool` 
 
 ## Example
-mbCheck(mb_left, true);
+mbCheck(mb_left, CHECK_MODE.PRESSED);

@@ -22,7 +22,7 @@ function InputSystem(inputs) constructor {
     gamepad_device = 0;
     
     /// @func check([gamepad_device])
-    /// @desc Checks for the inputs. Retrurns a struct of each with a down, and pressed value. (e.g. right: {down: true, pressed: false)
+    /// @desc Checks for the inputs. Retrurns a struct of each with a down, pressed, and released value. (e.g. right: {down: true, pressed: false, released: true)
     /// @param {real} [gamepad_device]  Gamepad device (default: 0)
     /// @return {struct}
     /// @example in = in_sys.check();
@@ -42,13 +42,15 @@ function InputSystem(inputs) constructor {
     	    var arr = inputs[$ name];
     	    
     	    // Check for input  
-    		var input = inputCheck(arr, false, gamepad_device);
-    		var input_pressed = inputCheck(arr, true, gamepad_device);
+    		var input = inputCheck(arr, CHECK_MODE.DOWN, gamepad_device);
+    		var input_pressed = inputCheck(arr, CHECK_MODE.PRESSED, gamepad_device);
+			var input_released = inputCheck(arr, CHECK_MODE.RELEASED, gamepad_device)
     	
     		// Add input to struct
     		in_strc[$ (name)] = {
-    		    down: input,
-    		    pressed: input_pressed
+    		    down:		input,
+    		    pressed:	input_pressed,
+				released:	input_released
     		};
     	}
     	

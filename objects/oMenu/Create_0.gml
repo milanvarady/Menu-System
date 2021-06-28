@@ -110,12 +110,15 @@ var credits_string =
 		
 		// Button (in the middle)
 		button: {
-			w:			auto,	// (A) Button width
-			h:			auto,	// (A) Button height
-			y_buffer:	auto,	// (A) Space between buttons
-			roundness:	auto,	// (A) Corner roundness
-			cir_prec:	24,		// Circle precision (Must be divisible by 4!)
-			alpha:		0.6		// Button's alpha
+			w:			auto,		// (A) Button width
+			h:			auto,		// (A) Button height
+			y_buffer:	auto,		// (A) Space between buttons
+			roundness:	auto,		// (A) Corner roundness
+			cir_prec:	24,			// Circle precision (Must be divisible by 4!)
+			alpha:		0.6,		// Button's alpha
+			
+			text_only:	false,		// (bool) If set to true no background and outline will be drawn
+			nine_slice:	false		// (sprite) If sprite is set it will be used for the button's background
 		},
 			
 		// Toggle
@@ -260,8 +263,9 @@ var credits_string =
 
 
 	menu = [
-			
+		
 	];
+
 	
 	
 	enum e_menu_presets {
