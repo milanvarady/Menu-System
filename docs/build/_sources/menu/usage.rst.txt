@@ -103,8 +103,8 @@ Creating menu presets
 #####################
 
 If you have a title menu you most likely want to have a pause menu as well. 
-But obviously a pause menu should have different buttons in it than a title menu, for instance instead of a **start** button you might want a **resume** button.
-Basically you can create alternatives of buttons for different situations.
+But obviously a pause menu should have different buttons in it than a title menu, for instance instead of a **start** button you might want a **resume** button, or you may want to remove some buttons.
+Basically you can create alternatives of buttons or add compleately new buttons for different situations.
 So for that this system has **menu presets** which allows you to change what buttos do when the game is running.
 
 To create a new preset for a button you simply add another name and button function to it.
@@ -131,6 +131,20 @@ And the start button with an additional **Resume** preset:
  .. warning::
     The second button is added to the end of an existing button array and it isn't in a separate array!
 
+
+You can also make a button invisible when in a preset by setting both its name and function to :code:`undefined`.
+
+.. raw:: html
+
+    <pre><code class="language-gml">
+    // This button is only visible on the title screen
+    ["Start",   new ScriptRunner(function() { room = rGame },
+    undefined, undefined]
+
+    // This button is only visible in the pause menu
+    [undefined, undefined, 
+    "Save & Quit",   new ScriptRunner(function() { save code here }]
+    </code></pre>
 
 To change presets use the :code:`menuSetPreset()` function. Give it the preset number from :code:`0` to the :code:`number of presets - 1`.
 

@@ -322,8 +322,8 @@ Inside the <code class="code docutils literal notranslate"><span class="pre">&qu
 <div class="section" id="creating-menu-presets">
 <span id="menu-presets"></span><h3>Creating menu presets<a class="headerlink" href="#creating-menu-presets" title="Permalink to this headline">¶</a></h3>
 <p>If you have a title menu you most likely want to have a pause menu as well.
-But obviously a pause menu should have different buttons in it than a title menu, for instance instead of a <strong>start</strong> button you might want a <strong>resume</strong> button.
-Basically you can create alternatives of buttons for different situations.
+But obviously a pause menu should have different buttons in it than a title menu, for instance instead of a <strong>start</strong> button you might want a <strong>resume</strong> button, or you may want to remove some buttons.
+Basically you can create alternatives of buttons or add compleately new buttons for different situations.
 So for that this system has <strong>menu presets</strong> which allows you to change what buttos do when the game is running.</p>
 <p>To create a new preset for a button you simply add another name and button function to it.</p>
 <p>You can have as many presets as you want.</p>
@@ -342,7 +342,16 @@ So for that this system has <strong>menu presets</strong> which allows you to ch
 <p>The second button is added to the end of an existing button array and it isn’t in a separate array!</p>
 </div>
 </div></blockquote>
-<p>To change presets use the <code class="code docutils literal notranslate"><span class="pre">menuSetPreset()</span></code> function. Give it the preset number from <code class="code docutils literal notranslate"><span class="pre">0</span></code> to the <code class="code docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">presets</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p>
+<p>You can also make a button invisible when in a preset by setting both its name and function to <code class="code docutils literal notranslate"><span class="pre">undefined</span></code>.</p>
+<pre><code class="language-gml">
+// This button is only visible on the title screen
+["Start",   new ScriptRunner(function() { room = rGame },
+undefined, undefined]
+
+// This button is only visible in the pause menu
+[undefined, undefined,
+"Save & Quit",   new ScriptRunner(function() { save code here }]
+</code></pre><p>To change presets use the <code class="code docutils literal notranslate"><span class="pre">menuSetPreset()</span></code> function. Give it the preset number from <code class="code docutils literal notranslate"><span class="pre">0</span></code> to the <code class="code docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">presets</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p>
 <p>I recommend using an enumerator for this purpose. There is one by default at the bottom of the <strong>Menu array</strong> region. Feel free to add your presets to it.</p>
 <p>There is a <code class="code docutils literal notranslate"><span class="pre">title_screen</span></code> and <code class="code docutils literal notranslate"><span class="pre">pause_menu</span></code> preset added by default:</p>
 <blockquote>
