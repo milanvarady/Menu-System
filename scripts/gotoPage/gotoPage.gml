@@ -8,6 +8,7 @@
 function gotoPage(_page) {
 	with (oMenu) {
 		ds_stack_push(prev_pages, [page, menu_option]);
+		
 		page = _page;
 		menu_option = 0;
 		sn = audio.page_shift;

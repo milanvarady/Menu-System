@@ -116,9 +116,11 @@ if (menu_h > (gui_h - start_y)) {
 
 #region Main drawing loop
 
+	var skipped_items = 0;
+
 	for (var i = 0; i < num; i++) {
 		// Pos
-		yy = start_y + (y_buff * i);
+		yy = start_y + (y_buff * (i - skipped_items));
 		
 		// Break if item is not on screen
 		if (yy - y_buff > gui_h) break;
@@ -141,6 +143,12 @@ if (menu_h > (gui_h - start_y)) {
 		if (is_array(arr)) {
 			// Get name and struct
 			var item = pageFind(arr);
+			
+			// Skip empty preset
+			if (is_undefined(item.name)) {
+				skipped_items++;
+				continue;
+			}
 			
 			// Selected
 			var sel = menu_option == i;

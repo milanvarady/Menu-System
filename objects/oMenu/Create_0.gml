@@ -263,7 +263,40 @@ var credits_string =
 
 
 	menu = [
-		
+		// Example menu array
+		["Start",   new ScriptRunner(function() {
+			menuModePause();
+			menuSetPreset(e_menu_presets.pause_menu);
+			room_goto(rGame);
+		}),
+
+		"Resume", new ScriptRunner(resumeGame)],
+
+		["Settings", [
+			["Audio", [
+			    ["Master",  new Slider([0, 1], 0.3,         "audio_master")],
+			    ["Sounds",  new Slider([0, 1], 1,           "audio_sounds")],
+			    ["Music",   new Slider([0, 1], 1,           "audio_music")]
+			]],
+
+			["Graphics", [
+			    ["Quality",     new Shift(["Low", "Medium", "High", "Ultra"], 2, "quality")],
+			    ["Window Mode",     new Shift(["Windowed", "Fullscreen"], 1, "window_mode")],
+			    ["Vsync",           new Toggle(0,           "vsync")]
+			]],
+
+			["Controls", new Controls(global.input_sys, "input_save.json", true, ["right", "left", "up", "down"])]
+		]],
+
+		["Credits", new Credits(credits_string)],
+
+		["Quit",    new ScriptRunner(game_end),
+
+		"Title Screen", new ScriptRunner(function() {
+			menuModeTitle();
+			menuSetPreset(e_menu_presets.title_screen);
+			room = rTitle;
+		})]
 	];
 
 	
@@ -373,13 +406,6 @@ delete text_height;
 #region Other stuff (system)
 	
 	#region Functions (system)
-		
-	function stringRemoveUderscore(str) {
-		str = string_replace(str, "_", " ");
-		str = string_replace(str, "-", " ");
-		
-		return str;
-	}
 	
 	function col2(selected, c1, c2) {
 		return selected ? {c1: c2, c2: c1} : {c1: c1, c2: c2};

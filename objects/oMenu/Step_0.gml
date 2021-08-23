@@ -48,11 +48,18 @@ vinput			= in.down.pressed - in.up.pressed;
 
 // Change option
 if (vinput != 0 and !inputting) {
-	menu_option += vinput;
-
-	// Keep in range
-	if (menu_option < 0) menu_option = num-1;
-	if (menu_option > num - 1) menu_option = 0;
+	var moved = false;
+	
+	// Skip empty buttons
+	while (is_undefined(pageFind(page[menu_option]).name) or !moved) {
+		menu_option += vinput;
+		
+		// Keep in range
+		if (menu_option < 0) menu_option = num - 1;
+		if (menu_option > num - 1) menu_option = 0;
+		
+		moved = true;
+	}
 	
 	// Sound
 	sn = audio.move;
@@ -64,14 +71,19 @@ if (vinput != 0 and !inputting) {
 
 for (var i = 0; i < num; i++) {
 	var pressed = in.enter.pressed and menu_option == i;
-	var on_back_button	= back and i == num - 1;
+	var on_back_button = back and i == num - 1;
 	var sel = i == menu_option;
 	
 	if (!on_back_button) {
 		// Normal button
 		var arr = page[i];
 		
-		var item = pageFind(arr).item;
+		var element = pageFind(arr);
+		
+		// Skip empty preset
+		if (is_undefined(element.name)) continue;
+		
+		var item = element.item;
 		
 		if (is_array(item)) {
 			// If page transfer button
