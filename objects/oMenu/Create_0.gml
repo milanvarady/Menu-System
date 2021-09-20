@@ -191,7 +191,7 @@ var credits_string =
 			},
 			
 			// Background
-			background: {
+			bg: {
 				col:			c_black,							// Background color
 				alpha:			0.8									// Background alpha
 			},
@@ -288,7 +288,8 @@ var credits_string =
 			["Controls", new Controls(global.input_sys, "input_save.json", true, ["right", "left", "up", "down"])]
 		]],
 
-		["Credits", new Credits(credits_string)],
+		["Credits", new Credits(credits_string),
+		undefined, undefined],
 
 		["Quit",    new ScriptRunner(game_end),
 
@@ -316,6 +317,7 @@ var credits_string =
 		right:	["D",		vk_right,	gp_padr,	gp_axislr],		// Move right
 		left:	["A",		vk_left,	gp_padl,	gp_axisll],		// Move left
 		enter:	[vk_space,	vk_enter,	gp_a],						// Press button
+		click:	[mb_left],											// Mouse click
 		back:	["Q",		vk_escape,	gp_b],						// Previous page
 		
 		pause:	[vk_escape,	"p", gp_start, gp_select]				// Pause/Resume

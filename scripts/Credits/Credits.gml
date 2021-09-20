@@ -32,7 +32,7 @@ function Credits(str) : MenuElement() constructor {
 		
 	static draw = function() {
 		// Draw background
-		var bg_look = oMenu.item_look.credits.background;
+		var bg_look = oMenu.item_look.credits.bg;
 		
 		draw_set_color(bg_look.col);
 		draw_set_alpha(bg_look.alpha);

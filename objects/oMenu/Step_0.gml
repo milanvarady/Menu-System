@@ -51,15 +51,15 @@ if (vinput != 0 and !inputting) {
 	var moved = false;
 	
 	// Skip empty buttons
-	var on_empty_button = false;
-	
-	try {
-		on_empty_button = is_undefined(pageFind(page[menu_option]).name);
-	} catch(e) {
-		on_empty_button = false;
+	var on_empty_button = function() {
+		try {
+			return is_undefined(pageFind(page[menu_option]).name);
+		} catch(e) {
+			return false;
+		}
 	}
 	
-	while (on_empty_button or !moved) {
+	while (on_empty_button() or !moved) {
 		menu_option += vinput;
 		
 		// Keep in range
