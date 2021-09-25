@@ -132,7 +132,13 @@ if (menu_h > (gui_h - start_y)) {
 		var arr = !on_back_button ? page[i] : [item_look.back_button.name];
 		
 		if (isMouseInButton(xx, yy, (!sidebar ? item_look.button : { w: (gui_w * 0.9) - abs(look.pos.menu_pos.x), h: look.pos.buffer.y })) and !inputting) {
-			menu_option = i;
+			if (input_mode == e_input_mode.mouse or point_distance(mouse_gui_x, mouse_gui_y, mouse_pos_prev[0], mouse_pos_prev[1]) > 20) {
+				menu_option = i;
+				mouse_pos_prev = [mouse_gui_x, mouse_gui_y];
+				input_mode = e_input_mode.mouse;
+				
+				if (audio.mouse_select and menu_option != menu_option_prev) sn = audio.move;
+			}
 		}
 		
 		// Animation

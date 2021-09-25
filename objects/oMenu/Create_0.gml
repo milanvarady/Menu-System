@@ -29,7 +29,9 @@
 		back:		snMenuBack,			// Back button sound
 		
 		pause:		snPause,			// Pause game
-		resume:		snResume			// Resume game
+		resume:		snResume,			// Resume game
+		
+		mouse_select: false				// (bool) Wether to play the move sound when selecting with mouse or not
 	}
 
 #endregion
@@ -447,6 +449,11 @@ delete text_height;
 		sidebar
 	}
 	
+	enum e_input_mode {
+		mouse,
+		keyboard
+	}
+	
 	sidebar_elements = ["Slider", "Toggle", "Shift", "Input"];
 	
 	page = menu;
@@ -454,6 +461,8 @@ delete text_height;
 	paused = false;
 	pause_surf = -1;
 	menu_option = 0;
+	menu_option_prev = menu_option;
+	mouse_pos_prev = [mouse_gui_x, mouse_gui_y];
 	prev_pages = ds_stack_create();
 	inputting = false;
 	sn = undefined;
@@ -462,6 +471,7 @@ delete text_height;
 	scrolling_y = undefined;
 	scrolling_y_to = 0;
 	in_column = 0;
+	input_mode = e_input_mode.keyboard;
 	
 	#endregion
 

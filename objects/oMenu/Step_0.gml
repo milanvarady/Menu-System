@@ -49,6 +49,8 @@ vinput			= in.down.pressed - in.up.pressed;
 // Change option
 if (!inputting) {
 	if (vinput != 0) {
+		input_mode = e_input_mode.keyboard;
+		
 		var moved = false;
 	
 		// Skip empty buttons
@@ -72,6 +74,15 @@ if (!inputting) {
 	
 		// Sound
 		sn = audio.move;
+	}
+}
+
+// Input mode
+if (input_mode == e_input_mode.keyboard) {
+	in.click = {
+		down: false,
+		pressed: false,
+		released: false
 	}
 }
 
@@ -133,6 +144,8 @@ for (var i = 0; i < num; i++) {
 }
 
 #endregion
+
+menu_option_prev = menu_option;
 
 // Play sound
 if (sn != undefined) audio_play_sound(sn, 5, false);

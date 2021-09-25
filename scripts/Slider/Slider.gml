@@ -22,8 +22,8 @@ function Slider(range_arr, default_val, save_key) : MenuElement() constructor {
 		
 		if (!dragged) {
 			var hinput = oMenu.hinput;
-		
-				mv_spd = lerp(mv_spd, (range[1] / 100) * sign(hinput), 0.08);
+			mv_spd = lerp(mv_spd, (range[1] / 100) * sign(hinput), 0.08);
+			
 			if (hinput == 0) mv_spd = 0;
 		
 			moveSettingsValue(mv_spd, range, undefined);
@@ -54,7 +54,7 @@ function Slider(range_arr, default_val, save_key) : MenuElement() constructor {
 		
 		if (dragged) {
 			marker_x = clamp(mouse_gui_x, x, x + look.line.w);
-			setSettingsValue(save_key, lerp(range[0], range[1], ((marker_x - x) / look.line.w)));
+			setSettingsValue(save_key, lerp(range[0], range[1], ((marker_x - x) / look.line.w)), range);
 		}
 		
 		draw_set_circle_precision(look.marker.circle_prec);
