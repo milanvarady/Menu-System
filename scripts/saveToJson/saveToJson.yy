@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "JSON",
-    "path": "folders/Scripts/JSON.yy",
+    "path": "folders/Scripts/Menu System/JSON.yy",
   },
   "resourceVersion": "1.0",
   "name": "saveToJson",

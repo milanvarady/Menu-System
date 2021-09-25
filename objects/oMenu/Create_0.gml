@@ -4,6 +4,10 @@
 #macro gui_w display_get_gui_width()
 /// @private
 #macro gui_h display_get_gui_height()
+/// @private
+#macro mouse_gui_x device_mouse_x_to_gui(0)
+/// @private
+#macro mouse_gui_y device_mouse_y_to_gui(0)
 
 #region Settings struct setup (system)
 	
@@ -34,7 +38,7 @@
 
 var credits_string = 
 	@"
-
+Insert credits text here
 "
 
 #endregion
@@ -280,12 +284,12 @@ var credits_string =
 			]],
 
 			["Graphics", [
-			    ["Quality",     new Shift(["Low", "Medium", "High", "Ultra"], 2, "quality")],
+			    ["Quality",			new Shift(["Low", "Medium", "High", "Ultra"], 2, "quality")],
 			    ["Window Mode",     new Shift(["Windowed", "Fullscreen"], 1, "window_mode")],
 			    ["Vsync",           new Toggle(0,           "vsync")]
 			]],
 
-			["Controls", new Controls(global.input_sys, "input_save.json", true, ["right", "left", "up", "down"])]
+			//["Controls", new Controls(global.input_sys, "input_save.json", true, ["right", "left", "up", "down"])]
 		]],
 
 		["Credits", new Credits(credits_string),

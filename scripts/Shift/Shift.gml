@@ -17,11 +17,12 @@ function Shift(options, default_val, save_key) : MenuElement() constructor {
 	name			= options[val];
 		
 	static on_select = function() {
-		moveSettingsValue(oMenu.hinput_pressed, [0, getlen(options) - 1], oMenu.audio.shift);
+		if (!oMenu.in.click.pressed) moveSettingsValue(oMenu.hinput_pressed, [0, getlen(options) - 1], oMenu.audio.shift);
 	}
 		
-	static draw = function(x, y) {
+	static draw = function(x, y) {		
 		var txt = options[val];
+		
 		var left_shift = "<< ";
 		var right_shift = " >>";
 		var c = oMenu.col.unsel_sel.c1;
@@ -29,8 +30,24 @@ function Shift(options, default_val, save_key) : MenuElement() constructor {
 		if (val == 0) left_shift = "";
 		if (val == getlen(options)-1) right_shift = "";
 		
+		var final_text = left_shift + txt + right_shift;
+		
 		draw_set_color(c);
 		
-		drawText(x, y, left_shift + txt + right_shift, oMenu.look.txt.normal.right_scale, false);
+		drawText(x, y, final_text, oMenu.look.txt.normal.right_scale, false);
+		
+		// Mouse
+		var range = [0, getlen(options) - 1];
+		
+		
+		if (oMenu.in.click.pressed) {
+			var txt_x = x;
+			var txt_w = string_width(final_text) * oMenu.look.txt.normal.right_scale;
+			
+			if (oMenu.hinput_pressed == 0) {
+				if (isMouseInButton(txt_x + txt_w/4, y, { w: txt_w/2, h: oMenu.look.pos.buffer.y })) moveSettingsValue(-1, range, oMenu.audio.shift);
+				else if (isMouseInButton(txt_x + txt_w, y, { w: txt_w/2, h: oMenu.look.pos.buffer.y })) moveSettingsValue(1, range, oMenu.audio.shift);
+			}
+		}
 	}
 }

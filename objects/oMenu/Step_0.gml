@@ -47,40 +47,45 @@ hinput_pressed	= in.right.pressed - in.left.pressed;
 vinput			= in.down.pressed - in.up.pressed;
 
 // Change option
-if (vinput != 0 and !inputting) {
-	var moved = false;
+if (!inputting) {
+	if (vinput != 0) {
+		var moved = false;
 	
-	// Skip empty buttons
-	var on_empty_button = function() {
-		try {
-			return is_undefined(pageFind(page[menu_option]).name);
-		} catch(e) {
-			return false;
+		// Skip empty buttons
+		var on_empty_button = function() {
+			try {
+				return is_undefined(pageFind(page[menu_option]).name);
+			} catch(e) {
+				return false;
+			}
 		}
-	}
 	
-	while (on_empty_button() or !moved) {
-		menu_option += vinput;
+		while (on_empty_button() or !moved) {
+			menu_option += vinput;
 		
-		// Keep in range
-		if (menu_option < 0) menu_option = num - 1;
-		if (menu_option > num - 1) menu_option = 0;
+			// Keep in range
+			if (menu_option < 0) menu_option = num - 1;
+			if (menu_option > num - 1) menu_option = 0;
 		
-		moved = true;
-	}
+			moved = true;
+		}
 	
-	// Sound
-	sn = audio.move;
+		// Sound
+		sn = audio.move;
+	}
 }
 
 #endregion
 
+
+
 #region Run button functions
 
 for (var i = 0; i < num; i++) {
-	var pressed = in.enter.pressed and menu_option == i;
+	var pressed = (in.enter.pressed or in.click.pressed) and menu_option == i;
 	var on_back_button = back and i == num - 1;
 	var sel = i == menu_option;
+	
 	
 	if (!on_back_button) {
 		// Normal button

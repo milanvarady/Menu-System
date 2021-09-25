@@ -85,7 +85,7 @@ function Controls(input_system, filename, reset_on, order) : MenuElement() const
 			oMenu.in_column = clamp(oMenu.in_column + hin, 0, max_inputs);
 		}
 		
-		var enter = oMenu.in.enter.pressed;
+		var enter = oMenu.in.enter.pressed or oMenu.in.click.pressed;
 		
 		#region Add and remove inputs
 		
@@ -196,6 +196,11 @@ function Input(in_sys, name) : MenuElement() constructor {
 				y1: y - h_half,
 				x2: rect_x + rect_look.w,
 				y2: y + h_half
+			}
+			
+			// Mouse
+			if (isMouseInButton(rect_x + rect_look.w/2, y, { w: rect_look.w, h: rect_look.h }) and !oMenu.inputting) {
+				oMenu.in_column = i;	
 			}
 			
 			// Inner rectange

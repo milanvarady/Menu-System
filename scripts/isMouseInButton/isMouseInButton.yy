@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Menu System/Essentials.yy",
   },
   "resourceVersion": "1.0",
-  "name": "listCreate",
+  "name": "isMouseInButton",
   "tags": [],
   "resourceType": "GMScript",
 }

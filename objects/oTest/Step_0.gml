@@ -9,7 +9,7 @@ switch global.settings.player_col {
 
 image_blend = col;
 
-image_xscale = global.settings.player_size;
+image_xscale = global.settings.audio_sounds;
 image_yscale = image_xscale;
 
 var in = global.input_sys.check();

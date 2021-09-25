@@ -14,16 +14,20 @@ function Slider(range_arr, default_val, save_key) : MenuElement() constructor {
 	self.save_key	= save_key;
 	val				= getSettingsValue(default_val);
 	range			= range_arr;
+	dragged			= false;
 	
 	// Move value
 	static on_select = function() {
 		static mv_spd = 0;
-		var hinput = oMenu.hinput;
 		
-			mv_spd = lerp(mv_spd, (range[1] / 100) * sign(hinput), 0.08);
-		if (hinput == 0) mv_spd = 0;
+		if (!dragged) {
+			var hinput = oMenu.hinput;
 		
-		moveSettingsValue(mv_spd, range, undefined);
+				mv_spd = lerp(mv_spd, (range[1] / 100) * sign(hinput), 0.08);
+			if (hinput == 0) mv_spd = 0;
+		
+			moveSettingsValue(mv_spd, range, undefined);
+		}
 	}
 	
 	static draw = function(x, y) {
@@ -37,9 +41,27 @@ function Slider(range_arr, default_val, save_key) : MenuElement() constructor {
 		draw_line_width_color(x, y, x + look.line.w, y, look.line.h, c1, c2);
 		
 		// Circle
+		var marker_x = x + (circle_pos * look.line.w);
+		
+		// Mouse drag
+		var grab_w = look.marker.rad * 1.5;
+		
+		if (isMouseInButton(marker_x, y, { w: grab_w, h: grab_w }) and oMenu.in.click.pressed) {
+			dragged = true;
+		} else if (oMenu.in.click.released) {
+			dragged = false;
+		}
+		
+		if (dragged) {
+			marker_x = clamp(mouse_gui_x, x, x + look.line.w);
+			setSettingsValue(save_key, lerp(range[0], range[1], ((marker_x - x) / look.line.w)));
+		}
+		
 		draw_set_circle_precision(look.marker.circle_prec);
-		draw_circle_color(x + (circle_pos * look.line.w), y, look.marker.rad, look.marker.col, look.marker.col, false);
+		draw_circle_color(marker_x, y, look.marker.rad, look.marker.col, look.marker.col, false);
+		
 		draw_set_circle_precision(24);	// Set back to default
+		
 		
 		// Precentage text
 		var txt_col = merge_color(c1, c2, circle_pos);

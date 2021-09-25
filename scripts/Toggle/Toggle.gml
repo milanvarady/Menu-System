@@ -21,6 +21,14 @@ function Toggle(default_val, save_key) : MenuElement() constructor {
 		var look = oMenu.item_look.toggle;
 		var txt_scale = oMenu.look.txt.normal.right_scale;
 		
+		// Mouse
+		if (oMenu.in.click.pressed) {
+			var txt_x = x + oMenu.look.pos.buffer.x;
+			
+			if (isMouseInButton(txt_x, y, { w: look.buffer, h: oMenu.look.pos.buffer.y })) moveSettingsValue(-1, [0, 1], oMenu.audio.shift);
+			else if (isMouseInButton(txt_x + look.buffer, y, { w: look.buffer, h: oMenu.look.pos.buffer.y })) moveSettingsValue(1, [0, 1], oMenu.audio.shift);
+		}
+		
 		var c1 = oMenu.col.unsel_sel.c1;
 		var	c2 = oMenu.look.col.unselected.dark;
 		
@@ -28,6 +36,6 @@ function Toggle(default_val, save_key) : MenuElement() constructor {
 		drawText(x, y, "off", txt_scale, false);
 
 		draw_set_color(val == 1 ? c1 : c2);
-		drawText(x + look.buffer, y, "on", txt_scale, false);	
+		drawText(x + look.buffer, y, "on", txt_scale, false);
 	}
 }

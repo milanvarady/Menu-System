@@ -131,6 +131,10 @@ if (menu_h > (gui_h - start_y)) {
 		var on_back_button	= back and i == num - 1;
 		var arr = !on_back_button ? page[i] : [item_look.back_button.name];
 		
+		if (isMouseInButton(xx, yy, (!sidebar ? item_look.button : { w: (gui_w * 0.9) - abs(look.pos.menu_pos.x), h: look.pos.buffer.y })) and !inputting) {
+			menu_option = i;
+		}
+		
 		// Animation
 		var anim_pos = 0;
 		

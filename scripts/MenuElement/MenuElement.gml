@@ -13,8 +13,9 @@ function MenuElement() constructor {
 	/// @return {undefined} N/A
 	/// @private
 	
-	static setSettingsValue = function(value_key, val) {
-		global.settings[$ value_key] = roundToN(val, 2);
+	static setSettingsValue = function(value_key, new_val, range_arr=[0, 1]) {
+		global.settings[$ value_key] = roundToN(new_val, 2);
+		val = clamp(new_val, range_arr[0], range_arr[1]);
 	}
 	
 	/// @func moveSettingsValue(amount, range_arr, sound)
@@ -32,7 +33,7 @@ function MenuElement() constructor {
 			
 			
 			val = clamp(new_val, range_arr[0], range_arr[1]);
-			setSettingsValue(save_key, val);
+			setSettingsValue(save_key, val, range_arr);
 		}
 	}
 }
