@@ -24,7 +24,7 @@ function Controls(input_system, filename, reset_on, order) : MenuElement() const
 	self.reset_on = reset_on;
 	
 	// Add json extension to filename
-	if (string_pos(".json", filename) == 0) self.filename = filename + ".json";
+	if (string_count(".json", filename) == 0) self.filename = filename + ".json";
 	
 	// Extend func
 	var max_inputs = oMenu.item_look.controls.max_inputs;
@@ -52,7 +52,7 @@ function Controls(input_system, filename, reset_on, order) : MenuElement() const
 	}
 	
 	// Load inputs
-	in_sys.load(filename);
+	in_sys.load(self.filename);
 	
 	inputs = in_sys.inputs;
 	
@@ -199,7 +199,7 @@ function Input(in_sys, name) : MenuElement() constructor {
 			}
 			
 			// Mouse
-			if (isMouseInButton(rect_x + rect_look.w/2, y, { w: rect_look.w, h: rect_look.h }) and !oMenu.inputting) {
+			if (isMouseInButton(rect_x + rect_look.w/2, y, { w: rect_look.w, h: rect_look.h }) and !oMenu.inputting and oMenu.input_mode == e_input_mode.mouse) {
 				oMenu.in_column = i;	
 			}
 			
