@@ -144,7 +144,7 @@ function Controls(input_system, filename, reset_on, order) : MenuElement() const
 		for (var i = 0; i < len; i++) {
 			var name = names[i];
 			
-			page[i] = [name, new oMenu.Input(in_sys, name)]
+			page[i] = [name, new Input(in_sys, name)]
 		}
 		
 		// Add reset button

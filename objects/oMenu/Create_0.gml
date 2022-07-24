@@ -40,7 +40,24 @@
 
 var credits_string = 
 	@"
-Insert credits text here
+Menu System Made By:
+Milan Varady
+
+
+Gameplay Programming
+Johnny The Red Giraffe
+
+
+Story Writing
+Tom The 2 feet tall hippo
+
+
+Music
+Lily The T-Rex
+
+
+More very important text
+blah blah blah
 "
 
 #endregion
@@ -269,41 +286,62 @@ Insert credits text here
 
 
 	menu = [
-		// Example menu array
-		 ["Start",   new ScriptRunner(function() {
-	        menuModePause();
-	        menuSetPreset(e_menu_presets.pause_menu);
-	        room_goto(rGame);
-	    }),
-
-	    "Resume", new ScriptRunner(resumeGame)],
-
-	    ["Settings", [
-	        ["Audio", [
-	            ["Master",  new Slider([0, 1], 0.3,         "audio_master")],
-	            ["Sounds",  new Slider([0, 1], 1,           "audio_sounds")],
-	            ["Music",   new Slider([0, 1], 1,           "audio_music")]
-	        ]],
-
-	        ["Graphics", [
-	            ["Quality",     new Shift(["Low", "Medium", "High", "Ultra"], 2, "quality")],
-	            ["Window Mode",     new Shift(["Windowed", "Fullscreen"], 1, "window_mode")],
-	            ["Vsync",           new Toggle(0,           "vsync")]
-	        ]],
-
-	        //["Controls", new Controls(global.input_sys, "input_save.json", true, ["right", "left", "up", "down"])]
-	    ]],
-
-	    ["Credits", new Credits(credits_string)],
-
-	    ["Quit",    new ScriptRunner(game_end),
-
-	    "Title Screen", new ScriptRunner(function() {
-	        menuModeTitle();
-	        menuSetPreset(e_menu_presets.title_screen);
-	        room = rTitle;
-	    })]
+		["Start",		new ScriptRunner(function() { room_goto(rGame);		// Goes to game room
+			menuModePause();
+			menuSetPreset(e_menu_presets.pause_menu);
+			room = rGame;
+		}), 
+		
+		"Resume",		new ScriptRunner(resumeGame)],						// Resumes the game when paused
+		
+		["Settings", [
+			["Audio", [
+				["Master",	new Slider([0, 1], 0.3,		"audio_master")],	// Sets master gain see oGame
+				["Sounds",	new Slider([0, 1], 1,		"audio_sounds")],	// Not set to do anything
+				["Music",	new Slider([0, 1], 1,		"audio_music")]		// Not set to do anything
+			]],
+		
+			["Graphics", [
+				["Texture quality",	new Shift(["Low", "Medium", "High", "Ultra"], 2, "texture")],	// Not set to do anything
+				["Shadows",		new Toggle(true,	"shadow")],										// Not set to do anything
+				["Paricles",	new Toggle(true,	"particles")],									// Not set to do anything
+				["Window Mode",	new Shift(["Windowed", "Fullscreen"], 1, "window_mode")],			// Changes window mode see oGame
+				["Vsync",		new Toggle(0,		"vsync")]										// Not set to do anything
+			]],
+			
+			["Player", [
+				["Speed",		new Slider([1, 6], 4, "player_speed")],					// Changes player speed see oTest
+				["Size",		new Slider([0.2, 2], 1, "player_size")],				// Changes player size see oTest
+				["Color",		new Shift(["Red", "Green", "Blue"], 0, "player_col")]	// Changes player color see oTest
+			]],
+		
+			["Controls", new Controls(global.input_sys, "input_save.json", true, ["right", "left", "up", "down"])] // Changes player controls
+		]],
+		
+		// Demo for scrolling
+		["Lots of stuff", [
+			["thing 1", new ScriptRunner(function() { /* Do nothing */ })],
+			["thing 2", new ScriptRunner(function() { /* Do nothing */ })],
+			["thing 3", new ScriptRunner(function() { /* Do nothing */ })],
+			["thing 4", new ScriptRunner(function() { /* Do nothing */ })],
+			["thing 5", new ScriptRunner(function() { /* Do nothing */ })],
+			["thing 6", new ScriptRunner(function() { /* Do nothing */ })],
+			["thing 7", new ScriptRunner(function() { /* Do nothing */ })],
+			["thing 8", new ScriptRunner(function() { /* Do nothing */ })],
+			["thing 9", new ScriptRunner(function() { /* Do nothing */ })]
+		]],
+		
+		// Credits edit text above
+		["Credits",	new Credits(credits_string)],
+		
+		["Quit",		new ScriptRunner(game_end),			// Quits game
+		"Title Screen", new ScriptRunner(function() {		// Goes to title screen when in game room
+			menuModeTitle(); 
+			menuSetPreset(e_menu_presets.title_screen);
+			room = rTitle;
+		})]
 	];
+
 
 	
 	
