@@ -1,0 +1,716 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Usage &mdash; Menu And Input System 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="/css/s4defs-roles.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Features" href="features.html" />
+<link rel="stylesheet" type="text/css" 
+     href="../_static/custom.css" /> 
+<link rel="stylesheet" type="text/css" 
+     href="../_static/dracula.css" />      
+     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" /> -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js" integrity="sha512-YBk7HhgDZvBxmtOfUdvX0z8IH2d10Hp3aEygaMNhtF8fSOvBZ16D/1bXZTJV6ndk/L/DlXxYStP8jrF77v2MIg==" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-gml.min.js" integrity="sha512-nnmnyMhyZC3NBvEVvzsQbzJbs7p+JUVp5GRcGrTZlO4LjQ+4wB58zNSn+TQcE/Bpe1fb0GYivV0/f/VRbZMChA==" crossorigin="anonymous"></script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" aria-label="Aerolite" href="https://aerolite.dev">
+       <img class="call-to-action-img" src="../_static/images/aerolite-logo.png" style="bottom: -16px; position:absolute" height="75">
+      </a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="/menusystem/usage/index.html">Usage</a>
+          </li>
+
+          <li>
+            <a href="https://milanvarady.itch.io/menu-and-input-system">Download</a>
+          </li>
+
+          <li>
+            <a href="/menusystem/api/index.html">API documentation</a>
+          </li>
+
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+
+  </div>
+</div>
+
+
+<body class="pytorch-body">
+
+   
+
+    
+
+    <div class="table-of-contents-link-wrapper">
+      <span>Table of Contents</span>
+      <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+    </div>
+
+    <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+      <div class="pytorch-side-scroll">
+        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <div class="pytorch-left-menu-search">
+            
+
+            
+              
+              
+            
+
+            
+
+
+  
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+            
+          </div>
+
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Installation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation_itch.html">Itch io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation_gm.html">GameMaker Marketplace</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Menu System:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../menu/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../menu/usage.html">Usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Input System:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="pytorch-container">
+      <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+        <div class="pytorch-breadcrumbs-wrapper">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="../index.html">
+          
+            Docs
+          
+        </a> &gt;
+      </li>
+
+        
+      <li>Usage</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/input/usage.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+        </div>
+
+        <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+          Shortcuts
+        </div>
+      </div>
+
+      <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+        <div class="pytorch-content-left">
+
+        
+          
+          <div class="rst-content">
+          
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+             <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+              
+  <blockquote>
+<div></div></blockquote>
+<div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div></div></blockquote>
+<div class="section" id="inputcheck">
+<span id="id1"></span><h2>InputCheck()<a class="headerlink" href="#inputcheck" title="Permalink to this headline">¶</a></h2>
+<p>The core of this system is the <code class="code docutils literal notranslate"><span class="pre">inputCheck()</span></code> function.
+How this works is you can give it an input of any type (keyboard, gamepad, mouse),
+or an array of inputs, and if that one input or any of the inputs in the array are pressed it will return <code class="code docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<p>Read more about defining inputs <a class="reference internal" href="#defining-inputs"><span class="std std-ref">here</span></a>.</p>
+<p>You can also supply the gamepad device to check.
+<a class="reference external" href="https://docs2.yoyogames.com/source/_build/3_scripting/4_gml_reference/controls/gamepad%20input/index.html">Here is the manual for gamepads</a>.</p>
+<p>So the syntax is:</p>
+<blockquote>
+<div><pre><code class="language-gml">
+inputCheck(input/array, mode, gamepad_device);
+</code></pre></div></blockquote>
+<p>Here is an example of moving right:</p>
+<blockquote>
+<div><pre><code class="language-gml">
+if (inputCheck([vk_right, "d", gp_padr, gp_axislr], CHECK_MODE.DOWN)) x += 4;
+</code></pre></div></blockquote>
+<p>The mode parameter determins how the input is checked,
+it can be CHECK_MODE.DOWN, CHECK_MODE.PRESSED, or CHECK_MODE.RELEASED
+Read more about checking methods <a class="reference internal" href="#checking-methods"><span class="std std-ref">here</span></a>.</p>
+<p>There is also a function for each input type (keyboard, gamepad, mouse).
+If you only need to check one type use these:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">keyCheck()</span></code> - for keyboard</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">gpCheck()</span></code> - for gamepads</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">mbCheck()</span></code> - for mouse</p></li>
+</ul>
+</div></blockquote>
+<p>These functions essentially replace the built in <code class="code docutils literal notranslate"><span class="pre">check</span></code>, <code class="code docutils literal notranslate"><span class="pre">check_pressed</span></code>, and <code class="code docutils literal notranslate"><span class="pre">check_released</span></code> functions but combine them into one, with a <code class="code docutils literal notranslate"><span class="pre">mode</span></code> parameter.</p>
+</div>
+<div class="section" id="inputsystem">
+<span id="id2"></span><h2>InputSystem()<a class="headerlink" href="#inputsystem" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="code docutils literal notranslate"><span class="pre">InputSystem()</span></code> allows you to organise your inputs into categories and check them all in one line.</p>
+<p>To use it you will have to create one first. Most likely in a create event. The syntax is like this.</p>
+<blockquote>
+<div><pre><code class="language-gml">
+in_sys = new InputSystem({
+    category_1: [input1, input2, input3...],
+    category_2: [input1, input2, input3...],
+    category_3: [input1, input2, input3...]
+});
+</code></pre></div></blockquote>
+<p>And here is and example:</p>
+<blockquote>
+<div><pre><code class="language-gml">
+in_sys = new InputSystem({
+    right:  [vk_right,  "d", gp_padr, gp_axislr],
+    left:   [vk_left,   "a", gp_padl, gp_axisll],
+    jump:   [vk_up,     "w", gp_a],
+    shoot:  [vk_space,  gp_shoulderrb, gp_x]
+});
+</code></pre></div></blockquote>
+<p>Read more about defining inputs <a class="reference internal" href="#defining-inputs"><span class="std std-ref">here</span></a>.</p>
+<p>And then to check them do the following. Most likely in a step event.</p>
+<blockquote>
+<div><pre><code class="language-gml">
+in = in_sys.check();
+</code></pre></div></blockquote>
+<p>Here is an example how you can use this to move your player.</p>
+<blockquote>
+<div><pre><code class="language-gml">
+/// Create event
+in_sys = new InputSystem({
+    right:  [vk_right,  "d", gp_padr, gp_axislr],
+    left:   [vk_left,   "a", gp_padl, gp_axisll],
+    jump:   [vk_up,     "w", gp_a],
+    shoot:  [vk_space,  gp_shoulderrb, gp_x]
+});
+
+/// Step event
+var input = in_sys.check();
+
+if (input.right.down) x += 4;
+if (input.left.down) x -= 4;
+
+if (input.jump.pressed) y -= 10;
+
+if (input.shoot.down) shoot();
+</code></pre></div></blockquote>
+<p>Now the variable <code class="code docutils literal notranslate"><span class="pre">in</span></code> holds the result of the check. To get the input do <code class="code docutils literal notranslate"><span class="pre">in.category.checking_method</span></code>.
+The <strong>category</strong> is one of the names you defined when you created the system (e.g. right).
+The <strong>checking method</strong> can be <code class="code docutils literal notranslate"><span class="pre">.down</span></code>, <code class="code docutils literal notranslate"><span class="pre">.pressed</span></code>, or <code class="code docutils literal notranslate"><span class="pre">.released</span></code>. You can read more about the checking methods <a class="reference internal" href="#checking-methods"><span class="std std-ref">here</span></a>.</p>
+<p>The input system also has more useful methods and variables you can change.</p>
+<dl class="simple">
+<dt>Here are the variables:</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">.inputs</span></code> - It holds the systems inputs. You can change the inputs in game by changing this variable.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">.gamepad_device</span></code> - The gamepad device to check for. Set it to any number between <code class="code docutils literal notranslate"><span class="pre">0</span></code> and <code class="code docutils literal notranslate"><span class="pre">12</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p>For the <code class="code docutils literal notranslate"><span class="pre">gamepad_device</span></code> I recommend using the <code class="code docutils literal notranslate"><span class="pre">global.gamepads_connected</span></code> variable if you are controlling a player.
+Read more about it <a class="reference internal" href="#gamepads-connected"><span class="std std-ref">here</span></a>.</p>
+<dl class="simple">
+<dt>And here is the list of methods you can use.</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">.check</span></code> - Checks for the inputs.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">.save</span></code> - Saves the input system into a file.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">.load</span></code> - Loads a saved input system from a file.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">.describe</span></code> - Lists the currents inputs to the output window. Good for debugging purposes.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">.clear</span></code> - Clears the input struct.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Here is an example how you can use these variables and methods.</p>
+<blockquote>
+<div><pre><code class="language-gml">
+/// Create event
+
+// Create system
+in_sys = new InputSystem({
+    right:  [vk_right,  "d", gp_padr, gp_axislr],
+    left:   [vk_left,   "a", gp_padl, gp_axisll]
+});
+
+// Load in save file
+if (file_exists("input_save.json")) in_sys.load("input_save.json");
+
+// Add an "up" category to the system
+in_sys.inputs.up = [vk_up, "w", gp_padu, gp_axislu];
+
+/// Cleanup event
+in_sys.save("input_save.json");
+in_sys.clear();
+delete in_sys;
+</code></pre></div></blockquote>
+</div>
+<div class="section" id="defining-inputs">
+<span id="id3"></span><h2>Defining inputs<a class="headerlink" href="#defining-inputs" title="Permalink to this headline">¶</a></h2>
+<p>This sytem uses different ways to define inputs than the default. Here is the list what you can use and what you cannot:</p>
+<div class="section" id="keyboard">
+<h3>Keyboard<a class="headerlink" href="#keyboard" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt>For letters through A-Z and for numbers 0-9:</dt><dd><ul class="simple">
+<li><p><span class="green">Accepted</span>: string with the letter or the number, the case doesn’t matters (e.g. “a”, “1”)</p></li>
+<li><p><span class="red">Not accepted</span>: <code class="code docutils literal notranslate"><span class="pre">ord(chr)</span></code> function</p></li>
+</ul>
+</dd>
+</dl>
+<p>For other keys use the <code class="code docutils literal notranslate"><span class="pre">vk_</span></code> constants. <a class="reference external" href="https://docs2.yoyogames.com/source/_build/3_scripting/4_gml_reference/controls/keyboard%20input/index.html">Here is a list of them</a>.</p>
+<p>Also the system has a few bounus <strong>vk_</strong> constants. <a class="reference internal" href="#vk-constants"><span class="std std-ref">See the full list here</span></a>.</p>
+</div>
+<div class="section" id="gamepad">
+<h3>Gamepad<a class="headerlink" href="#gamepad" title="Permalink to this headline">¶</a></h3>
+<p>For gamepad buttons use the existing <code class="code docutils literal notranslate"><span class="pre">gp_</span></code> constants. <a class="reference external" href="https://docs2.yoyogames.com/source/_build/3_scripting/4_gml_reference/controls/gamepad%20input/index.html">Here is a list of them</a>.
+Also this system adds four new constants the <code class="code docutils literal notranslate"><span class="pre">gp_a</span></code>, <code class="code docutils literal notranslate"><span class="pre">gp_b</span></code>, <code class="code docutils literal notranslate"><span class="pre">gp_x</span></code> and <code class="code docutils literal notranslate"><span class="pre">gp_y</span></code>. You use these instead of the <code class="code docutils literal notranslate"><span class="pre">gp_face</span></code> constants.</p>
+<dl class="simple">
+<dt>For gamepad analog sticks the system adds eight new constants:</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">gp_axislr</span></code> - Left stick right</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">gp_axisll</span></code> - Left stick left</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">gp_axislu</span></code> - Left stick up</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">gp_axisld</span></code> - Left stick down</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">gp_axisrr</span></code> - Right stick right</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">gp_axisrl</span></code> - Right stick left</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">gp_axisru</span></code> - Right stick up</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">gp_axisrd</span></code> - Right stick down</p></li>
+</ul>
+</dd>
+</dl>
+<p><span class="red">You cannot use the</span>: <code class="code docutils literal notranslate"><span class="pre">gp_axislh</span></code>, <code class="code docutils literal notranslate"><span class="pre">gp_axislv</span></code>, <code class="code docutils literal notranslate"><span class="pre">gp_axisrh</span></code> and <code class="code docutils literal notranslate"><span class="pre">gp_axisrv</span></code> constants.</p>
+</div>
+<div class="section" id="mouse">
+<h3>Mouse<a class="headerlink" href="#mouse" title="Permalink to this headline">¶</a></h3>
+<p>For mouse buttons simply use the existing <code class="code docutils literal notranslate"><span class="pre">mb_</span></code> constants. <a class="reference external" href="https://docs2.yoyogames.com/source/_build/3_scripting/4_gml_reference/controls/mouse%20input/index.html">Here is a list of them</a>.</p>
+</div>
+</div>
+<div class="section" id="checking-methods">
+<span id="id4"></span><h2>Checking methods<a class="headerlink" href="#checking-methods" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>You can check inputs in three ways:</dt><dd><ul class="simple">
+<li><p>down - Returns <code class="code docutils literal notranslate"><span class="pre">true</span></code> continuously if the input is currently held down</p></li>
+<li><p>pressed - Returns <code class="code docutils literal notranslate"><span class="pre">true</span></code> only at the moment when the input is pressed but not continuously</p></li>
+<li><p>released - Return <code class="code docutils literal notranslate"><span class="pre">true</span></code> only at the moment when the input is released</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="gamepads-connected-array">
+<span id="gamepads-connected"></span><h2>Gamepads connected array<a class="headerlink" href="#gamepads-connected-array" title="Permalink to this headline">¶</a></h2>
+<p>This system has a <code class="code docutils literal notranslate"><span class="pre">global.gamepads_connected</span></code> array. Which makes handling gamepad connections/disconnections much easier.</p>
+<p>What it does is if a gamepad connects it adds it to the first empty index in the array. And if one disconnects it removes it.</p>
+<p>This is good because gamemaker indexes all connected gamepads with a number from <code class="code docutils literal notranslate"><span class="pre">0</span></code> to how many gamepads are connected.
+But if you want to swap controller index <code class="code docutils literal notranslate"><span class="pre">0</span></code> for an other one, and disconnect the controller,
+gamemaker will reindex all that comes after it so the index <code class="code docutils literal notranslate"><span class="pre">1</span></code> controller will be index <code class="code docutils literal notranslate"><span class="pre">0</span></code>, index <code class="code docutils literal notranslate"><span class="pre">2</span></code> will be <code class="code docutils literal notranslate"><span class="pre">1</span></code> etc.</p>
+<p>So essentially now everyone controls a different player in the game.</p>
+<p>So when you supply the <code class="code docutils literal notranslate"><span class="pre">gamepad_device</span></code> to a function, and you don’t want the controllers to change index when one disconnects,
+use the <code class="code docutils literal notranslate"><span class="pre">global.gamepads_connected[0]</span></code> instead of just <code class="code docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<blockquote>
+<div></div></blockquote>
+</div>
+<div class="section" id="bonus-vk-constants">
+<span id="vk-constants"></span><h2>Bonus vk constants<a class="headerlink" href="#bonus-vk-constants" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>Here is the list of the <strong>vk</strong> constants this systems adds:</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">vk_left_cmd</span></code> - Left command key (macOS only)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">vk_right_cmd</span></code> - Right command key (macOS olny)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">vk_semicolon</span></code> - Semicolon</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">vk_comma</span></code> - Comma</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">vk_dot</span></code> - Dot</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">vk_equal</span></code> - Equal sign</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">vk_slash</span></code> - Slash</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">vk_backslash</span></code> - Backslash</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">vk_singlequote</span></code> - Singlequote</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">vk_pilcrow</span></code> - Pilcrow</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">vk_backtick</span></code> - Backtick</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">vk_opening_square_bracket</span></code> - Opening square bracket</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">vk_closing_square_breacket</span></code> - Closing square bracket</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+
+
+             </article>
+             
+            </div>
+            <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="features.html" class="btn btn-neutral" title="Features" accesskey="p" rel="prev"><img src="../_static/images/chevron-right-orange.svg" class="previous-page"> Previous</a>
+      
+    </div>
+  
+
+  
+
+    <hr>
+
+  
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Milan Varady.
+
+    </p>
+  </div>
+    
+      <div>
+        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+      </div>
+     
+
+</footer>
+
+          </div>
+        </div>
+
+        <div class="pytorch-content-right" id="pytorch-content-right">
+          <div class="pytorch-right-menu" id="pytorch-right-menu">
+            <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+              <ul>
+<li><a class="reference internal" href="#">Usage</a><ul>
+<li><a class="reference internal" href="#inputcheck">InputCheck()</a></li>
+<li><a class="reference internal" href="#inputsystem">InputSystem()</a></li>
+<li><a class="reference internal" href="#defining-inputs">Defining inputs</a><ul>
+<li><a class="reference internal" href="#keyboard">Keyboard</a></li>
+<li><a class="reference internal" href="#gamepad">Gamepad</a></li>
+<li><a class="reference internal" href="#mouse">Mouse</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#checking-methods">Checking methods</a></li>
+<li><a class="reference internal" href="#gamepads-connected-array">Gamepads connected array</a></li>
+<li><a class="reference internal" href="#bonus-vk-constants">Bonus vk constants</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  
+
+
+  
+
+     
+       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+         <script src="../_static/jquery.js"></script>
+         <script src="../_static/underscore.js"></script>
+         <script src="../_static/doctools.js"></script>
+     
+
+  
+
+  <script type="text/javascript" src="../_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="../_static/js/vendor/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid" id="docs-tutorials-resources">
+    <div class="container">
+      <div class="row">
+        <!--
+        <div class="col-md-4 text-center">
+          <h2>Docs</h2>
+          <p>Access comprehensive developer documentation for PyTorch</p>
+          <a class="with-right-arrow" href="https://pytorch.org/docs/stable/index.html">View Docs</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Tutorials</h2>
+          <p>Get in-depth tutorials for beginners and advanced developers</p>
+          <a class="with-right-arrow" href="https://pytorch.org/tutorials">View Tutorials</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Resources</h2>
+          <p>Find development resources and get your questions answered</p>
+          <a class="with-right-arrow" href="https://pytorch.org/resources">View Resources</a>
+        </div>
+        -->
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-logo-wrapper">
+        <a href="https://github.com/mpariente/asteroid" class="footer-logo"></a>
+      </div>
+
+      <div class="footer-links-wrapper">
+
+        <div class="footer-logo-col">
+          <img class="footer-logo-img" src="../_static/images/dark_asteroid_logo.svg"/>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/mpariente/asteroid">Asteroid</a></li>
+            <li><a href="https://pytorch.org/get-started">Get Started</a></li>
+            <li><a href="https://pytorch.org/features">Features</a></li>
+            <li><a href="">Ecosystem</a></li>
+            <li><a href="https://pytorch.org/blog/">Blog</a></li>
+            <li><a href="https://pytorch.org/resources">Resources</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://pytorch.org/support">Support</a></li>
+            <li><a href="https://pytorch.org/tutorials">Tutorials</a></li>
+            <li><a href="https://pytorch.org/docs/stable/index.html">Docs</a></li>
+            <li><a href="https://discuss.pytorch.org" target="_blank">Discuss</a></li>
+            <li><a href="https://github.com/mpariente/asteroid/issues" target="_blank">Github Issues</a></li>
+            <li><a href="" target="_blank">Slack</a></li>
+            <li><a href="https://github.com/mpariente/asteroid/blob/master/CONTRIBUTING.md" target="_blank">Contributing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col follow-us-col">
+          <ul>
+            <li class="list-title">Follow Us</li>
+            <li>
+              <div id="mc_embed_signup">
+                <form
+                  action="https://twitter.us14.list-manage.com/subscribe/post?u=75419c71fe0a935e53dfa4a3f&id=91d0dccd39"
+                  method="post"
+                  id="mc-embedded-subscribe-form"
+                  name="mc-embedded-subscribe-form"
+                  class="email-subscribe-form validate"
+                  target="_blank"
+                  novalidate>
+                  <div id="mc_embed_signup_scroll" class="email-subscribe-form-fields-wrapper">
+                    <div class="mc-field-group">
+                      <label for="mce-EMAIL" style="display:none;">Email Address</label>
+                      <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email Address">
+                    </div>
+
+                    <div id="mce-responses" class="clear">
+                      <div class="response" id="mce-error-response" style="display:none"></div>
+                      <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>
+
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_75419c71fe0a935e53dfa4a3f_91d0dccd39" tabindex="-1" value=""></div>
+
+                    <div class="clear">
+                      <input type="submit" value="" name="subscribe" id="mc-embedded-subscribe" class="button email-subscribe-button">
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+            </li>
+          </ul>
+
+          <div class="footer-social-icons">
+            <a href="" target="_blank" class="facebook"></a>
+            <a href="https://twitter.com" target="_blank" class="twitter"></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer> -->
+
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://github.com/mpariente/asteroid" aria-label="PyTorch Lightning"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://pytorch.org/get-started">Get Started</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/features">Features</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/blog/">Blog</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/tutorials">Tutorials</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/docs/stable/index.html">Docs</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/resources">Resources</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/mpariente/asteroid">Github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="../_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function(e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+</html>

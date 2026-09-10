@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menu and Input System — documentation</title>
+<meta name="color-scheme" content="light dark">
+<style>
+  :root {
+    --bg: #ffffff; --text: #15151a; --muted: #6b6b78; --border: #e4e4ea;
+    --accent: #7b18c9; --notice-bg: #fdf7e6; --notice-border: #e6d3a3; --notice-text: #6b5310;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111114; --text: #ececef; --muted: #9a9aa5; --border: #2a2a32;
+      --accent: #b77df0; --notice-bg: #241f10; --notice-border: #4a3f1c; --notice-text: #e8d9a8;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 5vw, 2rem);
+    background: var(--bg); color: var(--text);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 40rem; margin-inline: auto; }
+  h1 { font-size: 1.9rem; letter-spacing: -0.02em; margin: 0 0 0.5rem; }
+  .sub { color: var(--muted); margin: 0 0 2rem; }
+  .notice {
+    background: var(--notice-bg); border: 1px solid var(--notice-border); color: var(--notice-text);
+    border-radius: 10px; padding: 0.9rem 1.1rem; margin: 0 0 2rem; font-size: 0.95rem;
+  }
+  .notice strong { display: block; margin-bottom: 0.2rem; }
+  ul.links { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+  ul.links a {
+    display: block; padding: 1rem 1.15rem; border: 1px solid var(--border);
+    border-radius: 10px; text-decoration: none; color: inherit;
+  }
+  ul.links a:hover { border-color: var(--accent); }
+  ul.links b { color: var(--accent); }
+  ul.links span { display: block; color: var(--muted); font-size: 0.92rem; margin-top: 0.15rem; }
+  footer { margin-top: 2.5rem; color: var(--muted); font-size: 0.9rem; }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Menu and Input System</h1>
+  <p class="sub">Documentation for the GameMaker menu and input library.</p>
+
+  <div class="notice">
+    <strong>No longer maintained</strong>
+    This project is not actively developed any more. It is free to use, and these pages are kept
+    online for anyone still relying on it. Expect no further updates or support.
+  </div>
+
+  <ul class="links">
+    <li><a href="usage/index.html"><b>Usage guide</b><span>Installation, the menu system, and the input system.</span></a></li>
+    <li><a href="api/index.html"><b>Scripting API</b><span>Reference for every function and constant.</span></a></li>
+  </ul>
+
+  <footer>
+    Previously hosted at aerolite.dev. By <a href="https://milanvarady.dev">Milán Várady</a>.
+  </footer>
+</main>
+</body>
+</html>

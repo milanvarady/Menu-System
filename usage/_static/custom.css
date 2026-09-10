@@ -1,0 +1,23 @@
+@import url("default.css");
+
+.red {
+  color: red;
+}
+
+.lime {
+  color: lime;
+}
+
+.green {
+  color: green;
+}
+
+.tutorials-header .header-logo {
+  background-image: none;
+  margin-left: 13px;
+}
+
+article.pytorch-article blockquote {
+  margin-left: 0;
+  width: 100%;
+}

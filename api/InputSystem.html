@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="fontawesome-free-5.8.1-web/css/all.min.css">
+  <link href="prism.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <title>Menu System Docs: InputSystem</title>
+</head>
+<body>
+  <div class="d-flex flex-column h-100">
+    <header class="d-flex align-items-center bg-white border-bottom text-secondary text-center px-3 py-2">
+      <button id="btn-menu-toggler" class="navbar-toggler text-secondary" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="flex-grow-1 d-flex justify-content-center">
+        <a href="./" class="navbar-brand ml-3">
+          Menu System Docs
+        </a>
+      </div>
+    </header>
+    <div class="d-flex overflow-hidden" style="flex-grow: 1;">
+      <aside id="side-menu" class="bg-light border-right overflow-y-auto">
+        <ul class="nav flex-column">
+          <li><i data-target="#folder-1" class="fas fa-circle text-primary bullet"></i> <a href="index.html" class="text-dark">Menu System Docs</a></li>
+<li><i data-target="#folder-2" class="fas fa-minus-square text-primary cursor-pointer"></i> <a href="ScriptingAPI.html" class="text-dark">Scripting API</a>
+<ul id="folder-2">
+<li><i data-target="#folder-3" class="fas fa-plus-square text-primary cursor-pointer"></i> <a href="CHECK_MODE.html" class="text-dark">CHECK_MODE</a>
+<ul id="folder-3" style="display: none;">
+<li><i data-target="#folder-4" class="fas fa-circle text-primary bullet"></i> <a href="CHECK_MODE.DOWN.html" class="text-dark">DOWN</a></li>
+<li><i data-target="#folder-5" class="fas fa-circle text-primary bullet"></i> <a href="CHECK_MODE.PRESSED.html" class="text-dark">PRESSED</a></li>
+<li><i data-target="#folder-6" class="fas fa-circle text-primary bullet"></i> <a href="CHECK_MODE.RELEASED.html" class="text-dark">RELEASED</a></li>
+</ul>
+</li>
+<li><i data-target="#folder-7" class="fas fa-circle text-primary bullet"></i> <a href="Controls.html" class="text-dark">Controls</a></li>
+<li><i data-target="#folder-8" class="fas fa-circle text-primary bullet"></i> <a href="Credits.html" class="text-dark">Credits</a></li>
+<li><i data-target="#folder-9" class="fas fa-minus-square text-primary cursor-pointer"></i> <a href="InputSystem.html" class="text-dark font-weight-bold active">InputSystem</a>
+<ul id="folder-9">
+<li><i data-target="#folder-10" class="fas fa-circle text-primary bullet"></i> <a href="InputSystem.check.html" class="text-dark">check</a></li>
+<li><i data-target="#folder-11" class="fas fa-circle text-primary bullet"></i> <a href="InputSystem.clear.html" class="text-dark">clear</a></li>
+<li><i data-target="#folder-12" class="fas fa-circle text-primary bullet"></i> <a href="InputSystem.describe.html" class="text-dark">describe</a></li>
+<li><i data-target="#folder-13" class="fas fa-circle text-primary bullet"></i> <a href="InputSystem.load.html" class="text-dark">load</a></li>
+<li><i data-target="#folder-14" class="fas fa-circle text-primary bullet"></i> <a href="InputSystem.save.html" class="text-dark">save</a></li>
+</ul>
+</li>
+<li><i data-target="#folder-15" class="fas fa-circle text-primary bullet"></i> <a href="ScriptRunner.html" class="text-dark">ScriptRunner</a></li>
+<li><i data-target="#folder-16" class="fas fa-circle text-primary bullet"></i> <a href="Shift.html" class="text-dark">Shift</a></li>
+<li><i data-target="#folder-17" class="fas fa-circle text-primary bullet"></i> <a href="Slider.html" class="text-dark">Slider</a></li>
+<li><i data-target="#folder-18" class="fas fa-circle text-primary bullet"></i> <a href="Toggle.html" class="text-dark">Toggle</a></li>
+<li><i data-target="#folder-19" class="fas fa-circle text-primary bullet"></i> <a href="approach.html" class="text-dark">approach</a></li>
+<li><i data-target="#folder-20" class="fas fa-circle text-primary bullet"></i> <a href="arrayFind.html" class="text-dark">arrayFind</a></li>
+<li><i data-target="#folder-21" class="fas fa-circle text-primary bullet"></i> <a href="chance.html" class="text-dark">chance</a></li>
+<li><i data-target="#folder-22" class="fas fa-circle text-primary bullet"></i> <a href="contains.html" class="text-dark">contains</a></li>
+<li><i data-target="#folder-23" class="fas fa-circle text-primary bullet"></i> <a href="convertList.html" class="text-dark">convertList</a></li>
+<li><i data-target="#folder-24" class="fas fa-circle text-primary bullet"></i> <a href="drawButton.html" class="text-dark">drawButton</a></li>
+<li><i data-target="#folder-25" class="fas fa-circle text-primary bullet"></i> <a href="drawInput.html" class="text-dark">drawInput</a></li>
+<li><i data-target="#folder-26" class="fas fa-circle text-primary bullet"></i> <a href="drawSetText.html" class="text-dark">drawSetText</a></li>
+<li><i data-target="#folder-27" class="fas fa-circle text-primary bullet"></i> <a href="drawText.html" class="text-dark">drawText</a></li>
+<li><i data-target="#folder-28" class="fas fa-circle text-primary bullet"></i> <a href="fontGetHeight.html" class="text-dark">fontGetHeight</a></li>
+<li><i data-target="#folder-29" class="fas fa-circle text-primary bullet"></i> <a href="gamepadLast.html" class="text-dark">gamepadLast</a></li>
+<li><i data-target="#folder-30" class="fas fa-circle text-primary bullet"></i> <a href="getGpInputSubtype.html" class="text-dark">getGpInputSubtype</a></li>
+<li><i data-target="#folder-31" class="fas fa-circle text-primary bullet"></i> <a href="getInputRange.html" class="text-dark">getInputRange</a></li>
+<li><i data-target="#folder-32" class="fas fa-circle text-primary bullet"></i> <a href="getInputType.html" class="text-dark">getInputType</a></li>
+<li><i data-target="#folder-33" class="fas fa-circle text-primary bullet"></i> <a href="getRange.html" class="text-dark">getRange</a></li>
+<li><i data-target="#folder-34" class="fas fa-circle text-primary bullet"></i> <a href="getSettingsValue.html" class="text-dark">getSettingsValue</a></li>
+<li><i data-target="#folder-35" class="fas fa-circle text-primary bullet"></i> <a href="getlen.html" class="text-dark">getlen</a></li>
+<li><i data-target="#folder-36" class="fas fa-circle text-primary bullet"></i> <a href="gotoPage.html" class="text-dark">gotoPage</a></li>
+<li><i data-target="#folder-37" class="fas fa-circle text-primary bullet"></i> <a href="gotoPrevPage.html" class="text-dark">gotoPrevPage</a></li>
+<li><i data-target="#folder-38" class="fas fa-circle text-primary bullet"></i> <a href="gpCheck.html" class="text-dark">gpCheck</a></li>
+<li><i data-target="#folder-39" class="fas fa-circle text-primary bullet"></i> <a href="inRange.html" class="text-dark">inRange</a></li>
+<li><i data-target="#folder-40" class="fas fa-circle text-primary bullet"></i> <a href="inputCheck.html" class="text-dark">inputCheck</a></li>
+<li><i data-target="#folder-41" class="fas fa-circle text-primary bullet"></i> <a href="inputLast.html" class="text-dark">inputLast</a></li>
+<li><i data-target="#folder-42" class="fas fa-circle text-primary bullet"></i> <a href="inputToString.html" class="text-dark">inputToString</a></li>
+<li><i data-target="#folder-43" class="fas fa-circle text-primary bullet"></i> <a href="keyCheck.html" class="text-dark">keyCheck</a></li>
+<li><i data-target="#folder-44" class="fas fa-circle text-primary bullet"></i> <a href="listCreate.html" class="text-dark">listCreate</a></li>
+<li><i data-target="#folder-45" class="fas fa-circle text-primary bullet"></i> <a href="loadFromJson.html" class="text-dark">loadFromJson</a></li>
+<li><i data-target="#folder-46" class="fas fa-circle text-primary bullet"></i> <a href="loadStringFromFile.html" class="text-dark">loadStringFromFile</a></li>
+<li><i data-target="#folder-47" class="fas fa-circle text-primary bullet"></i> <a href="mbCheck.html" class="text-dark">mbCheck</a></li>
+<li><i data-target="#folder-48" class="fas fa-circle text-primary bullet"></i> <a href="menuEnable.html" class="text-dark">menuEnable</a></li>
+<li><i data-target="#folder-49" class="fas fa-circle text-primary bullet"></i> <a href="menuModePause.html" class="text-dark">menuModePause</a></li>
+<li><i data-target="#folder-50" class="fas fa-circle text-primary bullet"></i> <a href="menuModeTitle.html" class="text-dark">menuModeTitle</a></li>
+<li><i data-target="#folder-51" class="fas fa-circle text-primary bullet"></i> <a href="menuPauseEnable.html" class="text-dark">menuPauseEnable</a></li>
+<li><i data-target="#folder-52" class="fas fa-circle text-primary bullet"></i> <a href="menuSetPreset.html" class="text-dark">menuSetPreset</a></li>
+<li><i data-target="#folder-53" class="fas fa-circle text-primary bullet"></i> <a href="pageFind.html" class="text-dark">pageFind</a></li>
+<li><i data-target="#folder-54" class="fas fa-circle text-primary bullet"></i> <a href="pauseGame.html" class="text-dark">pauseGame</a></li>
+<li><i data-target="#folder-55" class="fas fa-circle text-primary bullet"></i> <a href="print.html" class="text-dark">print</a></li>
+<li><i data-target="#folder-56" class="fas fa-circle text-primary bullet"></i> <a href="resumeGame.html" class="text-dark">resumeGame</a></li>
+<li><i data-target="#folder-57" class="fas fa-circle text-primary bullet"></i> <a href="roundToN.html" class="text-dark">roundToN</a></li>
+<li><i data-target="#folder-58" class="fas fa-circle text-primary bullet"></i> <a href="saveStringToFile.html" class="text-dark">saveStringToFile</a></li>
+<li><i data-target="#folder-59" class="fas fa-circle text-primary bullet"></i> <a href="saveToJson.html" class="text-dark">saveToJson</a></li>
+<li><i data-target="#folder-60" class="fas fa-circle text-primary bullet"></i> <a href="sec.html" class="text-dark">sec</a></li>
+</ul>
+</li>
+
+        </ul>
+      </aside>
+      <div id="page-wrapper" class="container-fluid overflow-x-auto overflow-y-auto p-0 bg-white">
+        <div id="page-content" class="container py-3">
+          <nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="ScriptingAPI.html">Scripting API</a></li><li class="breadcrumb-item active">InputSystem</li></nav></ol>
+<h1>InputSystem</h1>
+<p><span class="badge badge-secondary">constructor</span></p>
+<pre class="rounded"><code class="lang-gml">new inputSystem(inputs)</code></pre>
+<h2>Description</h2>
+<p>This constructor creates a new input system.</p>
+<h2>Arguments</h2>
+<div class="table-responsive"><table class="table table-sm table-striped border table-arguments">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inputs</td>
+<td><code>struct</code></td>
+<td>The inputs in this format {name1: [in1, in2, in3...], name2: [in1, in2, in3...]...}</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Returns</h2>
+<p><code>struct</code> The input system</p>
+<h2>Methods</h2>
+<div class="table-responsive"><table class="table table-sm table-striped border table-arguments">
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="InputSystem.check.html">check</a></td>
+<td>Checks for the inputs. Retrurns a struct of each with a down, pressed, and released value. (e.g. right: {down: true, pressed: false, released: true)</td>
+</tr>
+<tr>
+<td><a href="InputSystem.clear.html">clear</a></td>
+<td>Clears the input struct</td>
+</tr>
+<tr>
+<td><a href="InputSystem.describe.html">describe</a></td>
+<td>Lists the currents inputs to the output window. Good for debugging purposes.</td>
+</tr>
+<tr>
+<td><a href="InputSystem.load.html">load</a></td>
+<td>Loads a saved input file.</td>
+</tr>
+<tr>
+<td><a href="InputSystem.save.html">save</a></td>
+<td>Saves the inputs to a file.</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Example</h2>
+<pre class="rounded"><code class="lang-gml">in_sys = new InputSystem({
+    right:  [vk_right,  &quot;d&quot;, gp_padr, gp_axislr],
+    left:   [vk_left,   &quot;a&quot;, gp_padl, gp_axisll],
+    jump:   [vk_up,     &quot;w&quot;, gp_a],
+    shoot:  [vk_space,  gp_shoulderrb, gp_x]
+});</code></pre>
+
+
+          
+
+          <div class="d-flex w-100 rounded bg-light align-items-center justify-content-between px-3 mt-3" style="font-size: 3em;">
+            <a href="Credits.html">
+              <i class="fas fa-arrow-circle-left text-dark"></i>
+            </a>
+            <a href="InputSystem.check.html">
+              <i class="fas fa-arrow-circle-right text-dark"></i>
+            </a>
+          </div>
+
+          <hr>
+
+          <p>
+            <small class="text-muted">
+              Copyright &copy; 2021, Milan Varady. Built on June 28, 2021 using
+              <a href="https://github.com/kraifpatrik/gmdoc">GMDoc</a>.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <script src="jquery-3.4.1.min.js"></script>
+  <script src="bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+  <script src="prism.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
